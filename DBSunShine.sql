@@ -170,6 +170,7 @@ PRECIO INT not null,
 TALLA nvarchar(4) not null,
 IDGENERO int not null,
 IDTIPOPRENDA int not null,
+Imagen nvarchar(255) not null
 
 )
 Alter table Producto add constraint PK_Producto primary key (Id);
