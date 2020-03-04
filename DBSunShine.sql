@@ -267,3 +267,102 @@ Alter table Direccion add constraint FK_Direccion_Cliente foreign key (IDCLIENTE
 
 --la llave para conton es compuesta... entonces, no pude hacer la llave foranea
 Alter table Direccion add constraint FK_Direccion_Canton foreign key (COD_CANTON, COD_PROVINCIA) references Canton;
+
+select * from Provincia
+
+--procedure
+create procedure [PA_ListaCanje]
+as
+begin
+	select * from Canje
+end
+
+create procedure [PA_ListaCanton]
+as
+begin
+	select * from Canton
+end
+
+create procedure [PA_ListaCliente]
+as
+begin
+	select * from Cliente
+end
+
+create procedure [PA_ListaCLienteCupon]
+as
+begin
+	select * from ClienteCupon
+end
+
+create procedure [PA_ListaClienteNivel]
+as
+begin
+	select * from ClienteNivel
+end
+
+create procedure [PA_ListaCupon]
+as
+begin
+	select * from Cupon
+end
+
+create procedure [PA_ListaDetPedido]
+as
+begin
+	select * from DetPedido
+end
+
+create procedure [PA_ListaDireccion]
+as
+begin
+	select * from Direccion
+end
+
+create procedure [PA_ListaEncaPedido]
+as
+begin
+	select * from EncaPedido
+end
+
+create procedure [PA_ListaGenero]
+as
+begin
+	select * from Genero
+end
+
+create procedure [PA_ListaNivel]
+as
+begin
+	select * from Nivel
+end
+
+create procedure [PA_ListaProducto]
+as
+begin
+	select * from Producto
+end
+
+create procedure [PA_ListaProvincia]
+as
+begin
+	select * from Provincia
+end
+
+create procedure [PA_ListaTipoIdentificacion]
+as
+begin
+	select * from TipoIdentificacion
+end
+
+create procedure [PA_ListaTipoPrenda]
+as
+begin
+	select * from TipoPrenda
+end
+
+create procedure [PA_ListaUsuario]
+as
+begin
+	select * from Usuario
+end
