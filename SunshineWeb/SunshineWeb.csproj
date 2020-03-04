@@ -126,6 +126,7 @@
     <Content Include="images\team\team-1.jpg" />
     <Content Include="images\team\team-2.jpg" />
     <Content Include="images\team\team-3.jpg" />
+    <Content Include="inicioAdmin.aspx" />
     <Content Include="js\script.js" />
     <Content Include="plugins\bootstrap-touchspin\demo\demo.css" />
     <Content Include="plugins\bootstrap-touchspin\demo\favicon.ico" />
@@ -278,6 +279,20 @@
     <Content Include="inicio.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="inicioAdmin.aspx.cs">
+      <DependentUpon>inicioAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inicioAdmin.aspx.designer.cs">
+      <DependentUpon>inicioAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -297,6 +312,7 @@
   <ItemGroup>
     <Content Include="css\maps\home.css.map" />
     <Content Include="css\maps\style.css.map" />
+    <Content Include="Admin.Master" />
     <None Include="packages.config" />
     <Content Include="plugins\jquery\dist\jquery.min.map" />
     <Content Include="plugins\jquery\dist\jquery.slim.min.map" />
