@@ -41,7 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Canje.cs" />
+    <Compile Include="Canton.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="ClienteCupon.cs" />
+    <Compile Include="ClienteNivel.cs" />
+    <Compile Include="Cupon.cs" />
+    <Compile Include="DetPedido.cs" />
+    <Compile Include="EncaPedido.cs" />
+    <Compile Include="Genero.cs" />
+    <Compile Include="Nivel.cs" />
+    <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provincia.cs" />
+    <Compile Include="TipoIdentificacion.cs" />
+    <Compile Include="TipoPrenda.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
