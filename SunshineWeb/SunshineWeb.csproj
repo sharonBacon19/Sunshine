@@ -1,0 +1,377 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B7D1143-823B-45FC-ABAC-1DD2DC8D5885}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SunshineWeb</RootNamespace>
+    <AssemblyName>SunshineWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44392</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\home.css" />
+    <Content Include="css\style.css" />
+    <Content Include="images\about\about.jpg" />
+    <Content Include="images\about\awards-logo.png" />
+    <Content Include="images\avater.jpg" />
+    <Content Include="images\backgrounds\bg-1.jpg" />
+    <Content Include="images\backgrounds\coming-soon-bg.jpg" />
+    <Content Include="images\blog\avater-1.jpg" />
+    <Content Include="images\blog\avater-2.jpg" />
+    <Content Include="images\blog\avater-3.jpg" />
+    <Content Include="images\blog\avater-4.jpg" />
+    <Content Include="images\blog\blog-post-1.jpg" />
+    <Content Include="images\blog\blog-post-2.jpg" />
+    <Content Include="images\blog\blog-post-3.jpg" />
+    <Content Include="images\blog\blog-post-4.jpg" />
+    <Content Include="images\blog\blog-post-5.jpg" />
+    <Content Include="images\blog\blog-post-6.jpg" />
+    <Content Include="images\blog\post-thumb-2.jpg" />
+    <Content Include="images\blog\post-thumb-3.jpg" />
+    <Content Include="images\blog\post-thumb-4.jpg" />
+    <Content Include="images\blog\post-thumb-5.jpg" />
+    <Content Include="images\blog\post-thumb-6.jpg" />
+    <Content Include="images\blog\post-thumb-7.jpg" />
+    <Content Include="images\blog\post-thumb.jpg" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\imagenes\icono4P.png" />
+    <Content Include="images\imagenes\sunshine4.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\shop\cart\cart-1.jpg" />
+    <Content Include="images\shop\cart\cart-2.jpg" />
+    <Content Include="images\shop\cart\cart-3.jpg" />
+    <Content Include="images\shop\category\category-1.jpg" />
+    <Content Include="images\shop\category\category-2.jpg" />
+    <Content Include="images\shop\category\category-3.jpg" />
+    <Content Include="images\shop\header-img.jpg" />
+    <Content Include="images\shop\products\modal-product.jpg" />
+    <Content Include="images\shop\products\product-1.jpg" />
+    <Content Include="images\shop\products\product-2.jpg" />
+    <Content Include="images\shop\products\product-3.jpg" />
+    <Content Include="images\shop\products\product-4.jpg" />
+    <Content Include="images\shop\products\product-5.jpg" />
+    <Content Include="images\shop\products\product-6.jpg" />
+    <Content Include="images\shop\products\product-7.jpg" />
+    <Content Include="images\shop\products\product-8.jpg" />
+    <Content Include="images\shop\products\product-9.jpg" />
+    <Content Include="images\shop\products\single-product.jpg" />
+    <Content Include="images\shop\single-products\product-1.jpg" />
+    <Content Include="images\shop\single-products\product-2.jpg" />
+    <Content Include="images\shop\single-products\product-3.jpg" />
+    <Content Include="images\shop\single-products\product-4.jpg" />
+    <Content Include="images\shop\single-products\product-5.jpg" />
+    <Content Include="images\shop\single-products\product-6.jpg" />
+    <Content Include="images\shop\verified.png" />
+    <Content Include="images\slider\slider-1.jpg" />
+    <Content Include="images\slider\slider-2.jpg" />
+    <Content Include="images\slider\slider-3.jpg" />
+    <Content Include="images\team\team-1.jpg" />
+    <Content Include="images\team\team-2.jpg" />
+    <Content Include="images\team\team-3.jpg" />
+    <Content Include="js\script.js" />
+    <Content Include="plugins\bootstrap-touchspin\demo\demo.css" />
+    <Content Include="plugins\bootstrap-touchspin\demo\favicon.ico" />
+    <Content Include="plugins\bootstrap-touchspin\demo\index.html" />
+    <Content Include="plugins\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.css" />
+    <Content Include="plugins\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.js" />
+    <Content Include="plugins\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="plugins\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="plugins\bootstrap-touchspin\src\jquery.bootstrap-touchspin.css" />
+    <Content Include="plugins\bootstrap-touchspin\src\jquery.bootstrap-touchspin.js" />
+    <Content Include="plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="plugins\ekko-lightbox\dist\ekko-lightbox.css" />
+    <Content Include="plugins\ekko-lightbox\dist\ekko-lightbox.js" />
+    <Content Include="plugins\ekko-lightbox\dist\ekko-lightbox.min.css" />
+    <Content Include="plugins\ekko-lightbox\dist\ekko-lightbox.min.js" />
+    <Content Include="plugins\google-map\gmap.js" />
+    <Content Include="plugins\google-map\images\marker.png" />
+    <Content Include="plugins\instafeed-js\instafeed.js" />
+    <Content Include="plugins\instafeed-js\instafeed.min.js" />
+    <Content Include="plugins\jquery\dist\core.js" />
+    <Content Include="plugins\jquery\dist\jquery.js" />
+    <Content Include="plugins\jquery\dist\jquery.min.js" />
+    <Content Include="plugins\jquery\dist\jquery.slim.js" />
+    <Content Include="plugins\jquery\dist\jquery.slim.min.js" />
+    <Content Include="plugins\owl-carousel\dist\assets\ajax-loader.gif" />
+    <Content Include="plugins\owl-carousel\dist\assets\owl.carousel.css" />
+    <Content Include="plugins\owl-carousel\dist\assets\owl.carousel.min.css" />
+    <Content Include="plugins\owl-carousel\dist\assets\owl.theme.default.css" />
+    <Content Include="plugins\owl-carousel\dist\assets\owl.theme.default.min.css" />
+    <Content Include="plugins\owl-carousel\dist\assets\owl.theme.green.css" />
+    <Content Include="plugins\owl-carousel\dist\assets\owl.theme.green.min.css" />
+    <Content Include="plugins\owl-carousel\dist\assets\owl.video.play.png" />
+    <Content Include="plugins\owl-carousel\dist\owl.carousel.js" />
+    <Content Include="plugins\owl-carousel\dist\owl.carousel.min.js" />
+    <Content Include="plugins\owl-carousel\src\img\ajax-loader.gif" />
+    <Content Include="plugins\owl-carousel\src\img\owl.video.play.png" />
+    <Content Include="plugins\owl-carousel\src\js\owl.animate.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.autoheight.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.autoplay.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.autorefresh.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.carousel.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.hash.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.lazyload.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.navigation.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.support.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.support.modernizr.js" />
+    <Content Include="plugins\owl-carousel\src\js\owl.video.js" />
+    <Content Include="plugins\revolution-slider\assets\warning.js" />
+    <Content Include="plugins\revolution-slider\revolution\css\closedhand.cur" />
+    <Content Include="plugins\revolution-slider\revolution\css\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\css\layers.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\ares.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\custom.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\dione.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\erinyen.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\gyges.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\hades.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\hebe.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\hephaistos.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\hermes.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\hesperiden.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\metis.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\persephone.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\uranus.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation-skins\zeus.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\navigation.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\openhand.cur" />
+    <Content Include="plugins\revolution-slider\revolution\css\settings-source.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\settings.css" />
+    <Content Include="plugins\revolution-slider\revolution\css\tp-color-picker.css" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\css\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\fonts\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\revicons\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\revicons\revicons.svg" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\arrow_down.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\arrow_up.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\check.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\check_reverse.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\check_small.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\delete.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\exit.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\point_bottom.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\point_top.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\save.png" />
+    <Content Include="plugins\revolution-slider\revolution\images\tpcolorpicker\trans_tile.png" />
+    <Content Include="plugins\revolution-slider\revolution\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.actions.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.migration.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.actions.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.carousel.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.kenburn.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.layeranimation.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.migration.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.navigation.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.parallax.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.slideanims.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\extensions\source\revolution.extension.video.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\js\jquery.themepunch.enablelog.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\jquery.themepunch.tools.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\source\index.php" />
+    <Content Include="plugins\revolution-slider\revolution\js\source\jquery.themepunch.enablelog.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\source\jquery.themepunch.revolution.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\source\jquery.themepunch.tools.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\source\tp-color-picker.js" />
+    <Content Include="plugins\revolution-slider\revolution\js\tp-color-picker.min.js" />
+    <Content Include="plugins\revolution-slider\revolution\php\facebook\class-facebook.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\flickr\class-flickr.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\instagram\class-instagram.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\twitter\class-twitter.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\twitter\connection\Application.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\twitter\connection\ConnectionAbstract.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\twitter\connection\User.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\twitter\RestApi.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\vimeo\class-vimeo.php" />
+    <Content Include="plugins\revolution-slider\revolution\php\youtube\class-youtube.php" />
+    <Content Include="plugins\smooth-scroll\dist\js\smooth-scroll.js" />
+    <Content Include="plugins\smooth-scroll\dist\js\smooth-scroll.min.js" />
+    <Content Include="plugins\smooth-scroll\dist\js\smooth-scroll.polyfills.js" />
+    <Content Include="plugins\smooth-scroll\dist\js\smooth-scroll.polyfills.min.js" />
+    <Content Include="plugins\SyoTimer\build\jquery.syotimer.min.js" />
+    <Content Include="plugins\themefisher-font\demo-files\demo.css" />
+    <Content Include="plugins\themefisher-font\demo-files\demo.js" />
+    <Content Include="plugins\themefisher-font\demo.html" />
+    <Content Include="plugins\themefisher-font\fonts\themefisher-font.svg" />
+    <Content Include="plugins\themefisher-font\Read Me.txt" />
+    <Content Include="plugins\themefisher-font\style.css" />
+    <Content Include="Web.config" />
+    <Content Include="inicio.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\maps\home.css.map" />
+    <Content Include="css\maps\style.css.map" />
+    <None Include="packages.config" />
+    <Content Include="plugins\jquery\dist\jquery.min.map" />
+    <Content Include="plugins\jquery\dist\jquery.slim.min.map" />
+    <Content Include="plugins\owl-carousel\dist\README.md" />
+    <Content Include="plugins\owl-carousel\src\scss\owl.carousel.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\owl.theme.default.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\owl.theme.green.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_animate.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_autoheight.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_core.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_lazyload.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_theme.default.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_theme.green.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_theme.scss" />
+    <Content Include="plugins\owl-carousel\src\scss\_video.scss" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\revicons\revicons.eot" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\revicons\revicons.ttf" />
+    <Content Include="plugins\revolution-slider\revolution\fonts\revicons\revicons.woff" />
+    <Content Include="plugins\revolution-slider\revolution\info.cfg" />
+    <Content Include="plugins\themefisher-font\fonts\themefisher-font.eot" />
+    <Content Include="plugins\themefisher-font\fonts\themefisher-font.ttf" />
+    <Content Include="plugins\themefisher-font\fonts\themefisher-font.woff" />
+    <Content Include="plugins\themefisher-font\selection.json" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8183</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44392/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
