@@ -56,8 +56,6 @@
 						data-textAlign="['center','center','center','center']"
 						data-paddingtop="[6,6,6,6]"
 
-						style="z-index: 5; font-size: 22px; line-height: 50px; font-weight: 400; color: rgba(255,255,255,1); letter-spacing: 2px;font-family:Roboto Condensed;border-color:rgb(255,255,255);border-style:solid;border-width:1px 1px 1px 1px;outline:none;box-shadow:none;cursor:pointer;text-align:center">Shop Now</a>
-
 					<!-- LAYER NR. 3 -->
 					<div class="tp-caption   tp-resizeme" 
 						id="slide-73-layer-3" 
@@ -77,7 +75,7 @@
 						data-paddingbottom="[10,10,10,10]"
 						data-paddingleft="[20,20,20,20]"
 
-						style="z-index: 7; white-space: normal; font-size: 20px; line-height: 20px; font-weight: 400; color: #ffffff; letter-spacing: 10px;font-family:Roboto Condensed;">PRODUCTS </div>
+						style="z-index: 7; white-space: normal; font-size: 20px; line-height: 20px; font-weight: 400; color: #ffffff; letter-spacing: 10px;font-family:Roboto Condensed;">¡Trajes de baño! </div>
 
 					<!-- LAYER NR. 4 -->
 					<div class="tp-caption   tp-resizeme" 
@@ -100,7 +98,7 @@
 						data-paddingbottom="[30,30,30,30]"
 						data-paddingleft="[20,20,20,20]"
 
-						style="z-index: 8; min-width: 650px; max-width: 650px; white-space: normal; font-size: 70px; line-height: 70px; font-weight: 400; color: #ffffff; letter-spacing: -2px;font-family:Playfair Display;">The force of nature felt in waves crashing. </div>
+						style="z-index: 8; min-width: 650px; max-width: 650px; white-space: normal; font-size: 70px; line-height: 70px; font-weight: 400; color: #ffffff; letter-spacing: -2px;font-family:Playfair Display;">Encuentra tu mejor bikini o bañador en SunShine.</div>
 				</li>
 				<!-- SLIDE  -->
 				<li data-index="rs-74" 
@@ -143,7 +141,7 @@
 						data-textAlign="['center','center','center','center']"
 						data-paddingtop="[8,8,8,8]"
 						
-						style="z-index: 6; white-space: normal; font-size: 22px; line-height: 50px; font-weight: 400; color: rgba(255,255,255,1); letter-spacing: 2px;font-family:Roboto Condensed;border-color:rgb(255,255,255);border-style:solid;border-width:1px 1px 1px 1px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">Shop Now</a>
+						
 
 					<!-- LAYER NR. 7 -->
 					<div class="tp-caption   tp-resizeme" 
@@ -162,7 +160,7 @@
 						data-paddingbottom="[10,10,10,10]"
 						data-paddingleft="[20,20,20,20]"
 
-						style="z-index: 7; white-space: normal; font-size: 20px; line-height: 20px; font-weight: 400; color: #ffffff; letter-spacing: 10px;font-family:Roboto Condensed;">PRODUCTS </div>
+						style="z-index: 7; white-space: normal; font-size: 20px; line-height: 20px; font-weight: 400; color: #ffffff; letter-spacing: 10px;font-family:Roboto Condensed;">Confiable y de la mejor calidad</div>
 
 					<!-- LAYER NR. 8 -->
 					<div class="tp-caption   tp-resizeme" 
@@ -183,7 +181,7 @@
 						data-paddingbottom="[30,30,30,30]"
 						data-paddingleft="[20,20,20,20]"
 
-						style="z-index: 8; min-width: 650px; max-width: 650px; white-space: normal; font-size: 70px; line-height: 70px; font-weight: 400; color: #ffffff; letter-spacing: -2px;font-family:Playfair Display;">The beauty of nature is hidden in details. 
+						style="z-index: 8; min-width: 650px; max-width: 650px; white-space: normal; font-size: 70px; line-height: 70px; font-weight: 400; color: #ffffff; letter-spacing: -2px;font-family:Playfair Display;">Te llevamos hasta la puerta de tu casa los trajes de baño con la mejor calidad. 
 					</div>
 				</li>
 				<!-- SLIDE  -->
@@ -242,7 +240,7 @@
 						data-paddingbottom="[30,30,30,30]"
 						data-paddingleft="[20,20,20,20]"
 
-						style="z-index: 6; min-width: 650px; max-width: 650px; white-space: normal; font-size: 70px; line-height: 70px; font-weight: 400; color: #ffffff; letter-spacing: -2px;font-family:Playfair Display;">Lurking in the deep of the sea, waits a monster. </div>
+						style="z-index: 6; min-width: 650px; max-width: 650px; white-space: normal; font-size: 70px; line-height: 70px; font-weight: 400; color: #ffffff; letter-spacing: -2px;font-family:Playfair Display;">Luce los diseños únicos de nuestra tienda cada verano.</div>
 
 					<!-- LAYER NR. 11 -->
 					<div class="tp-caption   tp-resizeme" 
@@ -263,7 +261,7 @@
 						data-paddingbottom="[10,10,10,10]"
 						data-paddingleft="[20,20,20,20]"
 
-						style="z-index: 7; white-space: normal; font-size: 20px; line-height: 20px; font-weight: 400; color: #ffffff; letter-spacing: 10px;font-family:Roboto Condensed;">PRODUCTS </div>
+						style="z-index: 7; white-space: normal; font-size: 20px; line-height: 20px; font-weight: 400; color: #ffffff; letter-spacing: 10px;font-family:Roboto Condensed;">Diseños únicos y exclusivos </div>
 
 					<!-- LAYER NR. 12 -->
 					<div class="tp-caption rev-btn  tp-resizeme" 
@@ -279,7 +277,7 @@
 						data-frames='[{"delay":400,"speed":750,"sfxcolor":"#058a9b","sfx_effect":"blockfromtop","frame":"0","from":"z:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"sfxcolor":"#ffffff","sfx_effect":"blocktotop","frame":"999","to":"z:0;","ease":"Power4.easeOut"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(0,0,0);bg:rgb(255,255,255);"}]'
 						data-textAlign="['center','center','center','center']"
 						data-paddingtop="[6,6,6,6]"
-						style="z-index: 8; white-space: normal; font-size: 22px; line-height: 50px; font-weight: 400; color: rgba(255,255,255,1); letter-spacing: 2px;font-family:Roboto Condensed;border-color:rgb(255,255,255);border-style:solid;border-width:1px 1px 1px 1px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-align:center!important;">Shop Now
+						
 					</div>
 				</li>
 			</ul>
