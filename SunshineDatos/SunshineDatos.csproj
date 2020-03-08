@@ -63,5 +63,11 @@
     <Compile Include="TipoPrendaDatos.cs" />
     <Compile Include="UsusarioDatos.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SunshineEntidades\SunshineEntidades.csproj">
+      <Project>{1BFB4438-C0A0-4A4E-83D4-F26444427461}</Project>
+      <Name>SunshineEntidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

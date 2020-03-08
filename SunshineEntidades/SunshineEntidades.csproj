@@ -48,6 +48,7 @@
     <Compile Include="ClienteNivel.cs" />
     <Compile Include="Cupon.cs" />
     <Compile Include="DetPedido.cs" />
+    <Compile Include="Direccion.cs" />
     <Compile Include="EncaPedido.cs" />
     <Compile Include="Genero.cs" />
     <Compile Include="Nivel.cs" />

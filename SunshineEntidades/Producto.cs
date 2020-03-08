@@ -16,6 +16,8 @@ namespace SunshineEntidades
         public Genero genero { set; get; }
         public TipoPrenda tipoPrenda { set; get; }
         
+        public string imagen { set; get; }
+        
         public Producto()
         {
             genero = new Genero();

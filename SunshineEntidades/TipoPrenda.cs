@@ -10,7 +10,7 @@ namespace SunshineEntidades
     {
         public int id { set; get; }
         public string descripcion { set; get; }
-        public bool estado { set; get; }
+        public int estado { set; get; }
         public TipoPrenda()
         {
 

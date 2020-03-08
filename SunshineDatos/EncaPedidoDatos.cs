@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunshineEntidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,6 +18,18 @@ namespace SunshineDatos
             comando.CommandType = CommandType.StoredProcedure;
             DataSet ds = db.ExecuteReader(comando, "encaPedido");
             return ds;
+        }
+
+        public static void Insertar(EncaPedido encaPedido)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            SqlCommand comando = new SqlCommand("Insertar_EncaPedido");
+            comando.CommandType = CommandType.StoredProcedure;
+            //Parámetros
+            comando.Parameters.AddWithValue("@IDCLIENTE", encaPedido.cliente.id);
+            comando.Parameters.AddWithValue("@TOTAL", encaPedido.total);
+            comando.Parameters.AddWithValue("@IDDETPEDIDO", encaPedido.detPedido);
+            db.ExecuteNonQuery(comando);
         }
     }
 }
