@@ -20,8 +20,8 @@ namespace SunshineLN
             {
                 Direccion registro = new Direccion();
                 registro.id = Convert.ToInt16(fila["ID"]);
-                registro.provincia.codProvincia = (float)Convert.ToDouble(fila["COD_PROVINCIA"]);
-                registro.canton.codCanton = (float)Convert.ToDouble(fila["COD_CANTON"]);
+                registro.provincia = ProvinciaLN.Obtener(Convert.ToInt16(fila["COD_PROVINCIA"]));
+                registro.canton = CantonLN.Obtener(Convert.ToInt16(fila["COD_CANTON"]), Convert.ToInt16(fila["COD_PROVINCIA"]));
                 registro.otrassennas = Convert.ToString(fila["OTRASSENNAS"]);
                 registro.codigo_postal = Convert.ToString(fila["CODIGO_POSTAL"]);
                 registro.cliente = ClienteLN.Obtener(Convert.ToInt16(fila["IDCLIENTE"]));

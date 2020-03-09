@@ -20,9 +20,8 @@ namespace SunshineLN
             {
                 Canje registro = new Canje();
                 registro.id = Convert.ToInt16(fila["ID"]);
-                registro.producto.id = Convert.ToInt16(fila["IDPRODUCTO"]);
-                registro.clienteCupon.id = Convert.ToInt16(fila["IDCLIENTECUPON"]);
-
+                registro.producto = ProductoLN.Obtener(Convert.ToInt16(fila["IDPRODUCTO"]));
+                registro.clienteCupon = ClienteCuponLN.Obtener(Convert.ToInt16(fila["IDCLIENTECUPON"]));
                 lista.Add(registro);
             }
             return lista;

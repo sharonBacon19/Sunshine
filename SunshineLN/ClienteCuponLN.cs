@@ -21,7 +21,7 @@ namespace SunshineLN
                 ClienteCupon registro = new ClienteCupon();
                 registro.id = Convert.ToInt16(fila["ID"]);
                 registro.cliente = ClienteLN.Obtener(Convert.ToInt16(fila["IDCLIENTE"]));
-                registro.cupon.id = Convert.ToInt16(fila["IDCUPON"]);
+                registro.cupon = CuponLN.Obtener(Convert.ToInt16(fila["IDCUPON"]));
                 registro.codigoQR = Convert.ToInt32(fila["CODIGO_QR"]);
 
                 lista.Add(registro);
@@ -46,6 +46,15 @@ namespace SunshineLN
         public static void Insertar(ClienteCupon clienteCupon)
         {
             ClienteCuponDatos.Insertar(clienteCupon);
+        }
+
+        public static ClienteCupon Obtener(int idClienteCupon)
+        {
+            List<ClienteCupon> lista = new List<ClienteCupon>();
+            lista = ClienteCuponLN.ObtenerTodos();
+            ClienteCupon cC = new ClienteCupon();
+            cC = (lista.Find(elemento => elemento.id == idClienteCupon));
+            return cC;
         }
     }
 }

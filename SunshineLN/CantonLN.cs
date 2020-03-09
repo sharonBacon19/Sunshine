@@ -20,7 +20,7 @@ namespace SunshineLN
             {
                 Canton registro = new Canton();
                 registro.codCanton = Convert.ToInt16(fila["COD_CANTON"]);
-                registro.provincia.codProvincia = Convert.ToInt16(fila["COD_PROVINCIA"]);
+                registro.provincia = ProvinciaLN.Obtener(Convert.ToInt16(fila["COD_PROVINCIA"]));
                 registro.dscCanton = Convert.ToString(fila["DSC_CANTON"]);
                 registro.logActivo = (float) Convert.ToDouble(fila["LOG_ACTIVO"]);
                 

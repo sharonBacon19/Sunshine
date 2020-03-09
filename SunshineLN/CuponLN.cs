@@ -24,7 +24,7 @@ namespace SunshineLN
                 registro.descripcion = Convert.ToString(fila["DESCRIPCION"]);
                 registro.estado = Convert.ToByte(fila["ESTADO"]);
                 registro.descuento = Convert.ToInt32(fila["DESCUENTO"]);
-                registro.nivel.id = Convert.ToInt16(fila["IDNIVEL"]);
+                registro.nivel = NivelLN.Obtener(Convert.ToInt16(fila["IDNIVEL"]));
 
                 lista.Add(registro);
             }
@@ -36,6 +36,15 @@ namespace SunshineLN
             List<Cupon> lista = CuponLN.ObtenerTodos();
             List<Cupon> c = lista.Where(x => x.nivel.id == idNIvel).ToList();
             return c;
+        }
+
+        public static Cupon Obtener(int idCupon)
+        {
+            List<Cupon> lista = new List<Cupon>();
+            lista = CuponLN.ObtenerTodos();
+            Cupon cu = new Cupon();
+            cu = (lista.Find(elemento => elemento.id == idCupon));
+            return cu;
         }
     }
 }

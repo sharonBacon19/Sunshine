@@ -22,9 +22,9 @@ namespace SunshineLN
                 registro.nombreCompleto = Convert.ToString(fila["NOMBRECOMPLETO"]);
                 registro.fechaNacimiento = Convert.ToDateTime(fila["FECHANACIMIENTO"]);
                 registro.identificacion = Convert.ToString(fila["IDENTIFICACION"]);
-                registro.tipoIdentificacion.id = Convert.ToInt16(fila["IDTIPOIDENTIFICACION"]);
+                registro.tipoIdentificacion = TipoIdentificacionLN.Obtener(Convert.ToInt16(fila["IDTIPOIDENTIFICACION"]));
                 registro.tarjetaCredito = Convert.ToString(fila["TARJETACREDITO"]);
-                registro.usuario.id = Convert.ToInt16(fila["IDUSUARIO"]);
+                registro.usuario = UsuarioLN.Obtener(Convert.ToInt16(fila["IDUSUARIO"]));
 
                 lista.Add(registro);
             }

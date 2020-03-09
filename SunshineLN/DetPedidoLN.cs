@@ -21,7 +21,7 @@ namespace SunshineLN
                 DetPedido registro = new DetPedido();
                 registro.id = Convert.ToInt16(fila["ID"]);
                 registro.cantidad = Convert.ToInt16(fila["CANTIDAD"]);
-                registro.producto.id = Convert.ToInt16(fila["IDPRODUCTO"]);
+                registro.producto = ProductoLN.Obtener(Convert.ToInt16(fila["IDPRODUCTO"]));
                 registro.subtotal = Convert.ToInt32(fila["SUBTOTAL"]);
                 registro.fechaPedido = Convert.ToDateTime(fila["FECHAPEDIDO"]);
 

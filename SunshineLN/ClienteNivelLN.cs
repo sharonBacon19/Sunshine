@@ -22,7 +22,7 @@ namespace SunshineLN
                 registro.id = Convert.ToInt16(fila["ID"]);
                 registro.cliente = ClienteLN.Obtener(Convert.ToInt16(fila["IDCLIENTE"]));
                 registro.montoActual = Convert.ToInt32(fila["MONTOACTUAL"]);
-                registro.nivel.id = Convert.ToInt16(fila["IDNIVEL"]);
+                registro.nivel = NivelLN.Obtener(Convert.ToInt16(fila["IDNIVEL"]));
 
                 lista.Add(registro);
             }
