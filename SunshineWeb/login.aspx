@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/iconoS.png" />
   
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="plugins/themefisher-font/style.css">
@@ -50,15 +50,32 @@
             <img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
           </a>
           <h2 class="text-center">¡Bienvenido!</h2>
-          <form class="text-left clearfix" action="inicio.aspx" >
+          <form class="text-left clearfix" action="inicio.aspx" runat="server">
             <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Email">
+                <asp:TextBox ID="txtEmail" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                                    runat="server"
+                                    ErrorMessage="* El email es requerido"
+                                    ControlToValidate="txtEmail"
+                                    ValidationGroup="login"
+                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+              <%--<input type="email" class="form-control"  placeholder="Email">--%>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Contraseña">
+                <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
+                                    runat="server"
+                                    ErrorMessage="* La contraseña es requerida"
+                                    ControlToValidate="txtContrasenna"
+                                    ValidationGroup="login"
+                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+
+                                </asp:RequiredFieldValidator>
+              <%--<input type="password" class="form-control" placeholder="Contraseña">--%>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-main text-center" >Login</button>
+              <asp:Button ID="btnRegistrar" class="btn btn-main text-center" runat="server" Text="Log In" ValidationGroup="registro" />
+              <%--<button type="submit" class="btn btn-main text-center">Log In</button>--%>
             </div>
           </form>
           <p class="mt-20">¿Eres nuevo?<a href="signin.aspx"> Crear cuenta nueva</a></p>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="inicio.aspx.cs" Inherits="SunshineWeb.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	<title>Sunshine | Inicio</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -8,7 +9,7 @@
 		<div id="home_slider" class="rev_slider fullscreenbanner tiny_bullet_slider" data-version="5.4.1">
 			<ul>	<!-- SLIDE  -->
 				<li data-index="rs-73" 
-				data-thumb="images/slider/slider-1.jpg"
+				data-thumb="images/slider/portada2.jpg"
 				data-transition="fade" 
 				data-slotamount="default" 
 				data-hideafterloop="0" 
@@ -30,7 +31,7 @@
 				data-param10="" 
 				data-description="">
 					<!-- MAIN IMAGE -->
-					<img src="images/slider/slider-1.jpg" 
+					<img src="images/slider/portada2.jpg" 
 					data-bgposition="cover" 
 					data-bgfit="cover" 
 					data-bgrepeat="no-repeat" 
@@ -95,12 +96,12 @@
 					data-easein="default" 
 					data-easeout="default" 
 					data-masterspeed="300"  
-					data-thumb="images/slider/slider-3.jpg"  
+					data-thumb="images/slider/bikini1-3.jpg"  
 					data-rotate="0"  
 					data-saveperformance="off"  
 					data-title="Slide">
 					<!-- MAIN IMAGE -->
-					<img src="images/slider/slider-3.jpg" alt=""  
+					<img src="images/slider/bikini1-3.jpg" alt=""  
 						data-bgposition="cover"
 						data-bgfit="cover"
 						data-bgrepeat="no-repeat"
@@ -162,7 +163,7 @@
 					data-easein="default" 
 					data-easeout="default" 
 					data-masterspeed="300" 
-					data-thumb="images/slider/slider-2.jpg"
+					data-thumb="images/slider/portadahm.jpg"
 					data-rotate="0"  
 					data-saveperformance="off"  
 					data-title="Slide" 
@@ -178,7 +179,7 @@
 					data-param10="" 
 					data-description="">
 					<!-- MAIN IMAGE -->
-					<img src="images/slider/slider-2.jpg"
+					<img src="images/slider/portadahm.jpg"
 					data-bgposition="center center"
 					data-bgfit="cover"
 					data-bgrepeat="no-repeat" 

@@ -11,13 +11,13 @@
   
   <meta name="author" content="Themefisher.com">
 
-  <title>Aviato | E-commerce template</title>
+  <title>Sunshine | Signin</title>
 
   <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/iconoS.png" />
   
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="plugins/themefisher-font/style.css">

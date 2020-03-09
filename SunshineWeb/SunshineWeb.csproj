@@ -67,8 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="carrito.aspx" />
     <Content Include="css\home.css" />
     <Content Include="css\style.css" />
+    <Content Include="finalizarCompra.aspx" />
     <Content Include="images\about\about.jpg" />
     <Content Include="images\about\awards-logo.png" />
     <Content Include="images\avater.jpg" />
@@ -92,9 +94,44 @@
     <Content Include="images\blog\post-thumb-7.jpg" />
     <Content Include="images\blog\post-thumb.jpg" />
     <Content Include="images\favicon.png" />
+    <Content Include="images\iconoS.png" />
+    <Content Include="images\imagenes\bikini1-2.jpg" />
+    <Content Include="images\imagenes\Bikini1.jpg" />
+    <Content Include="images\imagenes\Bikini10.jpg" />
+    <Content Include="images\imagenes\Bikini11.jpg" />
+    <Content Include="images\imagenes\Bikini12.jpg" />
+    <Content Include="images\imagenes\Bikini13.png" />
+    <Content Include="images\imagenes\Bikini14.jpg" />
+    <Content Include="images\imagenes\Bikini16.jpg" />
+    <Content Include="images\imagenes\Bikini18.jpg" />
+    <Content Include="images\imagenes\bikini2-1.jpg" />
+    <Content Include="images\imagenes\Bikini2.jpg" />
+    <Content Include="images\imagenes\bikini3.jpg" />
+    <Content Include="images\imagenes\Bikini4.jpg" />
+    <Content Include="images\imagenes\Bikini5.png" />
+    <Content Include="images\imagenes\Bikini6.jpg" />
+    <Content Include="images\imagenes\Bikini7.jpg" />
+    <Content Include="images\imagenes\Bikini8.jpg" />
+    <Content Include="images\imagenes\Bikini9.jpg" />
+    <Content Include="images\imagenes\BikiniH1.jpg" />
+    <Content Include="images\imagenes\BikiniH10.jpg" />
+    <Content Include="images\imagenes\BikiniH11.jpg" />
+    <Content Include="images\imagenes\BikiniH12.jpg" />
+    <Content Include="images\imagenes\BikiniH14.jpg" />
+    <Content Include="images\imagenes\BikiniH15.jpg" />
+    <Content Include="images\imagenes\BikiniH2.jpg" />
+    <Content Include="images\imagenes\BikiniH3.jpg" />
+    <Content Include="images\imagenes\BikiniH4.jpg" />
+    <Content Include="images\imagenes\BikiniH5.jpg" />
+    <Content Include="images\imagenes\BikiniH6.jpg" />
+    <Content Include="images\imagenes\BikiniH7.jpg" />
+    <Content Include="images\imagenes\BikiniH8.jpg" />
+    <Content Include="images\imagenes\BikiniH9.jpg" />
     <Content Include="images\imagenes\bronce.png" />
     <Content Include="images\imagenes\diamante.png" />
     <Content Include="images\imagenes\icono4P.png" />
+    <Content Include="images\imagenes\ikiniH16.jpg" />
+    <Content Include="images\imagenes\ikiniH17.jpg" />
     <Content Include="images\imagenes\oro.png" />
     <Content Include="images\imagenes\plata.png" />
     <Content Include="images\imagenes\sunshine4.png" />
@@ -124,6 +161,9 @@
     <Content Include="images\shop\single-products\product-5.jpg" />
     <Content Include="images\shop\single-products\product-6.jpg" />
     <Content Include="images\shop\verified.png" />
+    <Content Include="images\slider\bikini1-3.jpg" />
+    <Content Include="images\slider\portada2.jpg" />
+    <Content Include="images\slider\portadahm.jpg" />
     <Content Include="images\slider\slider-1.jpg" />
     <Content Include="images\slider\slider-2.jpg" />
     <Content Include="images\slider\slider-3.jpg" />
@@ -292,6 +332,20 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="carrito.aspx.cs">
+      <DependentUpon>carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="carrito.aspx.designer.cs">
+      <DependentUpon>carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="finalizarCompra.aspx.cs">
+      <DependentUpon>finalizarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="finalizarCompra.aspx.designer.cs">
+      <DependentUpon>finalizarCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="inicioAdmin.aspx.cs">
       <DependentUpon>inicioAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -333,6 +387,7 @@
     <Content Include="css\maps\home.css.map" />
     <Content Include="css\maps\style.css.map" />
     <Content Include="Admin.Master" />
+    <Content Include="images\imagenes\Bikini13.webp" />
     <None Include="packages.config" />
     <Content Include="plugins\jquery\dist\jquery.min.map" />
     <Content Include="plugins\jquery\dist\jquery.slim.min.map" />

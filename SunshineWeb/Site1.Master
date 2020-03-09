@@ -11,14 +11,14 @@
   <meta name="description" content="Aviato E-Commerce Template">
   
   <meta name="author" content="Themefisher.com">
-
-  <title>Aviato | E-commerce template</title>
+    <%-- CAMBIAR TITULO EN TODAS LAS PAGINAS --%>
+  
 
   <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/iconoS.png" />
   
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="plugins/themefisher-font/style.css">
@@ -95,15 +95,14 @@
 			<!-- Cart -->
 			<ul class="top-menu text-right list-inline">
 				<li class="dropdown cart-nav dropdown-slide">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-cart">
-	                </i>Cart</a>
+					<a href="carrito.aspx" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-cart">
+	                </i>Carrito</a>
 				</li>
 				
 
-	          <!-- Languages -->
 	          
 
-	        </ul><!-- / .nav .navbar-nav .navbar-right -->
+	        </ul>
 			</div>
 		</div>
 	</div>
@@ -138,7 +137,7 @@
 	            <a href="index.html">Inicio</a>
 	          </li><!-- / Home -->
 			  <li class="dropdown ">
-	            <a href="index.html">Comprar</a>
+	            <a href="index.html">Tienda</a>
 	          </li>
 
 	          <!-- Elements -->
@@ -178,9 +177,10 @@
 					
 					<li role="separator" class="divider"></li>
 					<li><a href="blog-right-sidebar.html">Mi Perfil</a></li>
-					<li ><a href="blog-full-width.html">Mi Carrito</a></li>
+					<li ><a href="carrito.aspx">Mi Carrito</a></li>
 					<li><a href="blog-grid.html">Mis Pedidos</a></li>
 					<li><a href="blog-single.html">Mis Compras</a></li>
+					<li><a href="finalizarCompra.aspx">Finaizar Compra</a></li>
 	            </ul>
 	          </li>
 				<li class="dropdown dropdown-slide">
@@ -207,12 +207,12 @@
     <%-- MENU --%>
 
 <%-- CONTENIDO DE LAS PAGINAS --%>
-    <form id="form1" runat="server">
+    
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-    </form>
+   
 <%-- CONTENIDO DE LAS PAGINAS --%>
 
 
