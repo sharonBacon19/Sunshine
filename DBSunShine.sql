@@ -267,3 +267,214 @@ Alter table Direccion add constraint FK_Direccion_Cliente foreign key (IDCLIENTE
 
 --la llave para conton es compuesta... entonces, no pude hacer la llave foranea
 Alter table Direccion add constraint FK_Direccion_Canton foreign key (COD_CANTON, COD_PROVINCIA) references Canton;
+
+select * from Provincia
+
+--procedure
+create procedure [PA_ListaCanje]
+as
+begin
+	select * from Canje
+end
+
+create procedure [PA_ListaCanton]
+as
+begin
+	select * from Canton
+end
+
+create procedure [PA_ListaCliente]
+as
+begin
+	select * from Cliente
+end
+
+create procedure [PA_ListaCLienteCupon]
+as
+begin
+	select * from ClienteCupon
+end
+
+create procedure [PA_ListaClienteNivel]
+as
+begin
+	select * from ClienteNivel
+end
+
+create procedure [PA_ListaCupon]
+as
+begin
+	select * from Cupon
+end
+
+create procedure [PA_ListaDetPedido]
+as
+begin
+	select * from DetPedido
+end
+
+create procedure [PA_ListaDireccion]
+as
+begin
+	select * from Direccion
+end
+
+create procedure [PA_ListaEncaPedido]
+as
+begin
+	select * from EncaPedido
+end
+
+create procedure [PA_ListaGenero]
+as
+begin
+	select * from Genero
+end
+
+create procedure [PA_ListaNivel]
+as
+begin
+	select * from Nivel
+end
+
+create procedure [PA_ListaProducto]
+as
+begin
+	select * from Producto
+end
+
+create procedure [PA_ListaProvincia]
+as
+begin
+	select * from Provincia
+end
+
+create procedure [PA_ListaTipoIdentificacion]
+as
+begin
+	select * from TipoIdentificacion
+end
+
+create procedure [PA_ListaTipoPrenda]
+as
+begin
+	select * from TipoPrenda
+end
+
+create procedure [PA_ListaUsuario]
+as
+begin
+	select * from Usuario
+end
+
+--procedures de insertar
+ CREATE Procedure Insertar_Cliente
+(
+ @NOMBRECOMPLETO NVARCHAR(50),
+ @FECHANACIMIENTO DATETIME ,
+ @IDENTIFICACION NVARCHAR(15),
+ @IDTIPOIDENTIFICACION int,
+ @TARJETACREDITO NVARCHAR(20),
+ @IDUSUARIO INT
+)
+as
+begin
+ insert into Cliente (NOMBRECOMPLETO, FECHANACIMIENTO, IDENTIFICACIÓN, IDTIPOIDENTIFICACION, TARJETACREDITO, IDUSUARIO)
+ values (@NOMBRECOMPLETO, @FECHANACIMIENTO, @IDENTIFICACION, @IDTIPOIDENTIFICACION, @TARJETACREDITO, @IDUSUARIO)
+end
+GO
+
+CREATE Procedure Insertar_DetPedido
+(
+ @CANTIDAD INT,
+ @IDPRODUCTO INT ,
+ @SUBTOTAL INT,
+ @FECHAPEDIDO DATETIME
+)
+as
+begin
+ insert into DetPedido (CANTIDAD, IDPRODUCTO, SUBTOTAL, FECHAPEDIDO)
+ values (@CANTIDAD, @IDPRODUCTO, @SUBTOTAL, @FECHAPEDIDO)
+end
+GO
+
+CREATE Procedure Insertar_EncaPedido
+(
+ @IDCLIENTE INT,
+ @TOTAL INT ,
+ @IDDETPEDIDO INT
+)
+as
+begin
+ insert into EncaPedido(IDCLIENTE, IDDETPEDIDO, TOTAL)
+ values (@IDCLIENTE, @IDDETPEDIDO, @TOTAL)
+end
+GO
+
+CREATE Procedure Insertar_Canje
+(
+ @IDPRODUCTO INT,
+ @IDCLIENTECUPON INT
+)
+as
+begin
+ insert into Canje(IDPRODUCTO, IDCLIENTECUPON)
+ values (@IDPRODUCTO, @IDCLIENTECUPON)
+end
+GO
+
+CREATE Procedure Insertar_ClienteCupon
+(
+ @IDCLIENTE INT,
+ @IDCUPON INT ,
+ @CODIGO_QR NVARCHAR(255)
+)
+as
+begin
+ insert into ClienteCupon(IDCLIENTE, IDCUPON, CODIGO_QR)
+ values (@IDCLIENTE, @IDCUPON, @CODIGO_QR)
+end
+GO
+
+CREATE Procedure Insertar_ClienteNivel
+(
+ @IDCLIENTE INT,
+ @MONTOACTUAL INT ,
+ @IDNIVEL INT
+)
+as
+begin
+ insert into ClienteNivel(IDCLIENTE, IDNIVEL, MONTOACTUAL)
+ values (@IDCLIENTE, @IDNIVEL, @MONTOACTUAL)
+end
+GO
+
+CREATE Procedure Insertar_Direccion
+(
+ @COD_PROVINCIA FLOAT,
+ @COD_CANTON FLOAT ,
+ @OTRASSENNAS NVARCHAR(300),
+ @CODIGO_POSTAL NVARCHAR(10),
+ @IDCLIENTE INT
+)
+as
+begin
+ insert into Direccion(COD_CANTON,COD_PROVINCIA, CODIGO_POSTAL, IDCLIENTE,OTRASSENNAS)
+ values (@COD_CANTON, @COD_PROVINCIA, @CODIGO_POSTAL, @IDCLIENTE, @OTRASSENNAS)
+end
+GO
+
+create procedure Insertar_Usuaario
+(
+@TIPOUSUAIO NVARCHAR(20),
+@EMAIL NVARCHAR(50),
+@CONSTRASENNA NVARCHAR(50),
+@NOMBREUSUARIO NVARCHAR(50), 
+@ESTADO BIT
+)
+AS
+BEGIN
+INSERT INTO Usuario (TIPOUSUARIO,EMAIL, CONTRASENNA, NOMBREUSUARIO, ESTADO) 
+VALUES (@TIPOUSUAIO, @EMAIL, @CONSTRASENNA, @NOMBREUSUARIO, @ESTADO)
+END
+GO

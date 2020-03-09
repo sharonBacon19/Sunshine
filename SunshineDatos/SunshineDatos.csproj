@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CanjeDatos.cs" />
+    <Compile Include="CantonDatos.cs" />
+    <Compile Include="ClienteDatos.cs" />
+    <Compile Include="ClienteCuponDatos.cs" />
+    <Compile Include="ClienteNivelDatos.cs" />
+    <Compile Include="CuponDatos.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="DatabaseFactory.cs" />
+    <Compile Include="DetPedidoDatos.cs" />
+    <Compile Include="DireccionDatos.cs" />
+    <Compile Include="EncaPedidoDatos.cs" />
+    <Compile Include="GeneroDatos.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="NivelDatos.cs" />
+    <Compile Include="ProductoDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinciaDatos.cs" />
+    <Compile Include="TipoIdentificacionDatos.cs" />
+    <Compile Include="TipoPrendaDatos.cs" />
+    <Compile Include="UsusarioDatos.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SunshineEntidades\SunshineEntidades.csproj">
+      <Project>{1BFB4438-C0A0-4A4E-83D4-F26444427461}</Project>
+      <Name>SunshineEntidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
