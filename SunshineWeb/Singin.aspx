@@ -39,7 +39,7 @@
 </head>
 
 <body id="body">
-
+<form class="text-left clearfix" runat="server">
 <section class="signin-page account">
   <div class="container">
     <div class="row">
@@ -49,26 +49,59 @@
             <img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
           </a>
           <h2 class="text-center">Crea una cuenta nueva</h2>
-          <form class="text-left clearfix" action="inicio.html">
+          
             <div class="form-group">
-              <input type="text" class="form-control"  placeholder="Nombre">
+              
+                <asp:TextBox ID="txtNombre" class="form-control" placeholder="Nombre" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                                    runat="server"
+                                    ErrorMessage="* El nombre es requerido"
+                                    ControlToValidate="txtNombre"
+                                    ValidationGroup="signin"
+                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+
+                                </asp:RequiredFieldValidator>
+            </div>
+           
+            <div class="form-group">
+              <asp:TextBox ID="txtNombreUsuario" class="form-control" placeholder="Nombre Usuario" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
+                                    runat="server"
+                                    ErrorMessage="* El nombre de usuario es requerido"
+                                    ControlToValidate="txtNombreUsuario"
+                                    ValidationGroup="signin"
+                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+
+                                </asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control"  placeholder="Apellidos">
+              
+                <asp:TextBox ID="txtEmail" class="form-control" placeholder="Email" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3"
+                                    runat="server"
+                                    ErrorMessage="* El email es requerido"
+                                    ControlToValidate="txtEmail"
+                                    ValidationGroup="signin"
+                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+
+                                </asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control"  placeholder="Nombre Usuario">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control"  placeholder="Contraseña">
+              
+                <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4"
+                                    runat="server"
+                                    ErrorMessage="* La contraseña es requerida"
+                                    ControlToValidate="txtContrasenna"
+                                    ValidationGroup="signin"
+                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+
+                                </asp:RequiredFieldValidator>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-main text-center">Sign In</button>
+              <asp:Button runat="server" ID="btnSignin" ValidationGroup="signin" class="btn btn-main text-center" Text="Sign In" OnClick="btnSignin_Click"></asp:Button>
             </div>
-          </form>
+        
           <p class="mt-20">¿Ya tienes una cuenta?<a href="login.html"> Login</a></p>
           
         </div>
@@ -76,7 +109,7 @@
     </div>
   </div>
 </section>
-
+  </form>
     <!-- 
     Essential Scripts
     =====================================-->

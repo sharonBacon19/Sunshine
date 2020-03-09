@@ -40,17 +40,17 @@
 </head>
 
 <body id="body">
-
+<form class="text-left clearfix" runat="server">
 <section class="signin-page account">
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
-          <a class="logo" href="index.html">
+          <a class="logo" href="inicio.aspx">
             <img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
           </a>
           <h2 class="text-center">¡Bienvenido!</h2>
-          <form class="text-left clearfix" action="inicio.aspx" runat="server">
+          
             <div class="form-group">
                 <asp:TextBox ID="txtEmail" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
@@ -74,18 +74,18 @@
               <%--<input type="password" class="form-control" placeholder="Contraseña">--%>
             </div>
             <div class="text-center">
-              <asp:Button ID="btnRegistrar" class="btn btn-main text-center" runat="server" Text="Log In" ValidationGroup="registro" />
+              <asp:Button ID="btnLogin" class="btn btn-main text-center" OnClick="btnLogin_Click" runat="server" Text="Log In" ValidationGroup="login" />
               <%--<button type="submit" class="btn btn-main text-center">Log In</button>--%>
             </div>
-          </form>
-          <p class="mt-20">¿Eres nuevo?<a href="signin.aspx"> Crear cuenta nueva</a></p>
+          
+          <p class="mt-20">¿Eres nuevo?<a href="singin.aspx"> Crear cuenta nueva</a></p>
             <p class="mt-20"><a href="contrasennaOlvidada.aspx">Olvidé mi contraseña</a></p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
+</form>
     <!-- 
     Essential Scripts
     =====================================-->
@@ -102,6 +102,11 @@
     <script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
     <!-- Count Down Js -->
     <script src="plugins/SyoTimer/build/jquery.syotimer.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="Scripts/sweetalert2.min.js"></script>
+    <script src="Scripts/mensaje.js"></script>
+    <link href="Content/bootstrap.yeti.min.css" rel="stylesheet" />
+    <link href="Content/sweetalert2.min.css" rel="stylesheet" />
     
     <!-- Revolution Slider -->
     <script type="text/javascript" src="plugins/revolution-slider/revolution/js/jquery.themepunch.tools.min.js"></script>

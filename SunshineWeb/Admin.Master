@@ -88,8 +88,8 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
-			<!-- Cart -->
+		<!--	<div class="col-md-4 col-xs-12 col-sm-4">
+			 Cart
 			<ul class="top-menu text-right list-inline">
 				<li class="dropdown cart-nav dropdown-slide">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-cart">
@@ -97,11 +97,11 @@
 				</li>
 				
 
-	          <!-- Languages -->
+	          <!-- Languages 
 	          
 
-	        </ul><!-- / .nav .navbar-nav .navbar-right -->
-			</div>
+	        </ul><!-- / .nav .navbar-nav .navbar-right 
+			</div>-->
 		</div>
 	</div>
 </section>
@@ -132,11 +132,23 @@
 
 	          <!-- Home -->
 	          <li class="dropdown ">
-	            <a href="index.html">Inicio</a>
-	          </li><!-- / Home -->
-			  <li class="dropdown ">
-	            <a href="index.html">Comprar</a>
+	            <a href="inicio.aspx">Inicio</a>
 	          </li>
+			<li class="dropdown ">
+	            <a href="inicio.aspx">Crear Usuario</a>
+	          </li>
+				<li class="dropdown ">
+	            <a href="inicio.aspx">Lista Usuarios</a>
+	          </li>
+				<li class="dropdown ">
+	            <a href="inicio.aspx">Autorizar Cupones</a>
+	          </li>
+
+				
+				<!-- / Home -->
+			  <%--<li class="dropdown ">
+	            <a href="index.html">Crear Usuario</a>
+	          </li>--%>
 
 	          <!-- Elements -->
 	          <%--<li class="dropdown dropdown-slide">
@@ -167,33 +179,20 @@
 
                 <%-- PERFIL!!!!!! --%>
 
-				<li class="dropdown dropdown-slide">
+				<%--<li class="dropdown dropdown-slide">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
-					Perfil 
+					Mantenimientos 
 					<span class="tf-ion-ios-arrow-down"></span></a>
 	            <ul class="dropdown-menu">
 					
 					<li role="separator" class="divider"></li>
-					<li><a href="blog-right-sidebar.html">Mi Perfil</a></li>
-					<li ><a href="blog-full-width.html">Mi Carrito</a></li>
-					<li><a href="blog-grid.html">Mis Pedidos</a></li>
-					<li><a href="blog-single.html">Mis Compras</a></li>
-	            </ul>
-	          </li>
-				<li class="dropdown dropdown-slide">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
-					Login 
-					<span class="tf-ion-ios-arrow-down"></span></a>
-					<ul class="dropdown-menu">
-						<li class="dropdown-header"></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="blog-full-width.html">Login</a></li>
-						<li><a href="blog-grid.html">Signin</a></li>
-					</ul>
-	          </li>
-				
-				
+					<li><a href="blog-right-sidebar.html">Crear Usuario</a></li>
+					<li ><a href="blog-full-width.html">Lista Usuarios</a></li>
+					<li><a href="blog-grid.html">Autorizar Cupones</a></li>
 
+	            </ul>
+	          </li>--%>
+				
 	        </ul><!-- / .nav .navbar-nav -->
 
 	      	</div><!--/.navbar-collapse -->

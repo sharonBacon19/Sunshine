@@ -17,5 +17,6 @@ namespace SunshineEntidades
         {
             cliente = new Cliente();
             cupon = new Cupon();
+        }
     }
 }

@@ -171,7 +171,16 @@
     <Content Include="images\team\team-2.jpg" />
     <Content Include="images\team\team-3.jpg" />
     <Content Include="inicioAdmin.aspx" />
+    <None Include="js\jquery-3.4.1.intellisense.js" />
+    <Content Include="js\jquery-3.4.1.js" />
+    <Content Include="js\jquery-3.4.1.min.js" />
+    <Content Include="js\jquery-3.4.1.slim.js" />
+    <Content Include="js\jquery-3.4.1.slim.min.js" />
+    <Content Include="js\mensaje.js" />
     <Content Include="js\script.js" />
+    <Content Include="js\sweetalert2.all.min.js" />
+    <Content Include="js\sweetalert2.js" />
+    <Content Include="js\sweetalert2.min.js" />
     <Content Include="login.aspx" />
     <Content Include="plugins\bootstrap-touchspin\demo\demo.css" />
     <Content Include="plugins\bootstrap-touchspin\demo\favicon.ico" />
@@ -388,6 +397,8 @@
     <Content Include="css\maps\style.css.map" />
     <Content Include="Admin.Master" />
     <Content Include="images\imagenes\Bikini13.webp" />
+    <Content Include="js\jquery-3.4.1.min.map" />
+    <Content Include="js\jquery-3.4.1.slim.min.map" />
     <None Include="packages.config" />
     <Content Include="plugins\jquery\dist\jquery.min.map" />
     <Content Include="plugins\jquery\dist\jquery.slim.min.map" />
