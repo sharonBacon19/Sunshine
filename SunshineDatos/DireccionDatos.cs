@@ -27,8 +27,8 @@ namespace SunshineDatos
             comando.CommandType = CommandType.StoredProcedure;
             //Parámetros
             comando.Parameters.AddWithValue("@COD_PROVINCIA", direccion.provincia.codProvincia);
-            comando.Parameters.AddWithValue("@COD_CANTON", direccion.canton.codCanton);
             comando.Parameters.AddWithValue("@OTRASSENNAS", direccion.otrassennas);
+            comando.Parameters.AddWithValue("@CODIGO_POSTAL", direccion.codigo_postal);
             comando.Parameters.AddWithValue("@IDCLIENTE", direccion.cliente.id);
             db.ExecuteNonQuery(comando);
         }

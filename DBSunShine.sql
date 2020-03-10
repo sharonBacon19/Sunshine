@@ -106,9 +106,6 @@ ESTADO bit not null
 )
 Alter table TipoPrenda add constraint PK_TipoPrenda primary key (Id);
 
-
-
-
 create table Provincia
 (
 COD_PROVINCIA FLOAT not null,
@@ -117,16 +114,6 @@ DSC_PROVINCIA NVARCHAR(255),
 LOG_ACTIVO FLOAT not null
 )
 Alter table Provincia add constraint PK_Provincia primary key (COD_PROVINCIA);
-
-create table Canton
-(
-COD_PROVINCIA FLOAT not null,
-COD_CANTON FLOAT NOT NULL,
-DSC_CANTON NVARCHAR(255),
-LOG_ACTIVO FLOAT not null
-)
-
-Alter table Canton add constraint PK_Canton primary key (COD_PROVINCIA, COD_CANTON);
 
 create table Usuario
 (
@@ -156,7 +143,7 @@ IDTIPOIDENTIFICACION int not null,
 TARJETACREDITO nvarchar(20) not null,
 IDUSUARIO INT NOT NULL
 )
-Alter table Cliente add constraint PK_Cliente primary key (Id);
+Alter table Cliente add constraint PK_Cliente primary key (IDENTIFICACION);
 Alter table Cliente add constraint FK_Cliente_TipoIdentificacion foreign key (IdTipoIdentificacion) references TipoIdentificacion (Id);
 Alter table Cliente add constraint Fk_Cliente_USuario foreign key (idusuario) references Usuario (id);
 
@@ -190,13 +177,13 @@ Alter table DetPedido add constraint FK_DetPedido_Producto foreign key (IdProduc
 create table EncaPedido
 (
 ID int identity not null, 
-IDCLIENTE int not null,
+IDCLIENTE nvarchar(15) not null,
 TOTAL int not null,
 IDDETPEDIDO int not null
 )
 Alter table EncaPedido add constraint PK_EncaPedido primary key (Id);
 Alter table EncaPedido add constraint FK_EncaPedido_DetPedido foreign key (IdDetPedido) references DetPedido (Id);
-Alter table EncaPedido add constraint Fk_EncaPedido_Cliente foreign key (IDCLIENTE) references Cliente (id);
+Alter table EncaPedido add constraint Fk_EncaPedido_Cliente foreign key (IDCLIENTE) references Cliente (IDENTIFICACION);
 
 create table Nivel
 (
@@ -210,12 +197,12 @@ Alter table Nivel add constraint PK_Nivel primary key (Id);
 create table ClienteNivel
 (
 ID int identity not null,
-IDCLIENTE int not null,
+IDCLIENTE nvarchar(15) not null,
 MONTOACTUAL int not null,
 IDNIVEL int not null
 )
 Alter table ClienteNivel add constraint PK_ClienteNivel primary key (Id);
-Alter table ClienteNivel add constraint FK_ClienteNivel_Cliente foreign key (IdCliente) references Cliente (Id);
+Alter table ClienteNivel add constraint FK_ClienteNivel_Cliente foreign key (IdCliente) references Cliente (IDENTIFICACION);
 Alter table ClienteNivel add constraint FK_ClienteNivel_Nivel foreign key (IdNivel) references Nivel (Id);
 
 create table Cupon
@@ -233,12 +220,12 @@ Alter Table Cupon add constraint FK_Cupon_Nivel foreign key (IdNivel) references
 create table ClienteCupon
 (
 ID INT IDENTITY NOT NULL,
-IDCLIENTE INT NOT NULL,
+IDCLIENTE nvarchar(15) NOT NULL,
 IDCUPON INT NOT NULL,
 CODIGO_QR NVARCHAR(255) NOT NULL
 )
 Alter table ClienteCupon add constraint PK_ClienteCupon primary key (id);
-Alter table clienteCupon add constraint FK_ClienteCupon_Cliente foreign key (IDCLIENTE) references Cliente (id);
+Alter table clienteCupon add constraint FK_ClienteCupon_Cliente foreign key (IDCLIENTE) references Cliente (IDENTIFICACION);
 Alter table clienteCupon add constraint FK_ClienteCupon_Cupon foreign key (IDCUPON) references Cupon (id);
 
 create table Canje
@@ -255,17 +242,13 @@ create table Direccion
 (
 ID INT IDENTITY NOT NULL,
 COD_PROVINCIA FLOAT NOT NULL,
-COD_CANTON FLOAT NOT NULL,
 OTRASSENNAS NVARCHAR(300) NOT NULL,
 CODIGO_POSTAL NVARCHAR(10) NOT NULL,
-IDCLIENTE INT NOT NULL
+IDCLIENTE nvarchar(15) NOT NULL
 )
 Alter table Direccion add constraint PK_Direccion primary key (id);
 Alter table Direccion add constraint FK_Direccion_Provincia foreign key (COD_PROVINCIA) references Provincia (COD_PROVINCIA);
-Alter table Direccion add constraint FK_Direccion_Cliente foreign key (IDCLIENTE) references Cliente (id);
-
---la llave para conton es compuesta... entonces, no pude hacer la llave foranea
-Alter table Direccion add constraint FK_Direccion_Canton foreign key (COD_CANTON, COD_PROVINCIA) references Canton;
+Alter table Direccion add constraint FK_Direccion_Cliente foreign key (IDCLIENTE) references Cliente (IDENTIFICACION);
 
 select * from Provincia
 
@@ -378,7 +361,7 @@ end
 )
 as
 begin
- insert into Cliente (NOMBRECOMPLETO, FECHANACIMIENTO, IDENTIFICACIÓN, IDTIPOIDENTIFICACION, TARJETACREDITO, IDUSUARIO)
+ insert into Cliente (NOMBRECOMPLETO, FECHANACIMIENTO, IDENTIFICACION, IDTIPOIDENTIFICACION, TARJETACREDITO, IDUSUARIO)
  values (@NOMBRECOMPLETO, @FECHANACIMIENTO, @IDENTIFICACION, @IDTIPOIDENTIFICACION, @TARJETACREDITO, @IDUSUARIO)
 end
 GO
@@ -451,15 +434,14 @@ GO
 CREATE Procedure Insertar_Direccion
 (
  @COD_PROVINCIA FLOAT,
- @COD_CANTON FLOAT ,
  @OTRASSENNAS NVARCHAR(300),
  @CODIGO_POSTAL NVARCHAR(10),
  @IDCLIENTE INT
 )
 as
 begin
- insert into Direccion(COD_CANTON,COD_PROVINCIA, CODIGO_POSTAL, IDCLIENTE,OTRASSENNAS)
- values (@COD_CANTON, @COD_PROVINCIA, @CODIGO_POSTAL, @IDCLIENTE, @OTRASSENNAS)
+ insert into Direccion(COD_PROVINCIA, CODIGO_POSTAL, IDCLIENTE,OTRASSENNAS)
+ values (@COD_PROVINCIA, @CODIGO_POSTAL, @IDCLIENTE, @OTRASSENNAS)
 end
 GO
 
@@ -482,4 +464,4 @@ insert into TipoIdentificacion (TIPO, ESTADO) values ('Carné de refugiado', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Cédula de residencia', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Pasaporte', 1);
 
-select * from Usuario
+select * from Cliente

@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CanjeLN.cs" />
-    <Compile Include="CantonLN.cs" />
     <Compile Include="ClienteCuponLN.cs" />
     <Compile Include="ClienteLN.cs" />
     <Compile Include="ClienteNivelLN.cs" />

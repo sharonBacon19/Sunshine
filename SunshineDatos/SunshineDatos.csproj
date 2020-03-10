@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CanjeDatos.cs" />
-    <Compile Include="CantonDatos.cs" />
     <Compile Include="ClienteDatos.cs" />
     <Compile Include="ClienteCuponDatos.cs" />
     <Compile Include="ClienteNivelDatos.cs" />

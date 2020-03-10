@@ -11,8 +11,6 @@ namespace SunshineEntidades
         public int id { set; get; }
 
         public Provincia provincia;
-
-        public Canton canton;
         public string otrassennas { set; get; }
         public string codigo_postal {set; get;}
 
@@ -20,7 +18,6 @@ namespace SunshineEntidades
         public Direccion()
         {
             provincia = new Provincia();
-            canton = new Canton();
             cliente = new Cliente();
         }
     }

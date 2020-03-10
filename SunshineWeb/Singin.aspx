@@ -92,6 +92,31 @@
                 </asp:RequiredFieldValidator>
             </div>    
 
+            <div class="form-group">
+                <asp:Label ID="Label1" class="form-control" Text="Provincia" runat="server"></asp:Label>
+                <asp:DropDownList ID="ddlProvincia" class="form-control" runat="server"></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
+                      ErrorMessage="*La provincia es requerida" ControlToValidate="ddlProvincia"
+                      ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                </asp:RequiredFieldValidator>
+            </div>
+
+            <div class="form-group">              
+                <asp:TextBox ID="txtCodigo" class="form-control" placeholder="Código postal" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server"
+                         ErrorMessage="* El código postal es requerido" ControlToValidate="txtCodigo"
+                         ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                    </asp:RequiredFieldValidator>
+            </div>
+
+             <div class="form-group">              
+                <asp:TextBox ID="txtOtras" class="form-control" placeholder="Otras señas" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
+                         ErrorMessage="*el campo de otras señas requerido" ControlToValidate="txtOtras"
+                         ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                    </asp:RequiredFieldValidator>
+            </div>            
+
             <div class="form-group">              
                 <asp:TextBox ID="txtEmail" class="form-control" placeholder="Email" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"

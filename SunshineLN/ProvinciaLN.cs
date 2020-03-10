@@ -29,7 +29,7 @@ namespace SunshineLN
             return lista;
         }
 
-        public static Provincia Obtener(int idProvincia)
+        public static Provincia Obtener(float idProvincia)
         {
             List<Provincia> lista = new List<Provincia>();
             lista = ProvinciaLN.ObtenerTodos();

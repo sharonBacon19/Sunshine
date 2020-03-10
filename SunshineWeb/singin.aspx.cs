@@ -20,6 +20,11 @@ namespace SunshineWeb
                 ddlTipoIdentificacion.DataTextField = "TIPO";
                 ddlTipoIdentificacion.DataValueField = "ID";
                 ddlTipoIdentificacion.DataBind();
+
+                ddlProvincia.DataSource = ProvinciaLN.ObtenerTodos();
+                ddlProvincia.DataTextField = "dscProvincia";
+                ddlProvincia.DataValueField = "codProvincia";
+                ddlProvincia.DataBind();
             }
         }
 
@@ -63,12 +68,26 @@ namespace SunshineWeb
                 };
 
                 ClienteLN.Insertar(cliente);
+                Provincia provincia = ProvinciaLN.Obtener(Convert.ToInt16(ddlProvincia.SelectedValue));
+
+                if(ClienteLN.ObtenerPorIdentificacion(cliente.identificacion) != null)
+                {
+                    Direccion direccion = new Direccion
+                     {
+                        provincia = provincia,
+                        codigo_postal = Convert.ToString(txtCodigo.Text),
+                        otrassennas = Convert.ToString(txtOtras.Text),
+                        cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion)
+                    };
+                    DireccionLN.Insertar(direccion);
+                }             
+
                 Response.Redirect("login.aspx");
 
             }
             catch (Exception e1)
             {
-                lblMensaje.Text = "Ha ocurrido un problema " + mensaje;
+                lblMensaje.Text = "Ha ocurrido un problema  " + e1.Message;
             }            
         }
 
@@ -97,10 +116,9 @@ namespace SunshineWeb
         {
             Match matchLongitud = Regex.Match(contrasenna, @"^\w{8,15}\b");
             Match matchNumeros = Regex.Match(contrasenna, @"\d");
-            Match matchEspeciales = Regex.Match(contrasenna, @"[ñÑ\-_¿.#¡]");
             Match matchMayusculas = Regex.Match(contrasenna, @"[A-Z]");
 
-            if (!matchLongitud.Success || !matchMayusculas.Success || !matchNumeros.Success || !matchEspeciales.Success)
+            if (!matchLongitud.Success || !matchMayusculas.Success || !matchNumeros.Success)
             {
                 return true;
             }

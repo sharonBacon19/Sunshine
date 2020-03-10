@@ -19,7 +19,8 @@ namespace SunshineEntidades
 
         public Cliente()
         {
-
+            usuario = new Usuario();
+            tipoIdentificacion = new TipoIdentificacion();
         }
     }
 }
