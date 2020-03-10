@@ -72,32 +72,18 @@
 					
 					<a href="index.html">
 						<img src="images/imagenes/sunshine4.png" alt="" width="150" height="150">
-						<!-- replace logo here -->
-					 <%--	<svg width="200px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
-							xmlns:xlink="http://www.w3.org/1999/xlink">
-							<img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
-						   <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40" 
-								font-family="AustinBold, Austin" font-weight="bold">
-						        <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
-									
-						            <%-- COLOCAR IMAGEN LOGO
-									<text id="SunShine">
-						                <tspan x="108.94" y="325">SunShine</tspan>
-						            </text>
-						        </g>
-						    </g>
-						</svg>--%>
+						
 					</a>
 				</div>
 				</div>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
-			<!-- Cart -->
+
 			<ul class="top-menu text-right list-inline">
 				<li class="dropdown cart-nav dropdown-slide">
 					<a href="carrito.aspx" class="dropdown">
 						<i class="tf-ion-android-cart">
-	                </i>Carrito</a>
+	                </i>Mi Nivel</a>
 				</li>
 				
 
@@ -177,10 +163,14 @@
 	            <ul class="dropdown-menu">
 					
 					<li role="separator" class="divider"></li>
-					<li><a href="blog-right-sidebar.html">Mi Perfil</a></li>
-					<li ><a href="carrito.aspx">Mi Carrito</a></li>
-					<li><a href="blog-grid.html">Mis Pedidos</a></li>
+					<li><a href="perfilCliente.aspx">Mi Perfil</a></li>
+					<li ><a href="nivel.aspx">Mi Nivel</a></li>
 					<li><a href="blog-single.html">Mis Compras</a></li>
+					<li ><a href="carrito.aspx">Mi Carrito</a></li>
+
+					<%--<li><a href="blog-grid.html">Mis Pedidos</a></li>--%>
+					
+
 					<li><a href="finalizarCompra.aspx">Finaizar Compra</a></li>
 	            </ul>
 	          </li>
