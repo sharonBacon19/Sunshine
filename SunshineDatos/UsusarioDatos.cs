@@ -29,7 +29,6 @@ namespace SunshineDatos
             comando.Parameters.AddWithValue("@TIPOUSUAIO", usuario.tipoUsuario);
             comando.Parameters.AddWithValue("@EMAIL", usuario.email);
             comando.Parameters.AddWithValue("@CONSTRASENNA", usuario.contrasenna);
-            comando.Parameters.AddWithValue("@NOMBREUSUARIO", usuario.nombreUsuario);
             comando.Parameters.AddWithValue("@ESTADO", usuario.estado);
             db.ExecuteNonQuery(comando);
         }

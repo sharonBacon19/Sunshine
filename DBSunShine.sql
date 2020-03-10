@@ -134,7 +134,6 @@ ID int identity not null,
 TIPOUSUARIO nvarchar(20) not null,
 EMAIL nvarchar(50) not null,
 CONTRASENNA NVARCHAR(50) NOT NULL,
-NOMBREUSUARIO nvarchar(20) not null,
 ESTADO bit not null
 )
 Alter table Usuario add constraint PK_Usuario primary key (Id);
@@ -152,7 +151,7 @@ create table Cliente
 ID int identity not null,
 NOMBRECOMPLETO nvarchar(50) not null,
 FECHANACIMIENTO datetime not null,
-IDENTIFICACIÓN nvarchar(15) not null,
+IDENTIFICACION nvarchar(15) not null,
 IDTIPOIDENTIFICACION int not null,
 TARJETACREDITO nvarchar(20) not null,
 IDUSUARIO INT NOT NULL
@@ -469,12 +468,18 @@ create procedure Insertar_Usuaario
 @TIPOUSUAIO NVARCHAR(20),
 @EMAIL NVARCHAR(50),
 @CONSTRASENNA NVARCHAR(50),
-@NOMBREUSUARIO NVARCHAR(50), 
 @ESTADO BIT
 )
 AS
 BEGIN
-INSERT INTO Usuario (TIPOUSUARIO,EMAIL, CONTRASENNA, NOMBREUSUARIO, ESTADO) 
-VALUES (@TIPOUSUAIO, @EMAIL, @CONSTRASENNA, @NOMBREUSUARIO, @ESTADO)
+INSERT INTO Usuario (TIPOUSUARIO,EMAIL, CONTRASENNA, ESTADO) 
+VALUES (@TIPOUSUAIO, @EMAIL, @CONSTRASENNA, @ESTADO)
 END
 GO
+
+insert into TipoIdentificacion (TIPO, ESTADO) values ('Cédula', 1);
+insert into TipoIdentificacion (TIPO, ESTADO) values ('Carné de refugiado', 1);
+insert into TipoIdentificacion (TIPO, ESTADO) values ('Cédula de residencia', 1);
+insert into TipoIdentificacion (TIPO, ESTADO) values ('Pasaporte', 1);
+
+select * from Usuario

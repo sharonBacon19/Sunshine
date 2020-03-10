@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SunshineLN
 {
-    class TipoIdentificacionLN
+    public class TipoIdentificacionLN
     {
         public static List<TipoIdentificacion> ObtenerTodos()
         {

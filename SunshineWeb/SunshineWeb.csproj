@@ -438,6 +438,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SunshineEntidades\SunshineEntidades.csproj">
+      <Project>{1BFB4438-C0A0-4A4E-83D4-F26444427461}</Project>
+      <Name>SunshineEntidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SunshineLN\SunshineLN.csproj">
+      <Project>{e0fb4592-39f7-481b-a3fc-6eb63613ad4c}</Project>
+      <Name>SunshineLN</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

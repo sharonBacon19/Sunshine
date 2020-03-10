@@ -12,7 +12,6 @@ namespace SunshineEntidades
         public string email { set; get; }
         public string contrasenna { set; get; }
         public string tipoUsuario { set; get; }
-        public string nombreUsuario { set; get; }
         public int estado { set; get; }
         public Usuario()
         {
