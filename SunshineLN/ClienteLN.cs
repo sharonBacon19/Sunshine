@@ -48,6 +48,15 @@ namespace SunshineLN
             return cliente;
         }
 
+        public static Cliente ObtenerPorUsuario(Usuario usu)
+        {
+            List<Cliente> lista = new List<Cliente>();
+            lista = ClienteLN.ObtenerTodos();
+            Cliente cliente = new Cliente();
+            cliente = (lista.Find(elemento => elemento.usuario.id == usu.id));
+            return cliente;
+        }
+
         public static void Insertar(Cliente cliente)
         {
             ClienteDatos.Insertar(cliente);

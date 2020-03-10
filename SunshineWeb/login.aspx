@@ -53,29 +53,23 @@
           
             <div class="form-group">
                 <asp:TextBox ID="txtEmail" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
-                                    runat="server"
-                                    ErrorMessage="* El email es requerido"
-                                    ControlToValidate="txtEmail"
-                                    ValidationGroup="login"
-                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-              <%--<input type="email" class="form-control"  placeholder="Email">--%>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                         ErrorMessage="* El email es requerido" ControlToValidate="txtEmail"
+                         ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+              
             </div>
+
             <div class="form-group">
                 <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
-                                    runat="server"
-                                    ErrorMessage="* La contraseña es requerida"
-                                    ControlToValidate="txtContrasenna"
-                                    ValidationGroup="login"
-                                    SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
-
-                                </asp:RequiredFieldValidator>
-              <%--<input type="password" class="form-control" placeholder="Contraseña">--%>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                          ErrorMessage="* La contraseña es requerida" ControlToValidate="txtContrasenna"
+                          ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                     </asp:RequiredFieldValidator>
+              
             </div>
+
             <div class="text-center">
-              <asp:Button ID="btnLogin" class="btn btn-main text-center" OnClick="btnLogin_Click" runat="server" Text="Log In" ValidationGroup="login" />
-              <%--<button type="submit" class="btn btn-main text-center">Log In</button>--%>
+              <asp:Button ID="btnLogin" class="btn btn-main text-center" OnClick="btnLogin_Click" runat="server" Text="Log In" ValidationGroup="login"/>              
             </div>
           
           <p class="mt-20">¿Eres nuevo?<a href="singin.aspx"> Crear cuenta nueva</a></p>

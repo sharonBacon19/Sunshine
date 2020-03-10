@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SunshineEntidades;
+using SunshineLN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,35 +18,24 @@ namespace SunshineWeb
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+                Usuario usu = new Usuario();
+                usu = UsuarioLN.ObtenerLogin(Convert.ToString(txtEmail.Text), Convert.ToString(txtContrasenna.Text));
 
-            Response.Redirect("inicio.aspx");
-            //if (IsValid)
-            //{
-            //    UsuarioBicicleta user = new UsuarioBicicleta();
-            //    user.nombreUsuario = txtNombreUsuario.Text;
-            //    user.password = txtPassword.Text;
-            //    user = UsuarioBicicletaLN.Obtener(user);
-            //    if (user != null)
-            //    {
-            //        Session["user"] = user;
-            //ClientScript.RegisterStartupScript(
-            //this.GetType(),
-            //"Login", "mensajeRedirect('Login','Credenciales correctas','success','inicio.aspx')",
-            //           true
-            //           );
-            //                }
-            //                else
-            //                {
-            //                    ClientScript.RegisterStartupScript(
-            //                   this.GetType(),
-            //                   "Login",
-            //"mensajeRedirect('Login','Verifique las credenciales','error','login.aspx')",
-            //                   true
-            //                   );
-            //                }
-
+                if (usu != null)
+                {
+                    Session["cliente"] = ClienteLN.ObtenerPorUsuario(usu);
+                    // ClientScript.RegisterStartupScript(this.GetType(),
+                    //"Login", "mensajeRedirect('Login','Credenciales correctas','success','inicio.aspx')",
+                    //  true);
+                    Response.Redirect("inicio.aspx");
+                }
+                else
+                {
+                    //    ClientScript.RegisterStartupScript(this.GetType(),
+                    //   "Login", "mensajeRedirect('Login','Verifique las credenciales','error','login.aspx')", true);
+                    //
+                    Response.Redirect("login.aspx");
+                }
         }
-
-            
-        }
+    }
 }
