@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SunshineLN
 {
-    class ClienteNivelLN
+    public class ClienteNivelLN
     {
         public static List<ClienteNivel> ObtenerTodos()
         {
@@ -41,6 +41,15 @@ namespace SunshineLN
             List<ClienteNivel> lista = ClienteNivelLN.ObtenerTodos();
             List<ClienteNivel> cN = lista.Where(x => x.nivel.id == idNIvel).ToList();
             return cN;
+        }
+
+        public static ClienteNivel Obtener(Cliente cliente)
+        {
+            List<ClienteNivel> lista = new List<ClienteNivel>();
+            lista = ClienteNivelLN.ObtenerTodos();
+            ClienteNivel n = new ClienteNivel();
+            n = (lista.Find(elemento => elemento.cliente.identificacion == cliente.identificacion));
+            return n;
         }
 
         public static void Insertar(ClienteNivel clienteNivel)

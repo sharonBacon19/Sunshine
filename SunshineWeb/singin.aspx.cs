@@ -1,7 +1,12 @@
-﻿using SunshineEntidades;
+﻿using Gma.QrCodeNet.Encoding;
+using Gma.QrCodeNet.Encoding.Windows.Render;
+using SunshineEntidades;
 using SunshineLN;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -80,7 +85,25 @@ namespace SunshineWeb
                         cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion)
                     };
                     DireccionLN.Insertar(direccion);
-                }             
+                    
+                }
+
+                ClienteNivel cN = new ClienteNivel
+                {
+                    cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
+                    montoActual = 0,
+                    nivel = NivelLN.Obtener(1)
+                };
+                ClienteNivelLN.Insertar(cN);
+
+                ClienteCupon cC = new ClienteCupon
+                {
+                    cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
+                    codigoQR = qr(),
+                    cupon = CuponLN.Obtener(1)
+                };
+
+                ClienteCuponLN.Insertar(cC);
 
                 Response.Redirect("login.aspx");
 
@@ -129,5 +152,21 @@ namespace SunshineWeb
         }
 
         //método para validación de tarjeta de crédito
+
+        public int qr()
+        {
+            QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qrCode = new QrCode();
+            String rambon = (new Random().Next(1, 1000)).ToString();
+            qrEncoder.TryEncode(rambon, out qrCode);
+
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedCodeSize(400, QuietZoneModules.Zero), Brushes.Black, Brushes.White);
+
+            MemoryStream ms = new MemoryStream();
+
+            renderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);
+            var imageTemporal = new Bitmap(ms);
+             return Convert.ToInt32(qrCode.GetHashCode());
+        }
     }
 }

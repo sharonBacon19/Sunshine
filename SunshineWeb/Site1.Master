@@ -55,7 +55,7 @@
 				<div class="contact-number">
 					<ul>
 						<li class="dropdown ">
-							<a>NombreUsuario</a>
+							<a><asp:Label ID="lblNombreCliente" runat="server" Text="" Visible="false"></asp:Label></a>
 						</li>
 
 					</ul>
@@ -83,7 +83,7 @@
 				<li class="dropdown cart-nav dropdown-slide">
 					<a href="carrito.aspx" class="dropdown">
 						<i class="tf-ion-android-cart">
-	                </i>Mi Nivel</a>
+	                </i><asp:Image ID="ImgNIvel" Visible="false" runat="server" Width="50" Height="50"/> </a>
 				</li>
 				
 

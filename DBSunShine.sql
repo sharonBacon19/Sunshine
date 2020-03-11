@@ -400,7 +400,7 @@ GO
 
 CREATE Procedure Insertar_ClienteCupon
 (
- @IDCLIENTE INT,
+ @IDCLIENTE nvarchar(15),
  @IDCUPON INT ,
  @CODIGO_QR int
 )
@@ -413,8 +413,8 @@ GO
 
 CREATE Procedure Insertar_ClienteNivel
 (
- @IDCLIENTE INT,
- @MONTOACTUAL INT ,
+ @IDCLIENTE nvarchar(15),
+ @MONTOACTUAL INT,
  @IDNIVEL INT
 )
 as
@@ -462,10 +462,10 @@ insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Plata', 'Seg
 insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Oro', 'Tercera etapa', 70000, 'images\imagenes\oro.png');
 insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Diamante', 'Cuarta etapa', 120000, 'images\imagenes\diamante.png');
 
---insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Dulcecito', 'Se le descontará un 10% del precio del producto', 10, 1, 1, '');
---insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Luz de día', 'Se le descontará un 20% del precio del producto', 20, 2, 1, '');
---insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Armonía', 'Se le descontará un 30% del precio del producto', 30, 3, 1, '');
---insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Extravagancia', 'Se le descontará un 40% del precio del producto', 40, 4, 1, '');
+insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Concha', 'Se le descontará un 10% del precio del producto', 10, 1, 1, 'images\imagenes\concha.png');
+insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Coral', 'Se le descontará un 20% del precio del producto', 20, 2, 1, 'images\imagenes\coral.png');
+insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Caballito', 'Se le descontará un 30% del precio del producto', 30, 3, 1, 'images\imagenes\caballito.png');
+insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Tsunami', 'Se le descontará un 40% del precio del producto', 50, 4, 1,'images\imagenes\tsunami.png');
 
 insert into Genero (NOMBRE, ESTADO) values ('Mujer', 1);
 insert into Genero (NOMBRE, ESTADO) values ('Hombre', 1);
