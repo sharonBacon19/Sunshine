@@ -12,6 +12,7 @@ namespace SunshineEntidades
         public string nombre { set; get; }
         public string descripcion { set; get; }
         public decimal montoMeta { set; get; }
+        public String Imagen { set; get; }
 
         public Nivel()
         {

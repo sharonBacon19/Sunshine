@@ -28,7 +28,7 @@ namespace SunshineDatos
             SqlCommand comando = new SqlCommand("Insertar_ClienteCupon");
             comando.CommandType = CommandType.StoredProcedure;
             //Parámetros
-            comando.Parameters.AddWithValue("@IDCLIENTE", clienteCupon.cliente.id);
+            comando.Parameters.AddWithValue("@IDCLIENTE", clienteCupon.cliente.identificacion);
             comando.Parameters.AddWithValue("@IDCUPON", clienteCupon.cupon.id);
             comando.Parameters.AddWithValue("@CODIGO_QR", clienteCupon.codigoQR);
             db.ExecuteNonQuery(comando);

@@ -135,7 +135,6 @@ Alter table TipoIdentificacion add constraint PK_TipoIdentificacion primary key 
 
 create table Cliente
 (
-ID int identity not null,
 NOMBRECOMPLETO nvarchar(50) not null,
 FECHANACIMIENTO datetime not null,
 IDENTIFICACION nvarchar(15) not null,
@@ -156,7 +155,7 @@ PRECIO INT not null,
 TALLA nvarchar(4) not null,
 IDGENERO int not null,
 IDTIPOPRENDA int not null,
-Imagen nvarchar(255) not null
+IMAGEN nvarchar(255) not null
 
 )
 Alter table Producto add constraint PK_Producto primary key (Id);
@@ -190,7 +189,8 @@ create table Nivel
 ID int identity not null,
 NOMBRE nvarchar(20) not null,
 DESCRIPCION nvarchar(50) not null,
-MONTOMETA INT not null
+MONTOMETA INT not null,
+IMAGEN NVARCHAR(255) NOT NULL
 )
 Alter table Nivel add constraint PK_Nivel primary key (Id);
 
@@ -212,7 +212,8 @@ NOMBRE nvarchar(25) not null,
 DESCRIPCION nvarchar(100) not null,
 ESTADO bit not null,
 DESCUENTO INT not null,
-IDNIVEL int not null
+IDNIVEL int not null,
+IMAGEN nvarchar(255) not null
 )
 Alter table Cupon add constraint PK_Cupon primary key (Id);
 Alter Table Cupon add constraint FK_Cupon_Nivel foreign key (IdNivel) references Nivel (Id);
@@ -222,7 +223,7 @@ create table ClienteCupon
 ID INT IDENTITY NOT NULL,
 IDCLIENTE nvarchar(15) NOT NULL,
 IDCUPON INT NOT NULL,
-CODIGO_QR NVARCHAR(255) NOT NULL
+CODIGO_QR int NOT NULL
 )
 Alter table ClienteCupon add constraint PK_ClienteCupon primary key (id);
 Alter table clienteCupon add constraint FK_ClienteCupon_Cliente foreign key (IDCLIENTE) references Cliente (IDENTIFICACION);
@@ -250,19 +251,11 @@ Alter table Direccion add constraint PK_Direccion primary key (id);
 Alter table Direccion add constraint FK_Direccion_Provincia foreign key (COD_PROVINCIA) references Provincia (COD_PROVINCIA);
 Alter table Direccion add constraint FK_Direccion_Cliente foreign key (IDCLIENTE) references Cliente (IDENTIFICACION);
 
-select * from Provincia
-
 --procedure
 create procedure [PA_ListaCanje]
 as
 begin
 	select * from Canje
-end
-
-create procedure [PA_ListaCanton]
-as
-begin
-	select * from Canton
 end
 
 create procedure [PA_ListaCliente]
@@ -350,7 +343,7 @@ begin
 end
 
 --procedures de insertar
- CREATE Procedure Insertar_Cliente
+CREATE Procedure Insertar_Cliente
 (
  @NOMBRECOMPLETO NVARCHAR(50),
  @FECHANACIMIENTO DATETIME ,
@@ -382,7 +375,7 @@ GO
 
 CREATE Procedure Insertar_EncaPedido
 (
- @IDCLIENTE INT,
+ @IDCLIENTE nvarchar(15),
  @TOTAL INT ,
  @IDDETPEDIDO INT
 )
@@ -409,7 +402,7 @@ CREATE Procedure Insertar_ClienteCupon
 (
  @IDCLIENTE INT,
  @IDCUPON INT ,
- @CODIGO_QR NVARCHAR(255)
+ @CODIGO_QR int
 )
 as
 begin
@@ -436,7 +429,7 @@ CREATE Procedure Insertar_Direccion
  @COD_PROVINCIA FLOAT,
  @OTRASSENNAS NVARCHAR(300),
  @CODIGO_POSTAL NVARCHAR(10),
- @IDCLIENTE INT
+ @IDCLIENTE nvarchar(15)
 )
 as
 begin
@@ -445,7 +438,7 @@ begin
 end
 GO
 
-create procedure Insertar_Usuaario
+create procedure Insertar_Usuario
 (
 @TIPOUSUAIO NVARCHAR(20),
 @EMAIL NVARCHAR(50),
@@ -464,4 +457,20 @@ insert into TipoIdentificacion (TIPO, ESTADO) values ('Carné de refugiado', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Cédula de residencia', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Pasaporte', 1);
 
-select * from Cliente
+insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Bronce', 'Primera etapa', 0, 'images\imagenes\bronce.png');
+insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Plata', 'Segunda etapa', 40000, 'images\imagenes\plata.png');
+insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Oro', 'Tercera etapa', 70000, 'images\imagenes\oro.png');
+insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Diamante', 'Cuarta etapa', 120000, 'images\imagenes\diamante.png');
+
+--insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Dulcecito', 'Se le descontará un 10% del precio del producto', 10, 1, 1, '');
+--insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Luz de día', 'Se le descontará un 20% del precio del producto', 20, 2, 1, '');
+--insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Armonía', 'Se le descontará un 30% del precio del producto', 30, 3, 1, '');
+--insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Extravagancia', 'Se le descontará un 40% del precio del producto', 40, 4, 1, '');
+
+insert into Genero (NOMBRE, ESTADO) values ('Mujer', 1);
+insert into Genero (NOMBRE, ESTADO) values ('Hombre', 1);
+
+insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Bikinis', 1);
+insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Pantalonetas', 1);
+insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Infladores', 1);
+insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Accesorios', 1);

@@ -23,7 +23,7 @@ namespace SunshineDatos
         public static void Insertar(Usuario usuario)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
-            SqlCommand comando = new SqlCommand("Insertar_Usuaario");
+            SqlCommand comando = new SqlCommand("Insertar_Usuario");
             comando.CommandType = CommandType.StoredProcedure;
             //Parámetros
             comando.Parameters.AddWithValue("@TIPOUSUAIO", usuario.tipoUsuario);

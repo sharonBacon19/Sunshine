@@ -23,6 +23,7 @@ namespace SunshineLN
                 registro.nombre = Convert.ToString(fila["NOMBRE"]);
                 registro.descripcion = Convert.ToString(fila["DESCRIPCION"]);
                 registro.montoMeta = Convert.ToInt32(fila["MONTOMETA"]);
+                registro.Imagen = Convert.ToString(fila["IMAGEN"]);
 
                 lista.Add(registro);
             }

@@ -26,7 +26,7 @@ namespace SunshineDatos
             SqlCommand comando = new SqlCommand("Insertar_ClienteNivel");
             comando.CommandType = CommandType.StoredProcedure;
             //Parámetros
-            comando.Parameters.AddWithValue("@IDCLIENTE", clienteNivel.cliente.id);
+            comando.Parameters.AddWithValue("@IDCLIENTE", clienteNivel.cliente.identificacion);
             comando.Parameters.AddWithValue("@MONTOACTUAL", clienteNivel.montoActual);
             comando.Parameters.AddWithValue("@IDNIVEL", clienteNivel.nivel.id);
             db.ExecuteNonQuery(comando);

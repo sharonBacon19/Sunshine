@@ -20,7 +20,7 @@ namespace SunshineLN
             {
                 ClienteNivel registro = new ClienteNivel();
                 registro.id = Convert.ToInt16(fila["ID"]);
-                registro.cliente = ClienteLN.Obtener(Convert.ToInt16(fila["IDCLIENTE"]));
+                registro.cliente = ClienteLN.ObtenerPorIdentificacion(Convert.ToString(fila["IDCLIENTE"]));
                 registro.montoActual = Convert.ToInt32(fila["MONTOACTUAL"]);
                 registro.nivel = NivelLN.Obtener(Convert.ToInt16(fila["IDNIVEL"]));
 
@@ -29,10 +29,10 @@ namespace SunshineLN
             return lista;
         }
 
-        public static List<ClienteNivel> ClientePorNivel(int idCliente)
+        public static List<ClienteNivel> ClientePorNivel(String identificacion)
         {
             List<ClienteNivel> lista = ClienteNivelLN.ObtenerTodos();
-            List<ClienteNivel> cN = lista.Where(x => x.cliente.id == idCliente).ToList();
+            List<ClienteNivel> cN = lista.Where(x => x.cliente.identificacion == identificacion).ToList();
             return cN;
         }
 

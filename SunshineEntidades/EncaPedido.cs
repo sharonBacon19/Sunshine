@@ -16,6 +16,7 @@ namespace SunshineEntidades
         public EncaPedido()
         {
             detPedido = new DetPedido();
+            cliente = new Cliente();
         }
     }
 }

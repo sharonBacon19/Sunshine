@@ -20,7 +20,7 @@ namespace SunshineLN
             {
                 EncaPedido registro = new EncaPedido();
                 registro.id = Convert.ToInt16(fila["ID"]);
-                registro.cliente = ClienteLN.Obtener(Convert.ToInt16(fila["IDCLIENTE"]));
+                registro.cliente = ClienteLN.ObtenerPorIdentificacion(Convert.ToString(fila["IDCLIENTE"]));
                 registro.total = Convert.ToInt32(fila["TOTAL"]);
                 registro.detPedido = DetPedidoLN.Obtener(Convert.ToInt16(fila["IDDETPEDIDO"]));
                 
@@ -29,10 +29,10 @@ namespace SunshineLN
             return lista;
         }
 
-        public static List<EncaPedido> EncaPedidoPorCliente(int idCliente)
+        public static List<EncaPedido> EncaPedidoPorCliente(String identificacion)
         {
             List<EncaPedido> lista = EncaPedidoLN.ObtenerTodos();
-            List<EncaPedido> cC = lista.Where(x => x.cliente.id == idCliente).ToList();
+            List<EncaPedido> cC = lista.Where(x => x.cliente.identificacion == identificacion).ToList();
             return cC;
         }
 

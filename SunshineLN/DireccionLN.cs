@@ -23,17 +23,17 @@ namespace SunshineLN
                 registro.provincia = ProvinciaLN.Obtener(Convert.ToInt16(fila["COD_PROVINCIA"]));
                 registro.otrassennas = Convert.ToString(fila["OTRASSENNAS"]);
                 registro.codigo_postal = Convert.ToString(fila["CODIGO_POSTAL"]);
-                registro.cliente = ClienteLN.Obtener(Convert.ToInt16(fila["IDCLIENTE"]));
+                registro.cliente = ClienteLN.ObtenerPorIdentificacion(Convert.ToString(fila["IDCLIENTE"]));
 
                 lista.Add(registro);
             }
             return lista;
         }
 
-        public static List<Direccion> DireccionPorCliente(int idCliente)
+        public static List<Direccion> DireccionPorCliente(String identificacion)
         {
             List<Direccion> lista = DireccionLN.ObtenerTodos();
-            List<Direccion> cC = lista.Where(x => x.cliente.id == idCliente).ToList();
+            List<Direccion> cC = lista.Where(x => x.cliente.identificacion == identificacion).ToList();
             return cC;
         }
 

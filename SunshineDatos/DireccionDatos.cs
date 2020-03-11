@@ -29,7 +29,7 @@ namespace SunshineDatos
             comando.Parameters.AddWithValue("@COD_PROVINCIA", direccion.provincia.codProvincia);
             comando.Parameters.AddWithValue("@OTRASSENNAS", direccion.otrassennas);
             comando.Parameters.AddWithValue("@CODIGO_POSTAL", direccion.codigo_postal);
-            comando.Parameters.AddWithValue("@IDCLIENTE", direccion.cliente.id);
+            comando.Parameters.AddWithValue("@IDCLIENTE", direccion.cliente.identificacion);
             db.ExecuteNonQuery(comando);
         }
     }

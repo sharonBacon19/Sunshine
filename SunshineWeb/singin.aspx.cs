@@ -41,7 +41,7 @@ namespace SunshineWeb
                     estado = 1,
                 };
 
-                if (email_bien_escrito(usu.email))
+                if (!email_bien_escrito(usu.email))
                 {
                     mensaje = "Email contiene un formato incorrecto";
                     lblMensaje.Text = mensaje;

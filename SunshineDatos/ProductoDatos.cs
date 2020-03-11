@@ -15,7 +15,7 @@ namespace SunshineDatos
             Database db = DatabaseFactory.CreateDatabase("Default");
             SqlCommand comando = new SqlCommand("PA_ListaProducto");
             comando.CommandType = CommandType.StoredProcedure;
-            DataSet ds = db.ExecuteReader(comando, "canje");
+            DataSet ds = db.ExecuteReader(comando, "producto");
             return ds;
         }
     }

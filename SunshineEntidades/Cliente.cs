@@ -8,7 +8,6 @@ namespace SunshineEntidades
 {
     public class Cliente 
     {
-        public int id { set; get; }
         public string nombreCompleto { set; get; }
         public DateTime fechaNacimiento { set; get; }
         public string identificacion { set; get; }

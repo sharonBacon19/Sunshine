@@ -13,7 +13,9 @@ namespace SunshineEntidades
         public string descripcion { set; get; }
         public int descuento { set; get; }
         public Nivel nivel { set; get; }
-        public byte estado { set; get; }
+        public int estado { set; get; }
+        public String Imagen { set; get; }
+
 
         public Cupon()
         {

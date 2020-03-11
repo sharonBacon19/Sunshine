@@ -39,15 +39,6 @@ namespace SunshineLN
             return cliente;
         }
 
-        public static Cliente Obtener(int idCliente)
-        {
-            List<Cliente> lista = new List<Cliente>();
-            lista = ClienteLN.ObtenerTodos();
-            Cliente cliente = new Cliente();
-            cliente = (lista.Find(elemento => elemento.id == idCliente));
-            return cliente;
-        }
-
         public static Cliente ObtenerPorUsuario(Usuario usu)
         {
             List<Cliente> lista = new List<Cliente>();

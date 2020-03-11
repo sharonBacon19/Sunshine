@@ -22,9 +22,10 @@ namespace SunshineLN
                 registro.id = Convert.ToInt16(fila["ID"]);
                 registro.nombre = Convert.ToString(fila["NOMBRE"]);
                 registro.descripcion = Convert.ToString(fila["DESCRIPCION"]);
-                registro.estado = Convert.ToByte(fila["ESTADO"]);
+                registro.estado = Convert.ToInt32(fila["ESTADO"]);
                 registro.descuento = Convert.ToInt32(fila["DESCUENTO"]);
                 registro.nivel = NivelLN.Obtener(Convert.ToInt16(fila["IDNIVEL"]));
+                registro.Imagen = Convert.ToString(fila["IMAGEN"]);
 
                 lista.Add(registro);
             }

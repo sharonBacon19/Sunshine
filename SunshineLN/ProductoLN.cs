@@ -26,7 +26,7 @@ namespace SunshineLN
                 registro.talla = Convert.ToString(fila["TALLA"]);
                 registro.genero = GeneroLN.Obtener(Convert.ToInt16(fila["IDGENERO"]));
                 registro.tipoPrenda = TipoPrendaLN.Obtener(Convert.ToInt16(fila["IDTIPOPRENDA"]));
-                registro.imagen = Convert.ToString(fila["Imagen"]);
+                registro.imagen = Convert.ToString(fila["IMAGEN"]);
                
                 lista.Add(registro);
             }

@@ -26,9 +26,9 @@ namespace SunshineDatos
             SqlCommand comando = new SqlCommand("Insertar_EncaPedido");
             comando.CommandType = CommandType.StoredProcedure;
             //Parámetros
-            comando.Parameters.AddWithValue("@IDCLIENTE", encaPedido.cliente.id);
+            comando.Parameters.AddWithValue("@IDCLIENTE", encaPedido.cliente.identificacion);
             comando.Parameters.AddWithValue("@TOTAL", encaPedido.total);
-            comando.Parameters.AddWithValue("@IDDETPEDIDO", encaPedido.detPedido);
+            comando.Parameters.AddWithValue("@IDDETPEDIDO", encaPedido.detPedido.id);
             db.ExecuteNonQuery(comando);
         }
     }

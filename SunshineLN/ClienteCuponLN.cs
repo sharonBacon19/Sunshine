@@ -20,7 +20,7 @@ namespace SunshineLN
             {
                 ClienteCupon registro = new ClienteCupon();
                 registro.id = Convert.ToInt16(fila["ID"]);
-                registro.cliente = ClienteLN.Obtener(Convert.ToInt16(fila["IDCLIENTE"]));
+                registro.cliente = ClienteLN.ObtenerPorIdentificacion(Convert.ToString(fila["IDCLIENTE"]));
                 registro.cupon = CuponLN.Obtener(Convert.ToInt16(fila["IDCUPON"]));
                 registro.codigoQR = Convert.ToInt32(fila["CODIGO_QR"]);
 
@@ -29,10 +29,10 @@ namespace SunshineLN
             return lista;
         }
         
-        public static List<ClienteCupon> ClientePorCupon(int idCliente)
+        public static List<ClienteCupon> ClientePorCupon(String identificacion)
         {
             List<ClienteCupon> lista = ClienteCuponLN.ObtenerTodos();
-            List<ClienteCupon> cC = lista.Where(x => x.cliente.id == idCliente).ToList();
+            List<ClienteCupon> cC = lista.Where(x => x.cliente.identificacion ==  identificacion).ToList();
             return cC;
         }
 
