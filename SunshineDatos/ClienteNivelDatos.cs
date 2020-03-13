@@ -31,5 +31,7 @@ namespace SunshineDatos
             comando.Parameters.AddWithValue("@IDNIVEL", clienteNivel.nivel.id);
             db.ExecuteNonQuery(comando);
         }
+
+
     }
 }

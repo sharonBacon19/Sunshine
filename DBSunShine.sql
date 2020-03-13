@@ -464,8 +464,8 @@ insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Diamante', '
 
 insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Concha', 'Se le descontará un 10% del precio del producto', 10, 1, 1, 'images\imagenes\concha.png');
 insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Coral', 'Se le descontará un 20% del precio del producto', 20, 2, 1, 'images\imagenes\coral.png');
-insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Caballito', 'Se le descontará un 30% del precio del producto', 30, 3, 1, 'images\imagenes\caballito.png');
-insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Tsunami', 'Se le descontará un 40% del precio del producto', 50, 4, 1,'images\imagenes\tsunami.png');
+insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Caballito', 'Se le descontará un 35% del precio del producto', 35, 3, 1, 'images\imagenes\caballito.png');
+insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Tsunami', 'Se le descontará un 50% del precio del producto', 50, 4, 1,'images\imagenes\tsunami.png');
 
 insert into Genero (NOMBRE, ESTADO) values ('Mujer', 1);
 insert into Genero (NOMBRE, ESTADO) values ('Hombre', 1);
@@ -474,3 +474,26 @@ insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Bikinis', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Pantalonetas', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Infladores', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Accesorios', 1);
+
+
+select * from Nivel
+
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('1','SJO','SAN JOSE',1)
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('2','ALA','ALAJUELA',1)
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('3','CAR','CARTAGO',1)
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('4','HER','HEREDIA',1)
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('5','GUA','GUANACASTE',1)
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('6','PUN','PUNTARENAS',1)
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('7','LIM','LIMON',1)
+insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
+values ('1','SJO','SAN JOSE',1)
+
+
+select * from Nivel

@@ -135,6 +135,8 @@
     <Content Include="images\imagenes\icono4P.png" />
     <Content Include="images\imagenes\ikiniH16.jpg" />
     <Content Include="images\imagenes\ikiniH17.jpg" />
+    <Content Include="images\imagenes\infoCupones.png" />
+    <Content Include="images\imagenes\infoNiveles.png" />
     <Content Include="images\imagenes\oro.png" />
     <Content Include="images\imagenes\plata.png" />
     <Content Include="images\imagenes\sunshine4.png" />
@@ -333,7 +335,9 @@
     <Content Include="plugins\themefisher-font\fonts\themefisher-font.svg" />
     <Content Include="plugins\themefisher-font\Read Me.txt" />
     <Content Include="plugins\themefisher-font\style.css" />
+    <Content Include="productoVista.aspx" />
     <Content Include="singin.aspx" />
+    <Content Include="tienda.aspx" />
     <Content Include="Web.config" />
     <Content Include="inicio.aspx" />
   </ItemGroup>
@@ -380,6 +384,13 @@
     <Compile Include="perfilCliente.aspx.designer.cs">
       <DependentUpon>perfilCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="productoVista.aspx.cs">
+      <DependentUpon>productoVista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productoVista.aspx.designer.cs">
+      <DependentUpon>productoVista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="singin.aspx.cs">
       <DependentUpon>singin.aspx</DependentUpon>
@@ -401,6 +412,13 @@
     </Compile>
     <Compile Include="inicio.aspx.designer.cs">
       <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tienda.aspx.cs">
+      <DependentUpon>tienda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tienda.aspx.designer.cs">
+      <DependentUpon>tienda.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

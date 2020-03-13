@@ -15,6 +15,15 @@ namespace SunshineWeb
     {
 
         /// <summary>
+        /// imagenNivel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imagenNivel;
+
+        /// <summary>
         /// lblNivel control.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,13 @@ namespace SunshineWeb
         protected global::System.Web.UI.WebControls.Label lblNivel;
 
         /// <summary>
-        /// lblnombre control.
+        /// lblNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnombre;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
         /// lblIdentificacion control.
@@ -42,15 +51,6 @@ namespace SunshineWeb
         protected global::System.Web.UI.WebControls.Label lblIdentificacion;
 
         /// <summary>
-        /// lblEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
-
-        /// <summary>
         /// lblFechaNacimiento control.
         /// </summary>
         /// <remarks>
@@ -58,5 +58,23 @@ namespace SunshineWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechaNacimiento;
+
+        /// <summary>
+        /// imgNiveles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgNiveles;
+
+        /// <summary>
+        /// imgCupones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCupones;
     }
 }

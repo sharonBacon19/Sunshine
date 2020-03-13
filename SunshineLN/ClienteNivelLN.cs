@@ -43,18 +43,24 @@ namespace SunshineLN
             return cN;
         }
 
-        public static ClienteNivel Obtener(Cliente cliente)
+        public static ClienteNivel Obtener(string identificacion)
         {
             List<ClienteNivel> lista = new List<ClienteNivel>();
             lista = ClienteNivelLN.ObtenerTodos();
             ClienteNivel n = new ClienteNivel();
-            n = (lista.Find(elemento => elemento.cliente.identificacion == cliente.identificacion));
+            n = (lista.Find(elemento => elemento.cliente.identificacion == identificacion));
             return n;
         }
 
         public static void Insertar(ClienteNivel clienteNivel)
         {
             ClienteNivelDatos.Insertar(clienteNivel);
+        }
+        public static ClienteNivel ObtenerClienteNivel(string identificacion)
+        {
+            List<ClienteNivel> lista = ClienteNivelLN.ObtenerTodos();
+            ClienteNivel cn= lista.Where(x => x.cliente.identificacion == identificacion).FirstOrDefault();
+            return cn;
         }
     }
 }

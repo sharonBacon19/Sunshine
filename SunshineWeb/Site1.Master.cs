@@ -13,18 +13,41 @@ namespace SunshineWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["cliente"] != null)
-            {
-                lblNombreCliente.Visible = true;
-                ImgNIvel.Visible = true;
+            
+                if((Cliente)Session["cliente"]!=null)
+                {
+                    Cliente cliente = (Cliente)Session["cliente"];
+                    lblNombreCliente.Text = cliente.nombreCompleto;
+                    
+                    ClienteNivel cN = new ClienteNivel(); 
+                    cN=ClienteNivelLN.Obtener(cliente.identificacion);
 
-                Cliente cliente = (Cliente) Session["cliente"];
-                lblNombreCliente.Text = cliente.nombreCompleto;
+                    Nivel n = NivelLN.Obtener(cN.nivel.id);
+                    ImgNIvel.ImageUrl = n.Imagen;
+                    lblNombreCliente.Visible = true;
+                    ImgNIvel.Visible = true;
+                    //btnCerrarSesion.Visible = true;
+                }
 
-                ClienteNivel cN = ClienteNivelLN.Obtener(cliente);
-                ImgNIvel.ImageUrl = cN.nivel.Imagen;
+               
 
-            }
+                
+
+                
+
+                
+
         }
+
+        //protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        //{
+        //    if((Cliente)Session["cliente"] != null)
+        //    {
+        //        Session["cliente"] = null;
+        //        btnCerrarSesion.Visible = false;
+        //        ImgNIvel.Visible = false;
+        //    }
+            
+        //}
     }
 }
