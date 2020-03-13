@@ -121,10 +121,10 @@
 
 	          <!-- Home -->
 	          <li class="dropdown ">
-	            <a href="index.html">Inicio</a>
+	            <a href="inicio.aspx">Inicio</a>
 	          </li><!-- / Home -->
 			  <li class="dropdown ">
-	            <a href="index.html">Tienda</a>
+	            <a href="tienda.aspx">Tienda</a>
 	          </li>
 
 	          <!-- Elements -->

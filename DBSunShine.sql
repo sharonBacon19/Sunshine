@@ -516,3 +516,5 @@ insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA
 values ('Bermuda', 'Con elástico y cordón para ajustar a gusto', 12000, 'S, M', 2, 2, 'images\imagenes\BikiniH15.jpg');
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
 values ('Pantaloneta', 'Con elástico, la tela es respirable', 12000, 'M, L', 2, 2, 'images\imagenes\BikiniH12.jpg');
+
+select * from Usuario

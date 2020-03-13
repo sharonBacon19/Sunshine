@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SunshineEntidades;
+using SunshineLN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +15,24 @@ namespace SunshineWeb
         {
 
         }
+
+        // El tipo devuelto puede ser modificado a IEnumerable, sin embargo, para ser compatible con la paginación y ordenación de 
+        //, se deben agregar los siguientes parametros:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public List<Producto> listaProductos_GetData()
+        {
+            return ProductoLN.ObtenerTodos();
+        }
+
+        // El tipo devuelto puede ser modificado a IEnumerable, sin embargo, para ser compatible con la paginación y ordenación de 
+        //, se deben agregar los siguientes parametros:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+   
     }
 }
