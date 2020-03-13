@@ -94,7 +94,12 @@
 
             <div class="form-group">
                 <asp:Label ID="Label1" class="form-control" Text="Provincia" runat="server"></asp:Label>
-                <asp:DropDownList ID="ddlProvincia" class="form-control" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlProvincia" class="form-control" runat="server">
+                    <asp:ListItem Text="San José" Value="San José">
+                    </asp:ListItem><asp:ListItem Text="Alajuela" Value="Alajuela">
+                    </asp:ListItem>
+                </asp:DropDownList>
+
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
                       ErrorMessage="*La provincia es requerida" ControlToValidate="ddlProvincia"
                       ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">

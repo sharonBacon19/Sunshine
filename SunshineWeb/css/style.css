@@ -1589,7 +1589,6 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 .dashboard-user-profile .user-profile-list span {
   font-weight: bold;
   margin-right: 5px;
-  width: 100px;
   display: inline-block;
 }
 
