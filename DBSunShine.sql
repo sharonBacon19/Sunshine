@@ -474,3 +474,29 @@ insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Bikinis', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Pantalonetas', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Infladores', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Accesorios', 1);
+
+
+insert into Producto(NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Bikini', 'Conjunto de traje de baño con diseño único', 20000, 'M, L', 1, 1, 'images\imagenes\bikini3.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Bikini', 'Diseño de los 50, disponible sólo en el color de la imagen', 20000, 'S, M', 1, 1, 'images\imagenes\Bikini4.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Bikini', 'Diseño de los 50, disponible sólo en el color de la imagen', 22000, 'S, M', 1, 1, 'images\imagenes\Bikini5.png');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Bikini', 'Conjunto de 2 piezas, tela de licra', 22000, 'S, M', 1, 1, 'images\imagenes\Bikini6.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Pantaloneta', 'Prenda con elástico y cordón para ajustar al gusto', 15000, 'M, L', 2, 2, 'images\imagenes\Bikini18.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Short Corto', 'Short cortos, tela punto licra', 17000, 'S, M', 2, 2, 'images\imagenes\BikiniH11.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Short Corto', 'Short cortos, tela punto licra, disponible sólo en el color de la imagen', 15000, 'M, L', 2, 2, 'images\imagenes\BikiniH14.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Bermuda', 'Con elástico y cordón para ajustar a gusto', 12000, 'S, M', 2, 2, 'images\imagenes\BikiniH15.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Pantaloneta', 'Con elástico, la tela es respirable', 12000, 'M, L', 2, 2, 'images\imagenes\BikiniH12.jpg');
+
+
+
+
+
+
