@@ -26,7 +26,7 @@
               
                 
             </ul>
-            <form runat="server"> 
+            <%--<form runat="server"> --%>
             <div class="dashboard-wrapper dashboard-user-profile">
               <div class="media">
                 <div class="pull-left text-center" >
@@ -69,7 +69,7 @@
                         
                     </div>
 
-                </form>
+                <%--</form>--%>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@
 
 <body id="body">
 
-
+	<form runat="server">
     <%-- TITULO LOGO --%>
     
     <%-- TITULO LOGO --%>
@@ -55,36 +55,106 @@
 				<div class="contact-number">
 					<ul>
 						<li class="dropdown ">
-							<a><asp:Label ID="lblNombreCliente" runat="server" Text="" Visible="false"></asp:Label></a>
+							<a>
+								<asp:Label ID="lblNombreCliente" runat="server" Text="" Visible="false"></asp:Label>
+								<asp:Image ID="ImgNIvel" Visible="false" runat="server" Width="50" Height="50"></asp:Image>
+							</a>
 						</li>
 
 					</ul>
 				</div>	
+							
+											
+				
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
+
 				<div class="block text-center">
-				<div class="logo text-center">					
+				<div class="logo text-center">
+					
 					<a href="index.html">
-						<img src="images/imagenes/sunshine4.png" alt="" width="150" height="150">						
+						<img src="images/imagenes/sunshine4.png" alt="" width="150" height="150">
+						
 					</a>
 				</div>
 				</div>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
+
 			<ul class="top-menu text-right list-inline">
 				<li class="dropdown cart-nav dropdown-slide">
-					<a href="carrito.aspx" class="dropdown">
+					<a href="carrito.aspx" class="dropdown" >
 						<i class="tf-ion-android-cart">
-	                </i><asp:Image ID="ImgNIvel" Visible="false" runat="server" Width="50" Height="50"/> </a>
-				</li>	
+						</i>
+					</a>
+				</li>
+
+				<li>
+					<ul class="text-center cart-buttons">
+                    	
+                    	<li>
+							<%--<form runat="server">--%>
+								<asp:Button class="btn btn-small btn-solid-border" 
+									Visible="false" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" />
+                    		<%--</form>--%>
+						</li>
+                    </ul>
+				</li>
+				
 	        </ul>
 			</div>
 		</div>
 	</div>
 </section>
 
-
+    <%-- <div class="col-md-4 col-xs-12 col-sm-4">
+			<!-- Cart -->
+			<ul class="top-menu text-right list-inline">
+	          <li class="dropdown cart-nav dropdown-slide">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-cart"></i>Cart</a>
+	            <div class="dropdown-menu cart-dropdown">
+	            	<!-- Cart Item -->
+	            	<div class="media">
+	            		<a class="pull-left" href="#">
+	            			<img  class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
+	            		</a>
+	            		<div class="media-body">
+	            			<h4 class="media-heading"><a href="">Ladies Bag</a></h4>
+	            			<div class="cart-price">
+                              <span>1 x</span>
+                              <span>1250.00</span>
+                            </div>
+                            <h5><strong>$1200</strong></h5>
+	            		</div>
+                        <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+	            	</div><!-- / Cart Item -->
+	            	<!-- Cart Item -->
+	            	<div class="media">
+	            		<a class="pull-left" href="#">
+	            			<img  class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
+	            		</a>
+	            		<div class="media-body">
+	            			<h4 class="media-heading"><a href="">Ladies Bag</a></h4>
+	            			<div class="cart-price">
+                              <span>1 x</span>
+                              <span>1250.00</span>
+                            </div>
+                            <h5><strong>$1200</strong></h5>
+	            		</div>
+                        <a href="#" class="remove"><i class="tf-ion-close"></i></a>
+	            	</div><!-- / Cart Item -->
+	            	
+	            	<div class="cart-summary">
+                        <span>Total</span>
+                        <span class="total-price">$1799.00</span>
+                    </div>
+                    <ul class="text-center cart-buttons">
+                    	<li><a href="" class="btn btn-small">View Cart</a></li>
+                    	<li><a href="" class="btn btn-small btn-solid-border">Checkout</a></li>
+                    </ul>
+                </div>
+ --%>
 
 
     <%-- MINIMENU (ESQUINA)--%>
@@ -109,39 +179,16 @@
 	        <ul class="nav navbar-nav">
 
 	          <!-- Home -->
+	          
 	          <li class="dropdown ">
+	            <a href="#"></a>
+	          </li>
+			  <li class="dropdown ">
 	            <a href="inicio.aspx">Inicio</a>
-	          </li><!-- / Home -->
+	          </li>
 			  <li class="dropdown ">
 	            <a href="tienda.aspx">Tienda</a>
 	          </li>
-
-	          <!-- Elements -->
-	          <%--<li class="dropdown dropdown-slide">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
-					Comprar <span class="tf-ion-ios-arrow-down"></span></a>
-				<a href="index.html">Inicio</a>
-
-	            <%--<div class="dropdown-menu">
-	              <div class="row">
-
-	                <!-- Comprar -->
-	                <div class="col-lg-6 col-md-6 mb-sm-3">
-	                	<ul>
-							<li class="dropdown-header">Comprar por catego</li>
-							<li role="separator" class="divider"></li>
-							<li><a href="login.html">Login</a></li>
-							<li><a href="signin.html">Signin</a></li>
-	                	</ul>
-	                </div>
-
-	                
-
-	              </div><!-- / .row -->
-	            </div>
-				  
-				
-	          </li><!-- / Elements -->--%>
 
                 <%-- PERFIL!!!!!! --%>
 
@@ -153,14 +200,9 @@
 					
 					<li role="separator" class="divider"></li>
 					<li><a href="perfilCliente.aspx">Mi Perfil</a></li>
-					<li ><a href="nivel.aspx">Mi Nivel</a></li>
 					<li><a href="blog-single.html">Mis Compras</a></li>
 					<li ><a href="carrito.aspx">Mi Carrito</a></li>
-
-					<%--<li><a href="blog-grid.html">Mis Pedidos</a></li>--%>
-					
-
-					<li><a href="finalizarCompra.aspx">Finaizar Compra</a></li>
+					<li><a href="finalizarCompra.aspx">Finalizar Compra</a></li>
 	            </ul>
 	          </li>
 				<li class="dropdown dropdown-slide">
@@ -179,10 +221,9 @@
 	            <a href="inicioAdmin.aspx">Administrador</a>
 	          </li>
 
-	        </ul><!-- / .nav .navbar-nav -->
-
-	      	</div><!--/.navbar-collapse -->
-	    </div><!-- / .container -->
+	        </ul>
+	      	</div>
+	    </div>
 	</nav>
 </section>
 
@@ -192,6 +233,7 @@
     
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+				<%--<form runat="server"></form>--%>
             </asp:ContentPlaceHolder>
         </div>
    
@@ -265,6 +307,6 @@
     <script src="js/script.js"></script>
     
 
-
-  </body>
-</html>
+		</form>
+		</body>
+	</html>

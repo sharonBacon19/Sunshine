@@ -26,7 +26,8 @@ namespace SunshineWeb
                     ImgNIvel.ImageUrl = n.Imagen;
                     lblNombreCliente.Visible = true;
                     ImgNIvel.Visible = true;
-                    //btnCerrarSesion.Visible = true;
+                    btnCerrarSesion.Visible = true;
+                    
                 }
 
                

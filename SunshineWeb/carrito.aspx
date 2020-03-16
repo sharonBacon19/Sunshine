@@ -29,7 +29,7 @@
 
           <div class="block">
             <div class="product-list">
-              <form method="post" runat="server">
+              <%--<form method="post" runat="server">--%>
                   <asp:GridView ID="grvListado" runat="server"
                         class="table"
                             AutoGenerateColumns="False">
@@ -48,7 +48,7 @@
                     <br/>
                     <br/>
                  <a href="finalizarCompra.aspx" class="btn btn-main pull-right">Comprar</a>
-              </form>
+              <%--</form>--%>
             </div>
           </div>
         </div>
