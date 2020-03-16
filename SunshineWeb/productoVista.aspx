@@ -6,13 +6,7 @@
         <section class="single-product">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Shop</a></li>
-					<li class="active">Single Product</li>
-				</ol>
-			</div>
+			
 			<div class="col-md-6">
 				<ol class="product-pagination text-right">
 					<li><a href="#"><i class="tf-ion-ios-arrow-left"></i> Next </a></li>

@@ -12,12 +12,12 @@
   <meta name="author" content="Themefisher.com">
 
   <title>Sunshine | Signin</title>
-
+<link rel="shortcut icon" type="image/x-icon" href="images/iconoS.png" />
+  
   <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/iconoS.png" />
   
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="plugins/themefisher-font/style.css">

@@ -13,6 +13,18 @@ namespace SunshineWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                ddlGenero.DataSource = GeneroLN.ObtenerTodos();
+                ddlGenero.DataTextField = "NOMBRE";
+                ddlGenero.DataValueField = "ID";
+                ddlGenero.DataBind();
+
+                ddlTipoPrenda.DataSource = TipoPrendaLN.ObtenerTodos();
+                ddlTipoPrenda.DataTextField = "DESCRIPCION";
+                ddlTipoPrenda.DataValueField = "ID";
+                ddlTipoPrenda.DataBind();
+            }
 
         }
 
