@@ -13,9 +13,14 @@ namespace SunshineEntidades
         public Producto producto{ set; get; }
         public int subtotal { set; get; }
         public DateTime fechaPedido { set; get; }
+        public Talla talla { set; get; }
+        public Color color { set; get; }
+
         public DetPedido()
         {
             producto = new Producto();
+            talla = new Talla();
+            color = new Color();
         }
 
     }

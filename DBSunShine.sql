@@ -106,6 +106,22 @@ ESTADO bit not null
 )
 Alter table TipoPrenda add constraint PK_TipoPrenda primary key (Id);
 
+CREATE TABLE Talla
+(
+ID INT IDENTITY NOT NULL,
+TIPOTALLA NVARCHAR(2) NOT NULL,
+ESTADO BIT NOT NULL
+)
+ALTER TABLE TALLA ADD CONSTRAINT PK_TALLA PRIMARY KEY (ID);
+
+CREATE TABLE Color
+(
+ID INT IDENTITY NOT NULL,
+TIPOCOLOR NVARCHAR(20) NOT NULL,
+ESATDO BIT NOT NULL
+)
+ALTER TABLE COLOR ADD CONSTRAINT PK_COLOR PRIMARY KEY (ID);
+
 create table Provincia
 (
 COD_PROVINCIA FLOAT not null,
@@ -152,7 +168,6 @@ ID int identity not null,
 NOMBRE nvarchar(30) not null,
 DESCRIPCION nvarchar(100) not null,
 PRECIO INT not null,
-TALLA nvarchar(4) not null,
 IDGENERO int not null,
 IDTIPOPRENDA int not null,
 IMAGEN nvarchar(255) not null
@@ -168,10 +183,14 @@ ID int identity not null,
 CANTIDAD int not null,
 IDPRODUCTO int not null,
 SUBTOTAL INT not null,
-FECHAPEDIDO datetime not null
+FECHAPEDIDO datetime not null,
+IDTALLA INT NOT NULL,
+IDCOLOR INT NOT NULL
 )
 Alter table DetPedido add constraint PK_DetPedido primary key (Id);
 Alter table DetPedido add constraint FK_DetPedido_Producto foreign key (IdProducto) references Producto (Id);
+Alter table DetPedido add constraint FK_DetPedido_Talla foreign key (idtalla) references Talla (Id);
+Alter table DetPedido add constraint FK_DetPedido_Color foreign key (idcolor) references Color (Id);
 
 create table EncaPedido
 (
@@ -342,6 +361,18 @@ begin
 	select * from Usuario
 end
 
+create procedure [PA_ListaTalla]
+as 
+begin
+	select * from Talla
+end
+
+create procedure [PA_ListaColor]
+as 
+begin
+	select * from Color
+end
+
 --procedures de insertar
 CREATE Procedure Insertar_Cliente
 (
@@ -364,12 +395,14 @@ CREATE Procedure Insertar_DetPedido
  @CANTIDAD INT,
  @IDPRODUCTO INT ,
  @SUBTOTAL INT,
- @FECHAPEDIDO DATETIME
+ @FECHAPEDIDO DATETIME,
+ @IDTALLA INT,
+ @IDCOLOR INT
 )
 as
 begin
- insert into DetPedido (CANTIDAD, IDPRODUCTO, SUBTOTAL, FECHAPEDIDO)
- values (@CANTIDAD, @IDPRODUCTO, @SUBTOTAL, @FECHAPEDIDO)
+ insert into DetPedido (CANTIDAD, IDPRODUCTO, SUBTOTAL, FECHAPEDIDO, IDTALLA, IDCOLOR)
+ values (@CANTIDAD, @IDPRODUCTO, @SUBTOTAL, @FECHAPEDIDO, @IDTALLA, @IDCOLOR)
 end
 GO
 
@@ -475,8 +508,22 @@ insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Pantalonetas', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Infladores', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Accesorios', 1);
 
+insert into Talla (TIPOTALLA, ESTADO) values ('XS', 1);
+insert into Talla (TIPOTALLA, ESTADO) values ('S', 1);
+insert into Talla (TIPOTALLA, ESTADO) values ('M', 1);
+insert into Talla (TIPOTALLA, ESTADO) values ('L', 1);
+insert into Talla (TIPOTALLA, ESTADO) values ('XL', 1);
 
-select * from Nivel
+insert into Color (TIPOCOLOR, ESATDO) values ('Negro', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Azul', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Marron', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Rosa Palo', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Fusia', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Celeste', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Morado', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Amarillo', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Turquesa', 1);
+insert into Color (TIPOCOLOR, ESATDO) values ('Blanco', 1);
 
 insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
 values ('1','SJO','SAN JOSE',1)
@@ -495,26 +542,21 @@ values ('7','LIM','LIMON',1)
 insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
 values ('1','SJO','SAN JOSE',1)
 
-
-select * from Nivel
-
-insert into Producto(NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Bikini', 'Conjunto de traje de baño con diseño único', 20000, 'M, L', 1, 1, 'images\imagenes\bikini3.jpg');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Bikini', 'Diseño de los 50, disponible sólo en el color de la imagen', 20000, 'S, M', 1, 1, 'images\imagenes\Bikini4.jpg');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Bikini', 'Diseño de los 50, disponible sólo en el color de la imagen', 22000, 'S, M', 1, 1, 'images\imagenes\Bikini5.png');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Bikini', 'Conjunto de 2 piezas, tela de licra', 22000, 'S, M', 1, 1, 'images\imagenes\Bikini6.jpg');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Pantaloneta', 'Prenda con elástico y cordón para ajustar al gusto', 15000, 'M, L', 2, 2, 'images\imagenes\Bikini18.jpg');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Short Corto', 'Short cortos, tela punto licra', 17000, 'S, M', 2, 2, 'images\imagenes\BikiniH11.jpg');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Short Corto', 'Short cortos, tela punto licra, disponible sólo en el color de la imagen', 15000, 'M, L', 2, 2, 'images\imagenes\BikiniH14.jpg');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Bermuda', 'Con elástico y cordón para ajustar a gusto', 12000, 'S, M', 2, 2, 'images\imagenes\BikiniH15.jpg');
-insert into Producto (NOMBRE, DESCRIPCION, PRECIO, TALLA, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Pantaloneta', 'Con elástico, la tela es respirable', 12000, 'M, L', 2, 2, 'images\imagenes\BikiniH12.jpg');
-
-select * from Usuario
+insert into Producto(NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Calor de Sol', 'Conjunto de traje de baño con diseño único', 20000, 1, 1, 'images\imagenes\bikini3.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Sensación del mar', 'Diseño de los 50, disponible sólo en el color de la imagen', 20000, 1, 1, 'images\imagenes\Bikini4.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Brisa de Primavera', 'Diseño de los 50, disponible sólo en el color de la imagen', 22000, 1, 1, 'images\imagenes\Bikini5.png');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Belleza Tropical', 'Conjunto de 2 piezas, tela de licra', 22000, 1, 1, 'images\imagenes\Bikini6.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Short Adida', 'Prenda con elástico y cordón para ajustar al gusto', 15000, 2, 2, 'images\imagenes\Bikini18.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Short Corto Adida', 'Short cortos, tela punto licra', 17000, 2, 2, 'images\imagenes\BikiniH11.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Short Corto Adida', 'Short cortos, tela punto licra, disponible sólo en el color de la imagen', 15000, 2, 2, 'images\imagenes\BikiniH14.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Short Corto Adidia', 'Con elástico y cordón para ajustar a gusto', 12000, 2, 2, 'images\imagenes\BikiniH15.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Pantaloneta Adida', 'Con elástico, la tela es respirable', 12000, 2, 2, 'images\imagenes\BikiniH12.jpg');

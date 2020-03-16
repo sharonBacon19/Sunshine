@@ -1,12 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="tienda.aspx.cs" Inherits="SunshineWeb.tienda" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>--%>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<asp:ListView ID="listaProducto" runat="server"
-             GroupItemCount="3"
-             ItemType="SunshineEntidades.Producto"
-             SelectMethod="listaProductos_GetData"
-             >
+    <form ID="form1" runat="server">
+<asp:ListView ID="listaProducto" runat="server" GroupItemCount="3" ItemType="SunshineEntidades.Producto" SelectMethod="listaProductos_GetData">
              <%-- No hay datos --%>
         <EmptyDataTemplate>
             <div class="col-lg-4">
@@ -27,16 +24,14 @@
              <%-- Información de cada item --%>
         <ItemTemplate>
             <div class="col-lg-4">
-            <div class="card text-center border-primary mb-4">
-                <div class="card-body" runat="server">
-					<asp:Image ID="ImgP" class="card-title" runat="server" ImageUrl="<%#: Item.imagen%>" Width="200" Height="200"></asp:Image>
-                    <h5 class="card-title"><%#: Item.descripcion %></h5>
-                   <asp:Label ID="precio" Text="Precio: " runat="server"> <p class="card-text"><%# Eval("precio","{0:0}Colones")%></p></asp:Label>
-					<asp:Label ID="talla" Text="Tallas: " runat="server"><h5 class="card-title"><%#: Item.talla %></h5></asp:Label>     
-                    
-                </div>                        
+              <div class="card text-center border-primary mb-4">
+                 <div class="card-body" runat="server">
+					 <asp:Image ID="ImgP" class="card-title" runat="server" ImageUrl="<%#: Item.imagen%>" Width="200" Height="200"></asp:Image>
+                     <h5 class="card-title"><%#: Item.nombre %></h5>
+                     <asp:Button ID="btnProducto" CssClass="btn btn-main btn-large btn-round-full" Text="Ver" runat="server" CommandArgument="<%#: Item.id%>" OnCommand="btnProducto_Command"/>
+                 </div>                        
+               </div>                
             </div>
-                </div>
         </ItemTemplate>
              <%-- Plantilla del contenido --%>
         <LayoutTemplate>
@@ -45,4 +40,5 @@
             </div>
         </LayoutTemplate>
     </asp:ListView>
+  </form>
 </asp:Content>

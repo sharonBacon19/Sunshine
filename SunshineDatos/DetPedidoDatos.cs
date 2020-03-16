@@ -30,6 +30,8 @@ namespace SunshineDatos
             comando.Parameters.AddWithValue("@IDPRODUCTO", detPedido.producto.id);
             comando.Parameters.AddWithValue("@SUBTOTAL", detPedido.subtotal);
             comando.Parameters.AddWithValue("@FECHAPEDIDO", detPedido.fechaPedido);
+            comando.Parameters.AddWithValue("@IDTALLA", detPedido.talla.id);
+            comando.Parameters.AddWithValue("@IDCOLOR", detPedido.color.id);
             db.ExecuteNonQuery(comando);
         }
     }

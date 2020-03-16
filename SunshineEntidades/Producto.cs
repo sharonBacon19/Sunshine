@@ -12,7 +12,6 @@ namespace SunshineEntidades
         public string nombre { set; get; }
         public string descripcion { set; get; }
         public int precio { set; get; }
-        public string talla { set; get; }
         public Genero genero { set; get; }
         public TipoPrenda tipoPrenda { set; get; }
         

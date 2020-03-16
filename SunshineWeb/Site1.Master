@@ -60,35 +60,24 @@
 
 					</ul>
 				</div>	
-							
-											
-				
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
-
 				<div class="block text-center">
-				<div class="logo text-center">
-					
+				<div class="logo text-center">					
 					<a href="index.html">
-						<img src="images/imagenes/sunshine4.png" alt="" width="150" height="150">
-						
+						<img src="images/imagenes/sunshine4.png" alt="" width="150" height="150">						
 					</a>
 				</div>
 				</div>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
-
 			<ul class="top-menu text-right list-inline">
 				<li class="dropdown cart-nav dropdown-slide">
 					<a href="carrito.aspx" class="dropdown">
 						<i class="tf-ion-android-cart">
 	                </i><asp:Image ID="ImgNIvel" Visible="false" runat="server" Width="50" Height="50"/> </a>
-				</li>
-				
-
-	          
-
+				</li>	
 	        </ul>
 			</div>
 		</div>
@@ -277,5 +266,5 @@
     
 
 
-		</body>
-	</html>
+  </body>
+</html>

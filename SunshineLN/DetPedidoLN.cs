@@ -24,6 +24,8 @@ namespace SunshineLN
                 registro.producto = ProductoLN.Obtener(Convert.ToInt16(fila["IDPRODUCTO"]));
                 registro.subtotal = Convert.ToInt32(fila["SUBTOTAL"]);
                 registro.fechaPedido = Convert.ToDateTime(fila["FECHAPEDIDO"]);
+                registro.talla = TallaLN.Obtener(Convert.ToInt16(fila["IDTALLA"]));
+                registro.color = ColorLN.Obtener(Convert.ToInt16(fila["IDCOLOR"]));
 
                 lista.Add(registro);
             }
