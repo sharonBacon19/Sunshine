@@ -28,29 +28,15 @@ namespace SunshineWeb
 
         }
 
-        // El tipo devuelto puede ser modificado a IEnumerable, sin embargo, para ser compatible con la paginación y ordenación de 
-        //, se deben agregar los siguientes parametros:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
         public List<Producto> listaProductos_GetData()
         {
             return ProductoLN.ObtenerTodos();
         }
 
-        protected void btnProducto_Command(object sender, CommandEventArgs e)
+        protected void btnVer_Command(object sender, CommandEventArgs e)
         {
             int id = int.Parse(e.CommandArgument.ToString());
             Response.Redirect("productoVista.aspx?id=" + id);
         }
-
-        // El tipo devuelto puede ser modificado a IEnumerable, sin embargo, para ser compatible con la paginación y ordenación de 
-        //, se deben agregar los siguientes parametros:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
-
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="tienda.aspx.cs" Inherits="SunshineWeb.tienda" %>
+﻿mbcaZX CV<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="tienda.aspx.cs" Inherits="SunshineWeb.tienda" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <title>Sunshine | Tienda</title>
@@ -32,33 +32,20 @@
                             <asp:listitem Value="0" Text="Género" Selected="True" >
                             </asp:listitem>
                         </asp:DropDownList>
+                        <br />
                         <asp:Label ID="lblTipoPrenda" class="form-control" Text="Tipo" runat="server"></asp:Label>
                         <asp:DropDownList ID="ddlTipoPrenda" class="form-control" runat="server">
                             <asp:listitem Value="0" Text="Tipo" Selected="True" >
                             </asp:listitem>
                         </asp:DropDownList>
-
-                        
-                    </div>
-	            </div>
-				<div class="widget product-category">
-					<h4 class="widget-title">Categorías</h4>
-					<div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
-					  	<div class="panel panel-default">
-						    <div class="panel-heading" role="tab" id="headingOne">
-						      	<h4 class="panel-title">
-						        	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          	Shoes
-						        	</a>
-						      	</h4>
-						    </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
-    </div>
+     </div>
     </section>
+    <br />
+    <br />
 <asp:ListView ID="listaProducto" runat="server"
              GroupItemCount="3"
              ItemType="SunshineEntidades.Producto"
@@ -87,9 +74,8 @@
             <div class="card text-center border-primary mb-4">
                 <div class="card-body" runat="server">
 					<asp:Image ID="ImgP" class="card-title" runat="server" ImageUrl="<%#: Item.imagen%>" Width="200" Height="200"></asp:Image>
-                    <h5 class="card-title"><%#: Item.descripcion %></h5>
-                   <asp:Label ID="precio" Text="Precio: " runat="server"> <p class="card-text"><%# Eval("precio","{0:0}Colones")%></p></asp:Label>
-					<asp:Label ID="talla" Text="Tallas: " runat="server"><h5 class="card-title"><%#: Item.talla %></h5></asp:Label>     
+                    <h5 class="card-title"><%#: Item.nombre %></h5>
+                   <asp:Button CssClass="btn btn-main mt-20" ID="btnVer" Text="Ver" runat="server" CommandArgument="<%#: Item.id%>" OnCommand="btnVer_Command"/>
                     
                 </div>                        
             </div>

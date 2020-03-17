@@ -2,8 +2,7 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
-        <section class="single-product">
+<section class="single-product">
 	<div class="container">
 		<div class="row mt-20">
 			<div class="col-md-5">
@@ -70,6 +69,5 @@
 		</div>
 		
 	</div>
-</section>
-    </form>
+   </section>
 </asp:Content>
