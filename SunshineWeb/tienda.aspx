@@ -1,4 +1,4 @@
-﻿mbcaZX CV<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="tienda.aspx.cs" Inherits="SunshineWeb.tienda" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="tienda.aspx.cs" Inherits="SunshineWeb.tienda" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <title>Sunshine | Tienda</title>
@@ -76,7 +76,7 @@
 					<asp:Image ID="ImgP" class="card-title" runat="server" ImageUrl="<%#: Item.imagen%>" Width="200" Height="200"></asp:Image>
                     <h5 class="card-title"><%#: Item.nombre %></h5>
                    <asp:Button CssClass="btn btn-main mt-20" ID="btnVer" Text="Ver" runat="server" CommandArgument="<%#: Item.id%>" OnCommand="btnVer_Command"/>
-                    
+                    <br /><br />
                 </div>                        
             </div>
                 </div>

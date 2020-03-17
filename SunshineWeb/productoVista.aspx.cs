@@ -50,12 +50,12 @@ namespace SunshineWeb
 
             return ProductoLN.Obtener(idProducto);
         }
+        private static List<DetPedido> dets = new List<DetPedido>();
 
         protected void btnAddCarrito_Click(object sender, EventArgs e)
         {
             try
             {
-                List<DetPedido> dets = new List<DetPedido>();
                 int idproducto;
                
                 //Obtener una variable Query String
@@ -80,10 +80,10 @@ namespace SunshineWeb
                         };
 
                         dets.Add(det);
-                        DetPedidoLN.Insertar(det);
                         lblMensaje.Text = "Se agregó al carrito de compras";
                     }
-                }            
+                }
+                Session["lista"] = dets;
 
                
             }
@@ -92,7 +92,7 @@ namespace SunshineWeb
                 lblMensaje.Text = "Ha ocurrido un problema "+ e1.Message;
             }
         }
-
+      
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("tienda.aspx");
