@@ -24,6 +24,8 @@ namespace SunshineWeb
                 if (usu != null)
                 {
                     Session["cliente"] = ClienteLN.ObtenerPorUsuario(usu);
+
+                    
                     // ClientScript.RegisterStartupScript(this.GetType(),
                     //"Login", "mensajeRedirect('Login','Credenciales correctas','success','inicio.aspx')",
                     //  true);

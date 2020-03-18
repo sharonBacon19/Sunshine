@@ -60,10 +60,12 @@
                   </div>
                </div>
             </div>
+
+             <%-- SE PUEDE COLOCAR UN LIST O GRID PARA VER UN RESUMEN DE LA COMPRA --%>
             <div class="col-md-4">
                <div class="product-checkout-details">
                   <div class="block">
-                     <h4 class="widget-title">Order Summary</h4>
+                     <h4 class="widget-title">Productos</h4>
                      <div class="media product-card">
                         <a class="pull-left" href="product-single.html">
                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
@@ -71,7 +73,7 @@
                         <div class="media-body">
                            <h4 class="media-heading"><a href="product-single.html">Ambassador Heritage 1921</a></h4>
                            <p class="price">1 x $249</p>
-                           <span class="remove" >Remove</span>
+                           
                         </div>
                      </div>
                      <div class="discount-code">
@@ -101,17 +103,21 @@
       </div>
    </div>
 </div>
-   <!-- Modal -->
+   <!-- CUPONES -->
    <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-body">
-               <form>
-                  <div class="form-group">
+                <asp:Image id="imgCupon" Width="50px" Height="50px" runat="server" ></asp:Image>
+                <asp:DropDownList ID="ddlCupon" class="form-control" runat="server">
+                            
+                </asp:DropDownList>
+                
+                  <%--
                      <input class="form-control" type="text" placeholder="Enter Coupon Code">
-                  </div>
-                  <button type="submit" class="btn btn-main">Apply Coupon</button>
-               </form>
+                 
+                  <button type="submit" class="btn btn-main">Apply Coupon</button>--%>
+               
             </div>
          </div>
       </div>

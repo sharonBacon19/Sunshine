@@ -29,14 +29,12 @@
 					<div class="form-group">
                         <asp:Label ID="lblGenero" class="form-control" Text="Género" runat="server"></asp:Label>
                         <asp:DropDownList ID="ddlGenero" class="form-control" runat="server">
-                            <asp:listitem Value="0" Text="Género" Selected="True" >
-                            </asp:listitem>
+                            
                         </asp:DropDownList>
                         <br />
                         <asp:Label ID="lblTipoPrenda" class="form-control" Text="Tipo" runat="server"></asp:Label>
                         <asp:DropDownList ID="ddlTipoPrenda" class="form-control" runat="server">
-                            <asp:listitem Value="0" Text="Tipo" Selected="True" >
-                            </asp:listitem>
+                           
                         </asp:DropDownList>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ namespace SunshineLN
         public static List<ClienteCupon> ObtenerTodos()
         {
             List<ClienteCupon> lista = new List<ClienteCupon>();
-            DataSet ds = ClienteDatos.SeleccionarTodos();
+            DataSet ds = ClienteCuponDatos.SeleccionarTodos();
 
             foreach (DataRow fila in ds.Tables[0].Rows)
             {
