@@ -131,6 +131,9 @@
     <Content Include="images\imagenes\BikiniH8.jpg" />
     <Content Include="images\imagenes\BikiniH9.jpg" />
     <Content Include="images\imagenes\bronce.png" />
+    <Content Include="images\imagenes\caballito.png" />
+    <Content Include="images\imagenes\concha.png" />
+    <Content Include="images\imagenes\coral.png" />
     <Content Include="images\imagenes\diamante.png" />
     <Content Include="images\imagenes\icono4P.png" />
     <Content Include="images\imagenes\ikiniH16.jpg" />
@@ -140,6 +143,7 @@
     <Content Include="images\imagenes\oro.png" />
     <Content Include="images\imagenes\plata.png" />
     <Content Include="images\imagenes\sunshine4.png" />
+    <Content Include="images\imagenes\tsunami.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\shop\cart\cart-1.jpg" />
     <Content Include="images\shop\cart\cart-2.jpg" />

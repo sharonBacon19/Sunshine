@@ -12,14 +12,14 @@ namespace SunshineWeb
 {
     public partial class finalizarCompra : System.Web.UI.Page
     {
-        private static List<Cupon> listaCupones = new List<Cupon>();
+        private static List<Cupon> listaCupones;
         protected void Page_Load(object sender, EventArgs e)
         {
             
             if (!IsPostBack)
             {
-                
-                
+
+                listaCupones = new List<Cupon>();
                 Cliente cliente = (Cliente)Session["cliente"];
                 List<ClienteCupon> lista = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
 
@@ -33,27 +33,40 @@ namespace SunshineWeb
                 ddlCupon.DataTextField = "Nombre";
                 ddlCupon.DataValueField = "ID";
                 ddlCupon.DataBind();
+                imagenCupon();
             }
         }
 
-        //public void imagenCupon()
-        //{
-        //    while ()
-        //    {
-
-        //    }   
-        //    foreach (Cupon cupon in listaCupones)
-        //        {
-        //            if (ddlCupon.SelectedValue.Equals("1"))
-        //            {
-        //                imgCupon.ImageUrl = cupon.Imagen;
-
-        //            }
-        //        }
-
+        private void imagenCupon()
+        {
             
-        //}
-        
-        
+            //foreach (Cupon cupon in listaCupones)
+            //{
+                switch (ddlCupon.SelectedValue)
+                {
+                    case "1":
+                    imgCupon.ImageUrl = "images/imagenes/concha.png";
+                    
+                    break;
+                    case "2":
+                    imgCupon.ImageUrl = "images/imagenes/coral.png";
+                    break;
+                    case "3":
+                    imgCupon.ImageUrl = "images/imagenes/caballito.png";
+                    break;
+                    case "4":
+                    imgCupon.ImageUrl = "images/imagenes/tsunami.png";
+                    break;
+
+                    default:
+                        break;
+
+                }
+            //}
+
+
+        }
+
+
     }
 }
