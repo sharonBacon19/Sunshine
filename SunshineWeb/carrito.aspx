@@ -41,7 +41,7 @@
 					<asp:Image ID="ImgP" class="card-title" runat="server" ImageUrl="<%#: Item.producto.imagen%>" Width="200" Height="200"></asp:Image>
                     <h5 class="card-title"><%#: Item.producto.nombre %></h5>
                     <br />
-                    <asp:Label ID="lblCanidad" runat="server" Text="Cantida: "></asp:Label> <%#:Item.cantidad %>
+                    <asp:Label ID="lblCanidad" runat="server" Text="Cantidad: "></asp:Label> <%#:Item.cantidad %>
                     <br />
                     <asp:label ID="lblTalla" runat="server" Text="Talla: "></asp:label> <%#:Item.talla.tipoTalla%>
                     <br />

@@ -11,11 +11,13 @@
                   <h4 class="widget-title">Billing Details</h4>
                   <form class="checkout-form">
                      <div class="form-group">
-                        <label for="full_name">Full Name</label>
+                         <%-- CAMBIAR POR ASP:LBL Y MOSTRAR LOS DATOS DEL CLIENTE Y COMPRA--%>
+                        <label for="full_name">Nombre</label>
+
                         <input type="text" class="form-control" id="full_name" placeholder="">
                      </div>
                      <div class="form-group">
-                        <label for="user_address">Address</label>
+                        <label for="user_address">Dirección</label>
                         <input type="text" class="form-control" id="user_address" placeholder="">
                      </div>
                      <div class="checkout-country-code clearfix">
@@ -42,28 +44,30 @@
                         <div class="card-details">
                            <form  class="checkout-form">
                               <div class="form-group">
-                                 <label for="card-number">Card Number <span class="required">*</span></label>
+                                 <label for="card-number">Número de Tarjeta <span class="required">*</span></label>
                                  <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
                               </div>
                               <div class="form-group half-width padding-right">
-                                 <label for="card-expiry">Expiry (MM/YY) <span class="required">*</span></label>
+                                 <label for="card-expiry">Fecha de expiración (MM/YY) <span class="required">*</span></label>
                                  <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
                               </div>
                               <div class="form-group half-width padding-left">
-                                 <label for="card-cvc">Card Code <span class="required">*</span></label>
-                                 <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="CVC" >
+                                 <label for="card-cvc">Código de Tarjeta <span class="required">*</span></label>
+                                 <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="***" >
                               </div>
-                              <a href="confirmation.html" class="btn btn-main mt-20">Place Order</a >
+                              <a href="confirmation.html" class="btn btn-main mt-20">Confirmar Compra</a >
                            </form>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
+
+             <%-- SE PUEDE COLOCAR UN LIST O GRID PARA VER UN RESUMEN DE LA COMPRA --%>
             <div class="col-md-4">
                <div class="product-checkout-details">
                   <div class="block">
-                     <h4 class="widget-title">Order Summary</h4>
+                     <h4 class="widget-title">Productos</h4>
                      <div class="media product-card">
                         <a class="pull-left" href="product-single.html">
                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
@@ -71,12 +75,37 @@
                         <div class="media-body">
                            <h4 class="media-heading"><a href="product-single.html">Ambassador Heritage 1921</a></h4>
                            <p class="price">1 x $249</p>
-                           <span class="remove" >Remove</span>
+                           
                         </div>
                      </div>
-                     <div class="discount-code">
-                        <p>Have a discount ? <a data-toggle="modal" data-target="#coupon-modal" href="">enter it here</a></p>
+                    
+                        
+                        
+                        
                      </div>
+                   <%-- CUPONES --%>
+                   <div class="block">
+                     <h4 class="widget-title">Cupones</h4>
+
+                    <div class="media product-card">
+                        <a class="pull-left" >
+                            <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" ></asp:Image>
+                        </a>
+                        <div class="media-body">
+                            
+                           <h4 class="media-heading">Cupón</h4>
+                            <%--<asp:Label class="media-heading" ID="lblCupon" runat="server"></asp:Label>
+                            <asp:Label class="media-heading" ID="lblDescuento" runat="server"></asp:Label>--%>
+                            <asp:DropDownList ID="ddlCupon" class="form-control" runat="server">
+                            </asp:DropDownList>
+
+                           <%--<p class="price">1 x $249</p>--%>
+                           
+                        </div>
+                     </div>
+
+
+                   </div>
                      <ul class="summary-prices">
                         <li>
                            <span>Subtotal:</span>
@@ -101,17 +130,18 @@
       </div>
    </div>
 </div>
-   <!-- Modal -->
+   <!-- CUPONES -->
    <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-body">
-               <form>
-                  <div class="form-group">
+               
+                
+                  <%--
                      <input class="form-control" type="text" placeholder="Enter Coupon Code">
-                  </div>
-                  <button type="submit" class="btn btn-main">Apply Coupon</button>
-               </form>
+                 
+                  <button type="submit" class="btn btn-main">Apply Coupon</button>--%>
+               
             </div>
          </div>
       </div>
