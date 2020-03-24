@@ -29,6 +29,12 @@ namespace SunshineWeb
                     listaCupones.Add(cupon);
 
                 }
+
+                ddlProvincia.DataSource = ProvinciaLN.ObtenerTodos();
+                ddlProvincia.DataTextField = "dscProvincia";
+                ddlProvincia.DataValueField = "codProvincia";
+                ddlProvincia.DataBind();
+
                 ddlCupon.DataSource = listaCupones;
                 ddlCupon.DataTextField = "Nombre";
                 ddlCupon.DataValueField = "ID";

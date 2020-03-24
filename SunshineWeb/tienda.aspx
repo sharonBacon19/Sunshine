@@ -44,7 +44,7 @@
     </section>
     <br />
     <br />
-<asp:ListView ID="listaProducto" runat="server"
+    <asp:ListView ID="listaProducto" runat="server"
              GroupItemCount="3"
              ItemType="SunshineEntidades.Producto"
              SelectMethod="listaProductos_GetData"

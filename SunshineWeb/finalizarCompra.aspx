@@ -8,55 +8,84 @@
          <div class="row">
             <div class="col-md-8">
                <div class="block billing-details">
-                  <h4 class="widget-title">Billing Details</h4>
+                  <h4 class="widget-title">Detalles de la compra</h4>
                   <form class="checkout-form">
                      <div class="form-group">
-                         <%-- CAMBIAR POR ASP:LBL Y MOSTRAR LOS DATOS DEL CLIENTE Y COMPRA--%>
-                        <label for="full_name">Nombre</label>
+                         
+                         <%-- datagrid para mostrar lista de productos --%>
 
-                        <input type="text" class="form-control" id="full_name" placeholder="">
-                     </div>
-                     <div class="form-group">
-                        <label for="user_address">Dirección</label>
-                        <input type="text" class="form-control" id="user_address" placeholder="">
-                     </div>
-                     <div class="checkout-country-code clearfix">
-                        <div class="form-group">
-                           <label for="user_post_code">Zip Code</label>
-                           <input type="text" class="form-control" id="user_post_code" name="zipcode" value="">
-                        </div>
-                        <div class="form-group" >
-                           <label for="user_city">City</label>
-                           <input type="text" class="form-control" id="user_city" name="city" value="">
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <label for="user_country">Country</label>
-                        <input type="text" class="form-control" id="user_country" placeholder="">
+                        
                      </div>
                   </form>
                </div>
                <div class="block">
-                  <h4 class="widget-title">Payment Method</h4>
-                  <p>Credit Cart Details (Secure payment)</p>
+                  <h4 class="widget-title">Método de pago</h4>
+                  <p>Detalles del pago</p>
                   <div class="checkout-product-details">
                      <div class="payment">
                         <div class="card-details">
-                           <form  class="checkout-form">
+                           <%--<form  class="checkout-form">--%>
                               <div class="form-group">
-                                 <label for="card-number">Número de Tarjeta <span class="required">*</span></label>
-                                 <input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">
+                                  <%-- CAMBIAR POR ASP:LBL Y MOSTRAR LOS DATOS DEL CLIENTE Y COMPRA--%>
+                                 
+                                  <asp:Label ID="lblNombre"  runat="server" Text="Nombre"></asp:Label>
+                                  <asp:TextBox ID="txtNombre" runat="server" class="form-control"  ></asp:TextBox>
+                                 <%--<input  id="card-number" class="form-control"   type="tel" placeholder="•••• •••• •••• ••••">--%>
                               </div>
-                              <div class="form-group half-width padding-right">
-                                 <label for="card-expiry">Fecha de expiración (MM/YY) <span class="required">*</span></label>
-                                 <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
+                              <%--<div class="form-group half-width padding-right">
+                          --%> <div class="form-group ">
+                                  <asp:Label ID="lblProvincia"  runat="server" Text="Provincia"></asp:Label>
+                                  <asp:DropDownList ID="ddlProvincia" class="form-control" runat="server">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
+                                          ErrorMessage="*La provincia es requerida" ControlToValidate="ddlProvincia"
+                                          ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                                    </asp:RequiredFieldValidator>
+                                 <%--<label for="card-expiry">Fecha de expiración (MM/YY) <span class="required">*</span></label>
+                                 <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">--%>
                               </div>
-                              <div class="form-group half-width padding-left">
-                                 <label for="card-cvc">Código de Tarjeta <span class="required">*</span></label>
-                                 <input id="card-cvc" class="form-control"  type="tel" maxlength="4" placeholder="***" >
+                              <div class="form-group" >
+                                 <asp:Label ID="lblCodigoPostal"  runat="server" Text="Código Postal"></asp:Label>
+                                  <asp:TextBox ID="txtCodigoPostal" runat="server" class="form-control"  ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                                          ErrorMessage="*El código postal es requerido" ControlToValidate="txtCodigoPostal"
+                                          ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                                    </asp:RequiredFieldValidator>
                               </div>
-                              <a href="confirmation.html" class="btn btn-main mt-20">Confirmar Compra</a >
-                           </form>
+                            <div class="form-group" >
+                                  <asp:Label ID="lblOtrasSennas"  runat="server" Text="Otras Señas"></asp:Label>
+                                  <asp:TextBox ID="txtOtrasSennas" runat="server" class="form-control"  ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                                          ErrorMessage="*Las señas son requeridas" ControlToValidate="txtOtrasSennas"
+                                          ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                                    </asp:RequiredFieldValidator>
+                              </div>
+                            <div class="form-group" >
+                                 <asp:Label ID="lblTarjeta"  runat="server" Text="Número de Tarjeta"></asp:Label>
+                                  <asp:TextBox ID="txtTarjeta" runat="server" class="form-control"  ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                                          ErrorMessage="*El número de tarjeta es requerido" ControlToValidate="txtTarjeta"
+                                          ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                                    </asp:RequiredFieldValidator>
+                              </div>
+                            <div class="form-group" >
+                                 <asp:Label ID="lblFechaTarjeta"  runat="server" Text="Fecha de expiración"></asp:Label>
+                                  <asp:TextBox ID="txtFechaTarjeta" runat="server" class="form-control"  ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                          ErrorMessage="*La fecha de expiración de la tarjeta es requerida" ControlToValidate="txtFechaTarjeta"
+                                          ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                                    </asp:RequiredFieldValidator>
+                              </div>
+                            <div class="form-group ">
+                               <asp:Label ID="lblCodigoTarjeta"  runat="server" Text="Código de tarjeta"></asp:Label>
+                                  <asp:TextBox ID="txtCodigoTarjeta" runat="server" class="form-control"  ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                                          ErrorMessage="*El código de la tarjeta es requerida" ControlToValidate="txtCodigoTarjeta"
+                                          ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
+                                    </asp:RequiredFieldValidator>
+                              </div>
+                              <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" />
+                           <%--</form>--%>
                         </div>
                      </div>
                   </div>
