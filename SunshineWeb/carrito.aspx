@@ -47,7 +47,7 @@
                     <br />
                      <asp:label ID="lblColor" runat="server" Text="Color: "></asp:label> <%#: Item.color.tipoColor%>
                     <br />
-                    <asp:Button ID="btnQuitar" CssClass="btn btn-main mt-20"  Text="Quitar" runat="server" CommandArgument="<%#: Item.id%>" OnCommand="btnQuitar_Command"/>             
+                    <asp:Button ID="btnQuitar" CssClass="btn btn-main mt-20"  Text="Quitar" runat="server" CommandArgument="<%#: Item.producto.id %>" OnCommand="btnQuitar_Command"/>             
                     <br /><br />
                 </div>                        
             </div>

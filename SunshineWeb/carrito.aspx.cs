@@ -31,7 +31,7 @@ namespace SunshineWeb
         private int total()
         {
             int total = 0;
-            lista = (List<DetPedido>)Session["lista"];
+            lista = listaProducto_GetData();
 
             foreach (DetPedido det in lista)
             {
@@ -47,12 +47,14 @@ namespace SunshineWeb
 
             foreach (DetPedido det in lista)
             {
-               if(det.id == id)
+               if(det.producto.id == id)
                 {
-                    lista.RemoveAt(det.id);
+                    lista.Remove(det);
+                    Session["lista"] = lista;
+                    break;
                 }
             }
-
+            Response.Redirect("carrito.aspx");
         }
     }
 }

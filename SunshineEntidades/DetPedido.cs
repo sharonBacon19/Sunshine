@@ -22,6 +22,5 @@ namespace SunshineEntidades
             talla = new Talla();
             color = new Color();
         }
-
     }
 }

@@ -67,6 +67,7 @@ namespace SunshineWeb
                         //ddlActividad.SelectedValue = idActividad.ToString();
                         Producto producto = producto1(idproducto);
 
+                        int idDet = new Random().Next(1, 12);
 
                         DetPedido det = new DetPedido
                         {
@@ -76,7 +77,7 @@ namespace SunshineWeb
                             producto = producto,
                             talla = TallaLN.Obtener(Convert.ToInt16(ddlTalla.SelectedValue)),
                             subtotal = producto.precio,
-                            id = 1
+                            id= idDet
                         };
 
                         dets.Add(det);
