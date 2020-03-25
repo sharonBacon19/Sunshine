@@ -12,7 +12,7 @@ namespace SunshineWeb
 {
     public partial class finalizarCompra : System.Web.UI.Page
     {
-        private static List<Cupon> listaCupones;
+        private List<Cupon> listaCupones;
         protected void Page_Load(object sender, EventArgs e)
         {
             

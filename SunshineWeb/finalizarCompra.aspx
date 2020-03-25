@@ -37,10 +37,7 @@
                                   <asp:Label ID="lblProvincia"  runat="server" Text="Provincia"></asp:Label>
                                   <asp:DropDownList ID="ddlProvincia" class="form-control" runat="server">
                                     </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                                          ErrorMessage="*La provincia es requerida" ControlToValidate="ddlProvincia"
-                                          ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
-                                    </asp:RequiredFieldValidator>
+                                    
                                  <%--<label for="card-expiry">Fecha de expiración (MM/YY) <span class="required">*</span></label>
                                  <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">--%>
                               </div>
@@ -51,6 +48,12 @@
                                           ErrorMessage="*El código postal es requerido" ControlToValidate="txtCodigoPostal"
                                           ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                                     </asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
+                                    ErrorMessage="* Sólo se pueden ingresar 5 números" ForeColor="red" ValidationExpression="[0-9]{5}"
+                                    ControlToValidate="txtTarjeta" ValidationGroup="confirmar">
+
+                                </asp:RegularExpressionValidator>    
+
                               </div>
                             <div class="form-group" >
                                   <asp:Label ID="lblOtrasSennas"  runat="server" Text="Otras Señas"></asp:Label>
@@ -62,24 +65,35 @@
                               </div>
                             <div class="form-group" >
                                  <asp:Label ID="lblTarjeta"  runat="server" Text="Número de Tarjeta"></asp:Label>
-                                  <asp:TextBox ID="txtTarjeta" runat="server" class="form-control"  ></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                                  <asp:TextBox ID="txtTarjeta" runat="server" class="form-control" placeholder="**** **** **** ****" ></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                                    ErrorMessage="* Sólo se pueden ingresar 16 números" ForeColor="red" ValidationExpression="[0-9]{16}"
+                                    ControlToValidate="txtTarjeta" ValidationGroup="confirmar">
+
+                                </asp:RegularExpressionValidator>    
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
                                           ErrorMessage="*El número de tarjeta es requerido" ControlToValidate="txtTarjeta"
                                           ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                                     </asp:RequiredFieldValidator>
                               </div>
                             <div class="form-group" >
                                  <asp:Label ID="lblFechaTarjeta"  runat="server" Text="Fecha de expiración"></asp:Label>
-                                  <asp:TextBox ID="txtFechaTarjeta" runat="server" class="form-control"  ></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                  <asp:TextBox ID="txtFechaTarjeta" runat="server" class="form-control" placeholder="(MM/YY)" ></asp:TextBox>
+                                    
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
                                           ErrorMessage="*La fecha de expiración de la tarjeta es requerida" ControlToValidate="txtFechaTarjeta"
                                           ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                                     </asp:RequiredFieldValidator>
                               </div>
                             <div class="form-group ">
                                <asp:Label ID="lblCodigoTarjeta"  runat="server" Text="Código de tarjeta"></asp:Label>
-                                  <asp:TextBox ID="txtCodigoTarjeta" runat="server" class="form-control"  ></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                                  <asp:TextBox ID="txtCodigoTarjeta" runat="server" class="form-control" ></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                                    ErrorMessage="* Sólo se pueden ingresar 3 números" ForeColor="red"
+                                    ControlToValidate="txtTarjeta" ValidationGroup="confirmar" ValidationExpression="[0-9]{3}">
+
+                                </asp:RegularExpressionValidator>  
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                                           ErrorMessage="*El código de la tarjeta es requerida" ControlToValidate="txtCodigoTarjeta"
                                           ValidationGroup="confirmar" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                                     </asp:RequiredFieldValidator>

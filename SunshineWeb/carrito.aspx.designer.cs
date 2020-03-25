@@ -15,13 +15,13 @@ namespace SunshineWeb
     {
 
         /// <summary>
-        /// listaProducto control.
+        /// lblMensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listaProducto;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
         /// lblSubTotal control.
@@ -40,5 +40,14 @@ namespace SunshineWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSubTotal;
+
+        /// <summary>
+        /// btnComprar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnComprar;
     }
 }

@@ -60,7 +60,7 @@
             <div class="form-group">
                  <asp:TextBox ID="txtFecha" TextMode="Date" class="form-control" runat="server"></asp:TextBox>
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                            ErrorMessage="La fecha es requerida*" ControlToValidate="txtFecha"
+                            ErrorMessage="* La fecha es requerida" ControlToValidate="txtFecha" 
                             ForeColor="Red" SetFocusOnError="true" Display="Dynamic"
                             ValidationGroup="registrar">
                      </asp:RequiredFieldValidator>
@@ -70,7 +70,7 @@
                 <asp:Label ID="lblTipoIdentificacion" class="form-control" Text="Tipo de Identificación" runat="server"></asp:Label>
                 <asp:DropDownList ID="ddlTipoIdentificacion" class="form-control" runat="server"></asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
-                      ErrorMessage="*El tipo de identificación es requerido" ControlToValidate="ddlTipoIdentificacion"
+                      ErrorMessage="* El tipo de identificación es requerido" ControlToValidate="ddlTipoIdentificacion"
                       ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                 </asp:RequiredFieldValidator>
             </div>
@@ -78,8 +78,8 @@
 
             <div class="form-group">
                <asp:TextBox ID="txtIdentificacion" class="form-control" placeholder="Identificación" runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
-                      ErrorMessage="* El nombre es requerido" ControlToValidate="txtIdentificacion"
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                      ErrorMessage="* La identificación es requerida" ControlToValidate="txtIdentificacion"
                       ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                 </asp:RequiredFieldValidator>
             </div>
@@ -100,7 +100,7 @@
                 </asp:DropDownList>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                      ErrorMessage="*La provincia es requerida" ControlToValidate="ddlProvincia"
+                      ErrorMessage="* La provincia es requerida" ControlToValidate="ddlProvincia"
                       ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                 </asp:RequiredFieldValidator>
             </div>
@@ -116,7 +116,7 @@
              <div class="form-group">              
                 <asp:TextBox ID="txtOtras" class="form-control" placeholder="Otras señas" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
-                         ErrorMessage="*el campo de otras señas requerido" ControlToValidate="txtOtras"
+                         ErrorMessage="* El campo de otras señas requerido" ControlToValidate="txtOtras"
                          ValidationGroup="signin" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
                     </asp:RequiredFieldValidator>
             </div>            

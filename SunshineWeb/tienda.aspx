@@ -39,12 +39,14 @@
                         </div>
                     </div>
             </div>
-        </div>
-     </div>
-    </section>
-    <br />
-    <br />
-    <asp:ListView ID="listaProducto" runat="server"
+
+            <div class="col-md-9">
+				<div class="row">
+					
+			        
+               
+
+<asp:ListView ID="listaProducto" runat="server"
              GroupItemCount="3"
              ItemType="SunshineEntidades.Producto"
              SelectMethod="listaProductos_GetData"
@@ -68,16 +70,19 @@
         </GroupTemplate>
              <%-- Información de cada item --%>
         <ItemTemplate>
-            <div class="col-lg-4">
-            <div class="card text-center border-primary mb-4">
-                <div class="card-body" runat="server">
-					<asp:Image ID="ImgP" class="card-title" runat="server" ImageUrl="<%#: Item.imagen%>" Width="200" Height="200"></asp:Image>
-                    <h5 class="card-title"><%#: Item.nombre %></h5>
-                   <asp:Button CssClass="btn btn-main mt-20" ID="btnVer" Text="Ver" runat="server" CommandArgument="<%#: Item.id%>" OnCommand="btnVer_Command"/>
-                    <br /><br />
-                </div>                        
-            </div>
+            <div class="col-md-3 ">
+                <div class="product-item ">
+                    <div class="product-thumb block text-center" runat="server">
+                         <h5 class="price-title "><%#: Item.nombre %></h5>
+					    <asp:Image ID="ImgP" runat="server" ImageUrl="<%#: Item.imagen%>" Width="200" Height="200"></asp:Image>
+                        <div class="preview-meta">
+                       <asp:Button CssClass="btn btn-main mt-20 " ID="btnVer" Text="Ver" runat="server" 
+                           CommandArgument="<%#: Item.id%>" OnCommand="btnVer_Command"/>
+                        </div>
+                            <br /><br />
+                    </div>                        
                 </div>
+            </div>
         </ItemTemplate>
              <%-- Plantilla del contenido --%>
         <LayoutTemplate>
@@ -86,5 +91,20 @@
             </div>
         </LayoutTemplate>
     </asp:ListView>
+
+
+
+
+             </div>
+            </div>
+
+
+        </div>
+
+        
+    </section>
+    <br />
+    <br />
+    
     
 <%--    </form>--%></asp:Content>

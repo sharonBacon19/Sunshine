@@ -56,5 +56,19 @@ namespace SunshineWeb
             }
             Response.Redirect("carrito.aspx");
         }
+
+        protected void btnComprar_Command(object sender, CommandEventArgs e)
+        {
+            if ((Cliente)Session["cliente"] != null)
+            {
+                Response.Redirect("finalizarCompra.aspx");
+            }
+            else
+            {
+                lblMensaje.Visible = true;
+                lblMensaje.Text ="Debe iniciar sesión para poder comprar";
+                Response.Redirect("carrito.aspx");
+            }
+        }
     }
 }
