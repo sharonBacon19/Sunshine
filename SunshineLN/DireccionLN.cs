@@ -30,11 +30,13 @@ namespace SunshineLN
             return lista;
         }
 
-        public static List<Direccion> DireccionPorCliente(String identificacion)
+        public static Direccion DireccionPorCliente(String identificacion)
         {
-            List<Direccion> lista = DireccionLN.ObtenerTodos();
-            List<Direccion> cC = lista.Where(x => x.cliente.identificacion == identificacion).ToList();
-            return cC;
+            List<Direccion> lista = new List<Direccion>();
+            lista = DireccionLN.ObtenerTodos();
+            Direccion dire = new Direccion();
+            dire = (lista.Find(elemento => elemento.cliente.identificacion == identificacion));
+            return dire;
         }
 
         public static void Insertar(Direccion direccion)

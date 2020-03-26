@@ -18,61 +18,68 @@ namespace SunshineWeb
             
             if (!IsPostBack)
             {
+                listadoDetPedido();
 
-                listaCupones = new List<Cupon>();
                 Cliente cliente = (Cliente)Session["cliente"];
-                List<ClienteCupon> lista = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
-
-                foreach (ClienteCupon cC in lista)
+                if (cliente != null)
                 {
-                    Cupon cupon = CuponLN.Obtener(cC.cupon.id);
-                    listaCupones.Add(cupon);
+                    listaCupones = new List<Cupon>();
+                    List<ClienteCupon> lista = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
+                    foreach (ClienteCupon cC in lista)
+                    {
+                        Cupon cupon = CuponLN.Obtener(cC.cupon.id);
+                        listaCupones.Add(cupon);
+                    }
 
+                    ddlCupon.DataSource = listaCupones;
+                    ddlCupon.DataTextField = "Nombre";
+                    ddlCupon.DataValueField = "ID";
+                    ddlCupon.DataBind();
+
+                    txtNombre.Text = cliente.nombreCompleto;
+
+                    Direccion direc = DireccionLN.DireccionPorCliente(cliente.identificacion);
+
+                    txtProvinica.Text = direc.provincia.dscProvincia;
+                    txtCodigoPostal.Text = direc.codigo_postal;
+                    txtOtrasSennas.Text = direc.otrassennas;
+                    txtTarjeta.Text = cliente.tarjetaCredito;
+
+                    ddlCupon_SelectedIndexChanged(null, null);
+
+                    txtSubTotal.Text = Convert.ToString(Subtotal());
                 }
-
-                ddlProvincia.DataSource = ProvinciaLN.ObtenerTodos();
-                ddlProvincia.DataTextField = "dscProvincia";
-                ddlProvincia.DataValueField = "codProvincia";
-                ddlProvincia.DataBind();
-
-                ddlCupon.DataSource = listaCupones;
-                ddlCupon.DataTextField = "Nombre";
-                ddlCupon.DataValueField = "ID";
-                ddlCupon.DataBind();
-                imagenCupon();
+                else
+                {
+                    ddlCupon.Visible = false;
+                    imgCupon.Visible = false;
+                }  
             }
         }
 
-        private void imagenCupon()
+        protected void ddlCupon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            //foreach (Cupon cupon in listaCupones)
-            //{
-                switch (ddlCupon.SelectedValue)
-                {
-                    case "1":
-                    imgCupon.ImageUrl = "images/imagenes/concha.png";
-                    
-                    break;
-                    case "2":
-                    imgCupon.ImageUrl = "images/imagenes/coral.png";
-                    break;
-                    case "3":
-                    imgCupon.ImageUrl = "images/imagenes/caballito.png";
-                    break;
-                    case "4":
-                    imgCupon.ImageUrl = "images/imagenes/tsunami.png";
-                    break;
-
-                    default:
-                        break;
-
-                }
-            //}
-
-
+            Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+            imgCupon.ImageUrl = cupon.Imagen;
         }
 
+        private void listadoDetPedido()
+        {
+            List<DetPedido> lista = (List<DetPedido>)Session["lista"];
+            grvListado.DataSource = lista;
+            grvListado.DataBind();
+        }
 
+        private int Subtotal()
+        {
+            int Subtotal = 0;
+            List<DetPedido> lista = (List<DetPedido>)Session["lista"];
+
+            foreach (DetPedido det in lista)
+            {
+                Subtotal += det.producto.precio * det.cantidad;
+            }
+            return Subtotal;
+        }
     }
 }

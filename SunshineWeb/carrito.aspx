@@ -28,27 +28,27 @@
 
 
 
-                        <%-- LISTVIEW en caso de que no funcione --%>
-                            <%--<asp:ListView ID="listaProducto" runat="server" GroupItemCount="3" ItemType="SunshineEntidades.DetPedido" SelectMethod="listaProducto_GetData">--%>
-                                 <%-- No hay datos --%>
-                            <%--<EmptyDataTemplate>
+                       
+                            <asp:ListView ID="listaProducto" runat="server" GroupItemCount="3" ItemType="SunshineEntidades.DetPedido" SelectMethod="listaProducto_GetData">
+                                <%-- No hay datos--%> 
+                            <EmptyDataTemplate>
                                 <div class="col-lg-4">
-                                    No hay datos
+                                    <%--No hay datos--%>
                                 </div>
-                            </EmptyDataTemplate>--%>
+                            </EmptyDataTemplate>
                                  <%-- Item es vacío --%>
-                           <%-- <EmptyItemTemplate>
+                           <EmptyItemTemplate>
                                 <div class="card text-center border-primary mb-4">
                                 </div>
-                            </EmptyItemTemplate>--%>
+                            </EmptyItemTemplate>
                                  <%-- Fila o grupo --%>
-                            <%--<GroupTemplate>
+                            <GroupTemplate>
                                 <div class="row">
                                     <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
                                 </div>
-                            </GroupTemplate>--%>
+                            </GroupTemplate>
                                  <%-- Información de cada item --%>
-                            <%--<ItemTemplate>
+                            <ItemTemplate>
                                 <div class="col-lg-4 ">
                                     <div class="product-item ">
                                         <div class="product-thumb block text-center" runat="server">
@@ -68,14 +68,14 @@
                                         </div>                   
                                 </div>
                              </div>
-                            </ItemTemplate>--%>
+                            </ItemTemplate>
                                  <%-- Plantilla del contenido --%>        
-                            <%--<LayoutTemplate>
+                            <LayoutTemplate>
                                 <div class="container">
                                     <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
                                 </div>
                             </LayoutTemplate>
-                        </asp:ListView>--%>
+                        </asp:ListView>
 
                     </div>
                   </div>
