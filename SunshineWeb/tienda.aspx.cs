@@ -24,19 +24,23 @@ namespace SunshineWeb
                 ddlTipoPrenda.DataTextField = "DESCRIPCION";
                 ddlTipoPrenda.DataValueField = "ID";
                 ddlTipoPrenda.DataBind();
+
+                listaProducto.DataSource = ProductoLN.ObtenerTodos(ddlGenero.SelectedValue, ddlTipoPrenda.SelectedValue);
+                listaProducto.DataBind();
             }
 
-        }
-
-        public List<Producto> listaProductos_GetData()
-        {
-            return ProductoLN.ObtenerTodos();
         }
 
         protected void btnVer_Command(object sender, CommandEventArgs e)
         {
             int id = int.Parse(e.CommandArgument.ToString());
             Response.Redirect("productoVista.aspx?id=" + id);
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            listaProducto.DataSource = ProductoLN.ObtenerTodos(ddlGenero.SelectedValue, ddlTipoPrenda.SelectedValue);
+            listaProducto.DataBind();
         }
     }
 }

@@ -28,14 +28,19 @@
 					<h4 class="widget-title">Ordenar por Categorías</h4>
 					<div class="form-group">
                         <asp:Label ID="lblGenero" class="form-control" Text="Género" runat="server"></asp:Label>
-                        <asp:DropDownList ID="ddlGenero" class="form-control" runat="server">
-                            
+                        <asp:DropDownList ID="ddlGenero" class="form-control" AppendDataBoundItems="true" runat="server">
+                            <Items>
+                                <asp:ListItem Text="Seleccione" Value=""></asp:ListItem>
+                            </Items>
                         </asp:DropDownList>
                         <br />
                         <asp:Label ID="lblTipoPrenda" class="form-control" Text="Tipo" runat="server"></asp:Label>
-                        <asp:DropDownList ID="ddlTipoPrenda" class="form-control" runat="server">
-                           
+                        <asp:DropDownList ID="ddlTipoPrenda" class="form-control" AppendDataBoundItems="true" runat="server">
+                           <Items>
+                                <asp:ListItem Text="Seleccione" Value=""></asp:ListItem>
+                            </Items>
                         </asp:DropDownList>
+                        <asp:Button CssClass="btn btn-main mt-20" ID="btnFiltrar" Text="Filtrar" runat="server" OnClick="btnFiltrar_Click" />
                         </div>
                     </div>
             </div>
@@ -45,12 +50,11 @@
 					
 			        
                
-
+<asp:UpdatePanel ID="updatePanel1" runat="server">
+<ContentTemplate>
 <asp:ListView ID="listaProducto" runat="server"
              GroupItemCount="3"
-             ItemType="SunshineEntidades.Producto"
-             SelectMethod="listaProductos_GetData"
-             >
+             ItemType="SunshineEntidades.Producto">
              <%-- No hay datos --%>
         <EmptyDataTemplate>
             <div class="col-lg-4">
@@ -91,7 +95,11 @@
             </div>
         </LayoutTemplate>
     </asp:ListView>
-
+    </ContentTemplate>
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="btnFiltrar" EventName="Click" />
+    </Triggers>
+    </asp:UpdatePanel>
 
 
 

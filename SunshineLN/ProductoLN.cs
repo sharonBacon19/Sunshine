@@ -11,23 +11,29 @@ namespace SunshineLN
 {
     public class ProductoLN
     {
-        public static List<Producto> ObtenerTodos()
+        public static List<Producto> ObtenerTodos(string idGenero, string idTipoPrenda)
         {
             List<Producto> lista = new List<Producto>();
             DataSet ds = ProductoDatos.SeleccionarTodos();
 
             foreach (DataRow fila in ds.Tables[0].Rows)
             {
-                Producto registro = new Producto();
-                registro.id = Convert.ToInt16(fila["ID"]);
-                registro.nombre = Convert.ToString(fila["NOMBRE"]);
-                registro.descripcion = Convert.ToString(fila["DESCRIPCION"]);
-                registro.precio = Convert.ToInt32(fila["PRECIO"]);
-                registro.genero = GeneroLN.Obtener(Convert.ToInt16(fila["IDGENERO"]));
-                registro.tipoPrenda = TipoPrendaLN.Obtener(Convert.ToInt16(fila["IDTIPOPRENDA"]));
-                registro.imagen = Convert.ToString(fila["IMAGEN"]);
+                if(Convert.ToString(fila["IDGENERO"]).Equals(idGenero) || idGenero.Equals(""))
+                {
+                    if (Convert.ToString(fila["IDTIPOPRENDA"]).Equals(idTipoPrenda) || idTipoPrenda.Equals(""))
+                    {
+                        Producto registro = new Producto();
+                        registro.id = Convert.ToInt16(fila["ID"]);
+                        registro.nombre = Convert.ToString(fila["NOMBRE"]);
+                        registro.descripcion = Convert.ToString(fila["DESCRIPCION"]);
+                        registro.precio = Convert.ToInt32(fila["PRECIO"]);
+                        registro.genero = GeneroLN.Obtener(Convert.ToInt16(fila["IDGENERO"]));
+                        registro.tipoPrenda = TipoPrendaLN.Obtener(Convert.ToInt16(fila["IDTIPOPRENDA"]));
+                        registro.imagen = Convert.ToString(fila["IMAGEN"]);
 
-                lista.Add(registro);
+                        lista.Add(registro);
+                    }
+                }               
             }
             return lista;
         }
@@ -35,24 +41,10 @@ namespace SunshineLN
         public static Producto Obtener(int idProducto)
         {
             List<Producto> lista = new List<Producto>();
-            lista = ProductoLN.ObtenerTodos();
+            lista = ProductoLN.ObtenerTodos("", "");
             Producto pro = new Producto();
             pro = (lista.Find(elemento => elemento.id == idProducto));
             return pro;
-        }
-
-        public List<Producto> ProductoPorGenero(int idGenero)
-        {
-            List<Producto> lista = ProductoLN.ObtenerTodos();
-            List<Producto> gen = lista.Where(x => x.genero.id == idGenero).ToList();
-            return gen;
-        }
-
-        public List<Producto> ProductoPorTipoPrenda(int idTipoPrenda)
-        {
-            List<Producto> lista = ProductoLN.ObtenerTodos();
-            List<Producto> gen = lista.Where(x => x.tipoPrenda.id == idTipoPrenda).ToList();
-            return gen;
         }
     }
 }
