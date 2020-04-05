@@ -179,7 +179,7 @@ Alter table Producto add constraint FK_Producto_TipoPrenda foreign key (IdTipoPr
 
 create table DetPedido
 (
-ID int identity not null,
+ID int not null,
 CANTIDAD int not null,
 IDPRODUCTO int not null,
 SUBTOTAL INT not null,

@@ -81,5 +81,10 @@ namespace SunshineWeb
             }
             return Subtotal;
         }
+
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -22,16 +22,18 @@ namespace SunshineWeb
         }
 
        
-        public List<DetPedido> listaProducto_GetData()
+        public List<DetPedido> listaProducto()
         {
             lista = (List<DetPedido>)Session["lista"];
+            grvListado.DataSource = lista;
+            grvListado.DataBind();
             return lista;
         }
 
         private int total()
         {
             int total = 0;
-            lista = listaProducto_GetData();
+            lista = listaProducto();
 
             foreach (DetPedido det in lista)
             {

@@ -21,71 +21,30 @@
                 <div class="col-md-8 col-md-offset-2">
                   <div class="block">
                     <div class="product-list">
-
-
-
-
-
-
-
-                       
-                            <asp:ListView ID="listaProducto" runat="server" GroupItemCount="3" ItemType="SunshineEntidades.DetPedido" SelectMethod="listaProducto_GetData">
-                                <%-- No hay datos--%> 
-                            <EmptyDataTemplate>
-                                <div class="col-lg-4">
-                                    <%--No hay datos--%>
-                                </div>
-                            </EmptyDataTemplate>
-                                 <%-- Item es vacío --%>
-                           <EmptyItemTemplate>
-                                <div class="card text-center border-primary mb-4">
-                                </div>
-                            </EmptyItemTemplate>
-                                 <%-- Fila o grupo --%>
-                            <GroupTemplate>
-                                <div class="row">
-                                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
-                                </div>
-                            </GroupTemplate>
-                                 <%-- Información de cada item --%>
-                            <ItemTemplate>
-                                <div class="col-lg-4 ">
-                                    <div class="product-item ">
-                                        <div class="product-thumb block text-center" runat="server">
-					                        <asp:Image ID="ImgP" class="card-title" runat="server" ImageUrl="<%#: Item.producto.imagen%>" Width="200" Height="200"></asp:Image>
-                                            <h5 class="card-title"><%#: Item.producto.nombre %></h5>
-                                            <br />
-                                            <asp:Label ID="lblCanidad" runat="server" Text="Cantidad: "></asp:Label> <%#:Item.cantidad %>
-                                            <br />
-                                            <asp:label ID="lblTalla" runat="server" Text="Talla: "></asp:label> <%#:Item.talla.tipoTalla%>
-                                            <br />
-                                             <asp:label ID="lblColor" runat="server" Text="Color: "></asp:label> <%#: Item.color.tipoColor%>
-                                            <br />
-                                            <div class="preview-meta">
-                                                <asp:Button ID="btnQuitar" CssClass="btn btn-main mt-20"  Text="Quitar" runat="server" CommandArgument="<%#: Item.producto.id %>" OnCommand="btnQuitar_Command"/> 
-                                            </div >
-                                            <br /><br />
-                                        </div>                   
-                                </div>
-                             </div>
-                            </ItemTemplate>
-                                 <%-- Plantilla del contenido --%>        
-                            <LayoutTemplate>
-                                <div class="container">
-                                    <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
-                                </div>
-                            </LayoutTemplate>
-                        </asp:ListView>
-
+                        <asp:GridView ID="grvListado" BorderColor="White" runat="server"  CellSpacing="50" CellPadding="50" Width="100%" AutoGenerateColumns="false">
+                             <Columns>
+                                 <asp:TemplateField HeaderText="Producto">
+                                     <ItemTemplate>
+                                         <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("producto.Imagen") %>' Width="100" Height="100" />
+                                     </ItemTemplate>
+                                 </asp:TemplateField>
+                                <asp:BoundField DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
+                                <asp:BoundField DataField="producto.precio" HeaderText="Precio" DataFormatString="{0:0} c/u"/>
+                                  <asp:TemplateField HeaderText="">
+                                      <ItemTemplate>
+                                           <asp:Button ID="btnQuitar" CssClass="btn btn-main mt-20"  Text="Quitar" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnQuitar_Command" />
+                                      </ItemTemplate>
+                                  </asp:TemplateField> 
+                             </Columns>
+                           <HeaderStyle CssClass="table-info" />
+                        </asp:GridView> 
                     </div>
                   </div>
                 </div>
             </div>
         </div>
         </div>
-    </div>
-
-    
+    </div>   
 
     <section class="products section" style="position:center">
 	<div class="container">
@@ -105,5 +64,4 @@
         </div>
      </div>
     </section>
-
 </asp:Content>

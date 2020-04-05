@@ -32,7 +32,7 @@
                                  <asp:Label ID="lblTarjeta"  runat="server" Text="Número de Tarjeta"></asp:Label>
                                  <asp:TextBox ID="txtTarjeta" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>                                 
                               </div>
-                              <div class="form-group" >
+                             <%-- <div class="form-group" >
                                  <asp:Label ID="lblFechaTarjeta"  runat="server" Text="Fecha de expiración"></asp:Label>
                                  <asp:TextBox ID="txtFechaTarjeta" runat="server" class="form-control" placeholder="(MM/YY)" ></asp:TextBox>                                    
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*La fecha de expiración de la tarjeta es requerida" ControlToValidate="txtFechaTarjeta" ValidationGroup="confirmar"
@@ -45,8 +45,8 @@
                                   ValidationExpression="[0-9]{3}"></asp:RegularExpressionValidator>  
                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*El código de la tarjeta es requerida" ControlToValidate="txtCodigoTarjeta" ValidationGroup="confirmar" 
                                   SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                              </div>
-                                <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" />
+                              </div>--%>
+                                <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" OnClick="btnConfirmar_Click"/>
                         </div>
                      </div>
                   </div>
