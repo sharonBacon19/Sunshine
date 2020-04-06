@@ -73,6 +73,7 @@
     <Content Include="carrito.aspx" />
     <Content Include="css\home.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\tabla.css" />
     <Content Include="finalizarCompra.aspx" />
     <Content Include="images\about\about.jpg" />
     <Content Include="images\about\awards-logo.png" />

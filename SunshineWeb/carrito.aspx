@@ -20,15 +20,21 @@
           <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                   <div class="block">
-                    <div class="product-list">
-                        <asp:GridView ID="grvListado" BorderColor="White" runat="server"  CellSpacing="50" CellPadding="50" Width="100%" AutoGenerateColumns="false">
+                    <div class="product-list"> 
+                        <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
+                            RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
+                            HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
+                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" AlternatingRowStyle-BackColor="#f0f0f0" Height="100%" 
+                            runat="server" AutoGenerateColumns="false">
                              <Columns>
                                  <asp:TemplateField HeaderText="Producto">
                                      <ItemTemplate>
                                          <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("producto.Imagen") %>' Width="100" Height="100" />
+                                     <ItemStyle BorderStyle="Groove" HorizontalAlign="Center" width="200" 
+                                        Height="100" Wrap="True"/>
                                      </ItemTemplate>
                                  </asp:TemplateField>
-                                <asp:BoundField DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
+                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
                                 <asp:BoundField DataField="producto.precio" HeaderText="Precio" DataFormatString="{0:0} c/u"/>
                                   <asp:TemplateField HeaderText="">
                                       <ItemTemplate>
@@ -36,7 +42,7 @@
                                       </ItemTemplate>
                                   </asp:TemplateField> 
                              </Columns>
-                           <HeaderStyle CssClass="table-info" />
+                           <HeaderStyle/>
                         </asp:GridView> 
                     </div>
                   </div>
@@ -65,3 +71,4 @@
      </div>
     </section>
 </asp:Content>
+

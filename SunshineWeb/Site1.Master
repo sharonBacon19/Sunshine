@@ -33,7 +33,7 @@
   <link rel="stylesheet" type="text/css" href="plugins/revolution-slider/revolution/css/settings.css">
   <link rel="stylesheet" type="text/css" href="plugins/revolution-slider/revolution/css/layers.css">
   <link rel="stylesheet" type="text/css" href="plugins/revolution-slider/revolution/css/navigation.css">
-  
+    <link href="css/tabla.css" rel="stylesheet" />
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
