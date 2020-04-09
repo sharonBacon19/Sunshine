@@ -20,17 +20,17 @@ namespace SunshineLN
             {
                 Canje registro = new Canje();
                 registro.id = Convert.ToInt16(fila["ID"]);
-                registro.producto = ProductoLN.Obtener(Convert.ToInt16(fila["IDPRODUCTO"]));
-                registro.clienteCupon = ClienteCuponLN.Obtener(Convert.ToInt16(fila["IDCLIENTECUPON"]));
+                registro.cliente = ClienteLN.ObtenerPorIdentificacion(Convert.ToString(fila["IDCLIENTE"]));
+                registro.cupon = CuponLN.Obtener(Convert.ToInt16(fila["IDCUPON"]));
                 lista.Add(registro);
             }
             return lista;
         }
 
-        public static List<Canje> CanjePorProducto(int idProducto)
+        public static List<Canje> CanjePorCliente(string identifiacion)
         {
             List<Canje> lista = CanjeLN.ObtenerTodos();
-            List<Canje> canje = lista.Where(x => x.producto.id == idProducto).ToList();
+            List<Canje> canje = lista.Where(x => x.cliente.identificacion == identifiacion).ToList();
             return canje;
         }
 

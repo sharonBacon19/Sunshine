@@ -251,12 +251,12 @@ Alter table clienteCupon add constraint FK_ClienteCupon_Cupon foreign key (IDCUP
 create table Canje
 (
 ID INT IDENTITY NOT NULL,
-IDPRODUCTO INT NOT NULL,
-IDCLIENTECUPON INT NOT NULL
+IDCLIENTE NVARCHAR(15) NOT NULL,
+IDCUPON INT NOT NULL
 )
 Alter table Canje add constraint PK_Canje primary key (id);
-Alter table Canje add constraint FK_Canje_Producto foreign key (IDPRODUCTO) references Producto (Id);
-ALter table Canje add constraint FK_Canje_ClienteCupon foreign key (IDCLIENTECUPON) references CLIENTECUPON (Id);
+Alter table Canje add constraint FK_Canje_Cliente foreign key (IDCLIENTE) references CLIENTE (IDENTIFICACION);
+ALter table Canje add constraint FK_Canje_Cupon foreign key (IDCUPON) references CUPON (Id);
 
 create table Direccion
 (
@@ -392,6 +392,7 @@ GO
 
 CREATE Procedure Insertar_DetPedido
 (
+ @ID int,
  @CANTIDAD INT,
  @IDPRODUCTO INT ,
  @SUBTOTAL INT,
@@ -401,8 +402,8 @@ CREATE Procedure Insertar_DetPedido
 )
 as
 begin
- insert into DetPedido (CANTIDAD, IDPRODUCTO, SUBTOTAL, FECHAPEDIDO, IDTALLA, IDCOLOR)
- values (@CANTIDAD, @IDPRODUCTO, @SUBTOTAL, @FECHAPEDIDO, @IDTALLA, @IDCOLOR)
+ insert into DetPedido (ID, CANTIDAD, IDPRODUCTO, SUBTOTAL, FECHAPEDIDO, IDTALLA, IDCOLOR)
+ values (@ID, @CANTIDAD, @IDPRODUCTO, @SUBTOTAL, @FECHAPEDIDO, @IDTALLA, @IDCOLOR)
 end
 GO
 
@@ -421,13 +422,13 @@ GO
 
 CREATE Procedure Insertar_Canje
 (
- @IDPRODUCTO INT,
- @IDCLIENTECUPON INT
+ @IDCLIENTE INT,
+ @IDCUPON INT
 )
 as
 begin
- insert into Canje(IDPRODUCTO, IDCLIENTECUPON)
- values (@IDPRODUCTO, @IDCLIENTECUPON)
+ insert into Canje(IDCLIENTE, IDCUPON)
+ values (@IDCLIENTE, @IDCUPON)
 end
 GO
 

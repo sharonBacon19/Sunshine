@@ -26,8 +26,8 @@ namespace SunshineDatos
             SqlCommand comando = new SqlCommand("Insertar_Canje");
             comando.CommandType = CommandType.StoredProcedure;
             //Parámetros
-            comando.Parameters.AddWithValue("@IDPRODUCTO", canje.producto.id);
-            comando.Parameters.AddWithValue("@IDCLIENTECUPON", canje.clienteCupon.id);
+            comando.Parameters.AddWithValue("@IDCLIENTE", canje.cliente.identificacion);
+            comando.Parameters.AddWithValue("@IDCUPON", canje.cupon.id);
             db.ExecuteNonQuery(comando);
         }
     }
