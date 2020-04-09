@@ -67,7 +67,7 @@ namespace SunshineWeb
                         //ddlActividad.SelectedValue = idActividad.ToString();
                         Producto producto = producto1(idproducto);
 
-                        int idDet = new Random().Next(1, 12);
+                        int idDet = new Random().Next(1, 1000);
 
                         DetPedido det = new DetPedido
                         {

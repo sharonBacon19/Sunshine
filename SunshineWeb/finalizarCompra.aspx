@@ -31,21 +31,10 @@
                               <div class="form-group" >
                                  <asp:Label ID="lblTarjeta"  runat="server" Text="Número de Tarjeta"></asp:Label>
                                  <asp:TextBox ID="txtTarjeta" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>                                 
-                              </div>
-                             <%-- <div class="form-group" >
-                                 <asp:Label ID="lblFechaTarjeta"  runat="server" Text="Fecha de expiración"></asp:Label>
-                                 <asp:TextBox ID="txtFechaTarjeta" runat="server" class="form-control" placeholder="(MM/YY)" ></asp:TextBox>                                    
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*La fecha de expiración de la tarjeta es requerida" ControlToValidate="txtFechaTarjeta" ValidationGroup="confirmar"
-                                  SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                              </div>
-                              <div class="form-group ">
-                                 <asp:Label ID="lblCodigoTarjeta"  runat="server" Text="Código de tarjeta"></asp:Label>
-                                 <asp:TextBox ID="txtCodigoTarjeta" runat="server" class="form-control" ></asp:TextBox>
-                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="* Sólo se pueden ingresar 3 números" ForeColor="red" ControlToValidate="txtTarjeta" ValidationGroup="confirmar" 
-                                  ValidationExpression="[0-9]{3}"></asp:RegularExpressionValidator>  
-                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*El código de la tarjeta es requerida" ControlToValidate="txtCodigoTarjeta" ValidationGroup="confirmar" 
-                                  SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                              </div>--%>
+                              </div>    
+                              <div class="form-group" >
+                                 <asp:Label ID="lblMensaje"  runat="server" Text=""></asp:Label>                                
+                              </div>  
                                 <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" OnClick="btnConfirmar_Click"/>
                         </div>
                      </div>
@@ -93,21 +82,12 @@
                        <div class="form-group">
                            <br />
                           <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                          <asp:TextBox ID="txtSubTotal" class="form-control" placeholder="" runat="server"></asp:TextBox>
-                           <br />       
-                           <asp:Label ID="lblTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                           <asp:TextBox ID="txtTotal" class="form-control" placeholder="" runat="server"></asp:TextBox>
+                          <asp:TextBox ID="txtSubTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>
+                           <br />                           
+                           <asp:Label ID="lblTotal" class="form-control" Text="Total" runat="server"></asp:Label>
+                           <asp:TextBox ID="txtTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>                              
                        </div>
-                        <%--<li>
-                            <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                        <asp:TextBox ID="txtSubTotal" class="form-control" placeholder="" runat="server"></asp:TextBox>
-                        </li>   
-                        <li>
-                           <asp:Label ID="lblTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                        <asp:TextBox ID="txtTotal" class="form-control" placeholder="" runat="server"></asp:TextBox>
-                        </li>--%>
                      </ul>
-
             </div>
           </div>
         </div>

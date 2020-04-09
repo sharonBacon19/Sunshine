@@ -26,6 +26,7 @@ namespace SunshineDatos
             SqlCommand comando = new SqlCommand("Insertar_DetPedido");
             comando.CommandType = CommandType.StoredProcedure;
             //Parámetros
+            comando.Parameters.AddWithValue("@ID", detPedido.id);
             comando.Parameters.AddWithValue("@CANTIDAD", detPedido.cantidad);
             comando.Parameters.AddWithValue("@IDPRODUCTO", detPedido.producto.id);
             comando.Parameters.AddWithValue("@SUBTOTAL", detPedido.subtotal);
