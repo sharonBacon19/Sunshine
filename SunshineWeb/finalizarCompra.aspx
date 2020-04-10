@@ -47,8 +47,14 @@
                <div class="product-checkout-details">
                   <div class="block">
                      <h4 class="widget-title">Productos</h4>
+
+                      <%-- MENSAJE --%>
                        <div class="media product-card">
-                         <asp:GridView ID="grvListado" BorderColor="White" runat="server"  CellSpacing="50" CellPadding="50" Width="100%" AutoGenerateColumns="false">
+                         <asp:GridView ID="grvListado"  Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
+                            RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
+                            HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
+                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" AlternatingRowStyle-BackColor="#f0f0f0" Height="100%" 
+                            runat="server" AutoGenerateColumns="false">
                              <Columns>
                                  <asp:TemplateField HeaderText="Producto">
                                      <ItemTemplate>
@@ -57,6 +63,12 @@
                                  </asp:TemplateField>
                                 <asp:BoundField DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
                                 <asp:BoundField DataField="producto.precio" HeaderText="Precio" DataFormatString="{0:0} c/u"/>
+                                <%--ESTO ES DEL BOTÓN APLICAR DESCUENTO
+                                    <asp:TemplateField HeaderText="">
+                                    <ItemTemplate>
+                                        <asp:Button ID="btn" CssClass="btn btn-main mt-20"  Text="Aplicar" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnQuitar_Command" />
+                                    </ItemTemplate>
+                                </asp:TemplateField> --%>
                              </Columns>
                            <HeaderStyle CssClass="table-info" />
                         </asp:GridView>                       

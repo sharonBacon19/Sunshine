@@ -23,13 +23,20 @@ namespace SunshineWeb
 
                 if (usu != null)
                 {
+                    if (usu.tipoUsuario.Equals("Admin"))
+                    {
+                        Session["admin"] = usu;
+
+                        Response.Redirect("inicioAdmin.aspx");
+                    }
+                    else
+                    {
                     Session["cliente"] = ClienteLN.ObtenerPorUsuario(usu);
 
-                    
-                    // ClientScript.RegisterStartupScript(this.GetType(),
-                    //"Login", "mensajeRedirect('Login','Credenciales correctas','success','inicio.aspx')",
-                    //  true);
                     Response.Redirect("inicio.aspx");
+                    }
+                    
+                    
                 }
                 else
                 {

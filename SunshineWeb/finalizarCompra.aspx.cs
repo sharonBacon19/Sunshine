@@ -215,7 +215,7 @@ namespace SunshineWeb
                 }                
 
 
-                lblMensaje.Text = "¡Compra éxitosa, gracias por preferirnos!";
+                lblMensaje.Text = "¡Compra exitosa, gracias por preferirnos!";
                 Session["lista"] = "";
             }
             else

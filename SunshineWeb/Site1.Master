@@ -6,7 +6,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
-<head>
+<head runat="server">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="description" content="Aviato E-Commerce Template">
   
@@ -109,57 +109,6 @@
 	</div>
 </section>
 
-    <%-- <div class="col-md-4 col-xs-12 col-sm-4">
-			<!-- Cart -->
-			<ul class="top-menu text-right list-inline">
-	          <li class="dropdown cart-nav dropdown-slide">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-cart"></i>Cart</a>
-	            <div class="dropdown-menu cart-dropdown">
-	            	<!-- Cart Item -->
-	            	<div class="media">
-	            		<a class="pull-left" href="#">
-	            			<img  class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
-	            		</a>
-	            		<div class="media-body">
-	            			<h4 class="media-heading"><a href="">Ladies Bag</a></h4>
-	            			<div class="cart-price">
-                              <span>1 x</span>
-                              <span>1250.00</span>
-                            </div>
-                            <h5><strong>$1200</strong></h5>
-	            		</div>
-                        <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-	            	</div><!-- / Cart Item -->
-	            	<!-- Cart Item -->
-	            	<div class="media">
-	            		<a class="pull-left" href="#">
-	            			<img  class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
-	            		</a>
-	            		<div class="media-body">
-	            			<h4 class="media-heading"><a href="">Ladies Bag</a></h4>
-	            			<div class="cart-price">
-                              <span>1 x</span>
-                              <span>1250.00</span>
-                            </div>
-                            <h5><strong>$1200</strong></h5>
-	            		</div>
-                        <a href="#" class="remove"><i class="tf-ion-close"></i></a>
-	            	</div><!-- / Cart Item -->
-	            	
-	            	<div class="cart-summary">
-                        <span>Total</span>
-                        <span class="total-price">$1799.00</span>
-                    </div>
-                    <ul class="text-center cart-buttons">
-                    	<li><a href="" class="btn btn-small">View Cart</a></li>
-                    	<li><a href="" class="btn btn-small btn-solid-border">Checkout</a></li>
-                    </ul>
-                </div>
- --%>
-
-
-    <%-- MINIMENU (ESQUINA)--%>
-
     <%-- MENU --%>
     <section class="menu">
 	<nav class="navbar navigation">
@@ -184,35 +133,54 @@
 	          <li class="dropdown ">
 	            <a href="#"></a>
 	          </li>
-			  <li class="dropdown ">
+			  <li id="liInicio" class="dropdown ">
 	            <a href="inicio.aspx">Inicio</a>
 	          </li>
-			  <li class="dropdown ">
+			  <li id="liTienda" class="dropdown ">
 	            <a href="tienda.aspx">Tienda</a>
 	          </li>
 
                 <%-- PERFIL!!!!!! --%>
 
-				<li class="dropdown dropdown-slide">
+				<li class="dropdown dropdown-slide" >
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
+					Perfil 
+					<span class="tf-ion-ios-arrow-down"></span></a>
+				<asp:Menu ID="MenuCliente" Visible="false" class="dropdown-menu" runat="server" >
+					
+					
+					<Items>
+						
+
+						<asp:MenuItem NavigateUrl="~/perfilCliente.aspx" Text="Mi Perfil" Value="1"/>
+						<asp:MenuItem NavigateUrl="~/Menu2.aspx" Text="Mis Compras" Value="2"/>
+						<asp:MenuItem NavigateUrl="~/carrito.aspx" Text="Mi Carrito" Value="3"/>   
+					</Items>
+				</asp:Menu>
+				</li >
+
+				
+
+				<%--<li class="dropdown dropdown-slide">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
 					Perfil 
 					<span class="tf-ion-ios-arrow-down"></span></a>
-	            <ul class="dropdown-menu">
+	            <ul id="ulMenuCliente"  class="dropdown-menu">
 					
 					<li role="separator" class="divider"></li>
-					<li><a href="perfilCliente.aspx">Mi Perfil</a></li>
-					<li><a href="blog-single.html">Mis Compras</a></li>
-					<li ><a href="carrito.aspx">Mi Carrito</a></li>
-					<li><a href="finalizarCompra.aspx">Finalizar Compra</a></li>
+					<li id="liMiPerfil"><a href="perfilCliente.aspx">Mi Perfil</a></li>
+					<li id="liMisCompras"><a href="blog-single.html">Mis Compras</a></li>
+					<li id="liMiCarrito"><a href="carrito.aspx">Mi Carrito</a></li>
+					<%--<li><a href="finalizarCompra.aspx">Finalizar Compra</a></li>
 	            </ul>
-	          </li>
+	          </li>--%>
 				<li class="dropdown dropdown-slide">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
 					Login 
 					<span class="tf-ion-ios-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 						<li class="dropdown-header"></li>
-						<li role="separator" class="divider"></li>
+						
 						<li><a href="login.aspx">Login</a></li>
 						<li><a href="singin.aspx">Signin</a></li>
 					</ul>

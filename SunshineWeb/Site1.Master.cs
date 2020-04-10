@@ -14,22 +14,26 @@ namespace SunshineWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             
-                if((Cliente)Session["cliente"]!=null)
-                {
-                    Cliente cliente = (Cliente)Session["cliente"];
-                    lblNombreCliente.Text = cliente.nombreCompleto;
+            if((Cliente)Session["cliente"]!=null)
+            {
+                Cliente cliente = (Cliente)Session["cliente"];
+                lblNombreCliente.Text = cliente.nombreCompleto;
                     
-                    ClienteNivel cN = new ClienteNivel(); 
-                    cN=ClienteNivelLN.Obtener(cliente.identificacion);
+                ClienteNivel cN = new ClienteNivel(); 
+                cN=ClienteNivelLN.Obtener(cliente.identificacion);
 
-                    Nivel n = NivelLN.Obtener(cN.nivel.id);
-                    ImgNIvel.ImageUrl = n.Imagen;
-                    lblNombreCliente.Visible = true;
-                    ImgNIvel.Visible = true;
-                    btnCerrarSesion.Visible = true;
-                    
-                }
-
+                Nivel n = NivelLN.Obtener(cN.nivel.id);
+                ImgNIvel.ImageUrl = n.Imagen;
+                lblNombreCliente.Visible = true;
+                ImgNIvel.Visible = true;
+                btnCerrarSesion.Visible = true;
+                MenuCliente.Visible = true;
+            }
+            if((Usuario)Session["admin"] != null)
+            {
+                btnCerrarSesion.Visible = true;
+                
+            }
                
 
                 
@@ -40,15 +44,15 @@ namespace SunshineWeb
 
         }
 
-        //protected void btnCerrarSesion_Click(object sender, EventArgs e)
-        //{
-        //    if((Cliente)Session["cliente"] != null)
-        //    {
-        //        Session["cliente"] = null;
-        //        btnCerrarSesion.Visible = false;
-        //        ImgNIvel.Visible = false;
-        //    }
-            
-        //}
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if ((Cliente)Session["cliente"] != null)
+            {
+                Session["cliente"] = null;
+                btnCerrarSesion.Visible = false;
+                ImgNIvel.Visible = false;
+            }
+
+        }
     }
 }
