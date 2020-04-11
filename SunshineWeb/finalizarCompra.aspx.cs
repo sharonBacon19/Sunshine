@@ -239,5 +239,16 @@ namespace SunshineWeb
             var imageTemporal = new Bitmap(ms);
             return Convert.ToInt32(qrCode.GetHashCode());
         }
+
+        private static Producto producto = new Producto();
+
+        protected void btnAplicar_Command(object sender, CommandEventArgs e)
+        {
+            int id = int.Parse(e.CommandArgument.ToString());
+            producto = ProductoLN.Obtener(id);
+
+            lblProdNombre.Text = producto.nombre;
+            prodIm.ImageUrl = producto.imagen;
+        }
     }    
 }

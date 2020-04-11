@@ -11,61 +11,70 @@ namespace SunshineWeb
 {
 
 
-    public partial class Site1
+    public partial class tiendaAdmin
     {
 
         /// <summary>
-        /// Control head.
+        /// Control lblGenero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label lblGenero;
 
         /// <summary>
-        /// Control ScriptManager1.
+        /// Control ddlGenero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGenero;
 
         /// <summary>
-        /// Control lblNombreCliente.
+        /// Control lblTipoPrenda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreCliente;
+        protected global::System.Web.UI.WebControls.Label lblTipoPrenda;
 
         /// <summary>
-        /// Control ImgNIvel.
+        /// Control ddlTipoPrenda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgNIvel;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPrenda;
 
         /// <summary>
-        /// Control btnCerrarSesion.
+        /// Control btnFiltrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
 
         /// <summary>
-        /// Control ContentPlaceHolder1.
+        /// Control updatePanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.UpdatePanel updatePanel1;
+
+        /// <summary>
+        /// Control listaProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView listaProducto;
     }
 }

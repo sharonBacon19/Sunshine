@@ -9,18 +9,17 @@ using System.Web.UI.WebControls;
 
 namespace SunshineWeb
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class VistaCliente : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if((Cliente)Session["cliente"]!=null)
+            if ((Cliente)Session["cliente"] != null)
             {
                 Cliente cliente = (Cliente)Session["cliente"];
                 lblNombreCliente.Text = cliente.nombreCompleto;
-                    
-                ClienteNivel cN = new ClienteNivel(); 
-                cN=ClienteNivelLN.Obtener(cliente.identificacion);
+
+                ClienteNivel cN = new ClienteNivel();
+                cN = ClienteNivelLN.Obtener(cliente.identificacion);
 
                 Nivel n = NivelLN.Obtener(cN.nivel.id);
                 ImgNIvel.ImageUrl = n.Imagen;
@@ -29,21 +28,21 @@ namespace SunshineWeb
                 btnCerrarSesion.Visible = true;
                 //MenuCliente.Visible = true;
             }
-            if((Usuario)Session["admin"] != null)
+            if ((Usuario)Session["admin"] != null)
             {
                 btnCerrarSesion.Visible = true;
-                
+
             }
-               
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            if ((Cliente)Session["cliente"] != null)
+            if (Session["cliente"] != null)
             {
                 Session["cliente"] = null;
-                btnCerrarSesion.Visible = false;
-                ImgNIvel.Visible = false;
+                List<DetPedido> lista = new List<DetPedido>();
+                Session["lista"] = lista;
+                Response.Redirect("inicio.aspx");
             }
 
         }

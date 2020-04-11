@@ -97,7 +97,7 @@
                     	<li>
 							<%--<form runat="server">--%>
 								<asp:Button class="btn btn-small btn-solid-border" 
-									Visible="false" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" />
+									Visible="false" ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" OnClick="btnCerrarSesion_Click"/>
                     		<%--</form>--%>
 						</li>
                     </ul>
@@ -140,55 +140,19 @@
 	            <a href="tienda.aspx">Tienda</a>
 	          </li>
 
-                <%-- PERFIL!!!!!! --%>
 
-				<li class="dropdown dropdown-slide" >
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
-					Perfil 
-					<span class="tf-ion-ios-arrow-down"></span></a>
-				<asp:Menu ID="MenuCliente" Visible="false" class="dropdown-menu" runat="server" >
-					
-					
-					<Items>
-						
-
-						<asp:MenuItem NavigateUrl="~/perfilCliente.aspx" Text="Mi Perfil" Value="1"/>
-						<asp:MenuItem NavigateUrl="~/Menu2.aspx" Text="Mis Compras" Value="2"/>
-						<asp:MenuItem NavigateUrl="~/carrito.aspx" Text="Mi Carrito" Value="3"/>   
-					</Items>
-				</asp:Menu>
-				</li >
-
-				
-
-				<%--<li class="dropdown dropdown-slide">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
-					Perfil 
-					<span class="tf-ion-ios-arrow-down"></span></a>
-	            <ul id="ulMenuCliente"  class="dropdown-menu">
-					
-					<li role="separator" class="divider"></li>
-					<li id="liMiPerfil"><a href="perfilCliente.aspx">Mi Perfil</a></li>
-					<li id="liMisCompras"><a href="blog-single.html">Mis Compras</a></li>
-					<li id="liMiCarrito"><a href="carrito.aspx">Mi Carrito</a></li>
-					<%--<li><a href="finalizarCompra.aspx">Finalizar Compra</a></li>
-	            </ul>
-	          </li>--%>
 				<li class="dropdown dropdown-slide">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
-					Login 
+					Ingreso 
 					<span class="tf-ion-ios-arrow-down"></span></a>
 					<ul class="dropdown-menu">
 						<li class="dropdown-header"></li>
 						
-						<li><a href="login.aspx">Login</a></li>
-						<li><a href="singin.aspx">Signin</a></li>
+						<li><a href="login.aspx">Ingresar</a></li>
+						<li><a href="singin.aspx">Registrarse</a></li>
 					</ul>
 	          </li>
-				
-				<li class="dropdown ">
-	            <a href="inicioAdmin.aspx">Administrador</a>
-	          </li>
+			
 
 	        </ul>
 	      	</div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="finalizarCompra.aspx.cs" Inherits="SunshineWeb.finalizarCompra" %>
+﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/VistaCliente.Master" AutoEventWireup="true" CodeBehind="finalizarCompra.aspx.cs" Inherits="SunshineWeb.finalizarCompra" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -63,16 +63,22 @@
                                  </asp:TemplateField>
                                 <asp:BoundField DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
                                 <asp:BoundField DataField="producto.precio" HeaderText="Precio" DataFormatString="{0:0} c/u"/>
-                                <%--ESTO ES DEL BOTÓN APLICAR DESCUENTO
-                                    <asp:TemplateField HeaderText="">
-                                    <ItemTemplate>
-                                        <asp:Button ID="btn" CssClass="btn btn-main mt-20"  Text="Aplicar" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnQuitar_Command" />
-                                    </ItemTemplate>
-                                </asp:TemplateField> --%>
+                                  <asp:TemplateField HeaderText="">
+                                      <ItemTemplate>
+                                           <asp:Button ID="btnAplicar" CssClass="btn btn-main mt-20"  Text="Aplicar Descuento" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnAplicar_Command" />
+                                      </ItemTemplate>
+                                  </asp:TemplateField>  
                              </Columns>
                            <HeaderStyle CssClass="table-info" />
                         </asp:GridView>                       
                        </div>  
+                      <br />
+                      <asp:Label ID="lblAplicar" runat="server" Text="Producto a aplicar descuento"></asp:Label>
+                      <br />
+                      <asp:Label ID="lblProdNombre" runat="server" Text=""></asp:Label>
+                      <br />
+                      <asp:Image ID="prodIm" runat="server" ImageUrl="" Width="100" Height="100" />
+
                      </div>
 
 

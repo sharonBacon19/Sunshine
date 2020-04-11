@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="inicioAdmin.aspx.cs" Inherits="SunshineWeb.inicioAdmin" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/VistaCliente.Master" AutoEventWireup="true" CodeBehind="inicioCliente.aspx.cs" Inherits="SunshineWeb.inicioCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<title>Sunshine | Inicio</title>
 </asp:Content>

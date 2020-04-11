@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="SunshineWeb.Admin" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VistaCliente.master.cs" Inherits="SunshineWeb.VistaCliente" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -83,12 +83,12 @@
 			<div class="col-md-4 col-xs-12 col-sm-4">
 
 			<ul class="top-menu text-right list-inline">
-				<%--<li class="dropdown cart-nav dropdown-slide">
-					<a href="carrito.aspx" class="dropdown" >
+				<li class="dropdown cart-nav dropdown-slide">
+					<a href="carritoCliente.aspx" class="dropdown" >
 						<i class="tf-ion-android-cart">
 						</i>
 					</a>
-				</li>--%>
+				</li>
 
 				<li>
 					<ul class="text-center cart-buttons">
@@ -133,22 +133,41 @@
 	            <a href="#"></a>
 	          </li>
 			  <li id="liInicio" class="dropdown ">
-	            <a href="inicioAdmin.aspx">Inicio</a>
+	            <a href="inicioCliente.aspx">Inicio</a>
 	          </li>
 			  <li id="liTienda" class="dropdown ">
-	            <a href="tiendaAdmin.aspx">Tienda</a>
+	            <a href="tiendaCliente.aspx">Tienda</a>
 	          </li>
-				<li id="liCrearCliente" class="dropdown ">
-	            <a href="crearCliente.aspx">Crear Cliente</a>
-	          </li>
-				<li id="liListaClientes" class="dropdown ">
-	            <a href="">Lista Clientes</a>
-	          </li>
-				<li id="liAsignarCupones" class="dropdown ">
-	            <a href="">Asignar Cupones</a>
-	          </li>			
-			
 
+                <%-- PERFIL!!!!!! --%>
+
+				
+				<li class="dropdown dropdown-slide">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
+					Perfil 
+					<span class="tf-ion-ios-arrow-down"></span></a>
+	            <ul id="ulMenuCliente"  class="dropdown-menu">
+					
+					<li role="separator" class="divider"></li>
+					<li id="liMiPerfil"><a href="perfilCliente.aspx">Mi Perfil</a></li>
+					<li id="liMisCompras"><a href="blog-single.html">Mis Compras</a></li>
+					<li id="liMiCarrito"><a href="carrito.aspx">Mi Carrito</a></li>
+					<li><a href="finalizarCompra.aspx">Finalizar Compra</a></li>
+	            </ul>
+	          </li>
+
+				<li class="dropdown dropdown-slide">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">
+					Ingreso 
+					<span class="tf-ion-ios-arrow-down"></span></a>
+					<ul class="dropdown-menu">
+						<li class="dropdown-header"></li>
+						
+						<li><a href="login.aspx">Ingresar</a></li>
+						<li><a href="singin.aspx">Registrarse</a></li>
+					</ul>
+	          </li>
+			
 	        </ul>
 	      	</div>
 	    </div>

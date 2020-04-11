@@ -11,7 +11,7 @@ namespace SunshineWeb
 {
 
 
-    public partial class inicioAdmin
+    public partial class inicioCliente
     {
     }
 }

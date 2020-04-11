@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="carrito.aspx" />
+    <Content Include="carritoCliente.aspx" />
+    <Content Include="crearCliente.aspx" />
     <Content Include="css\home.css" />
     <Content Include="css\style.css" />
     <Content Include="css\tabla.css" />
@@ -182,6 +184,7 @@
     <Content Include="images\team\team-3.jpg" />
     <Content Include="inicioAdmin.aspx" />
     <None Include="js\jquery-3.4.1.intellisense.js" />
+    <Content Include="inicioCliente.aspx" />
     <Content Include="js\jquery-3.4.1.js" />
     <Content Include="js\jquery-3.4.1.min.js" />
     <Content Include="js\jquery-3.4.1.slim.js" />
@@ -341,8 +344,11 @@
     <Content Include="plugins\themefisher-font\Read Me.txt" />
     <Content Include="plugins\themefisher-font\style.css" />
     <Content Include="productoVista.aspx" />
+    <Content Include="productoVistaCliente.aspx" />
     <Content Include="singin.aspx" />
     <Content Include="tienda.aspx" />
+    <Content Include="tiendaAdmin.aspx" />
+    <Content Include="tiendaCliente.aspx" />
     <Content Include="Web.config" />
     <Content Include="inicio.aspx" />
   </ItemGroup>
@@ -361,6 +367,20 @@
     <Compile Include="carrito.aspx.designer.cs">
       <DependentUpon>carrito.aspx</DependentUpon>
     </Compile>
+    <Compile Include="carritoCliente.aspx.cs">
+      <DependentUpon>carritoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="carritoCliente.aspx.designer.cs">
+      <DependentUpon>carritoCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="crearCliente.aspx.cs">
+      <DependentUpon>crearCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="crearCliente.aspx.designer.cs">
+      <DependentUpon>crearCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="finalizarCompra.aspx.cs">
       <DependentUpon>finalizarCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,6 +394,13 @@
     </Compile>
     <Compile Include="inicioAdmin.aspx.designer.cs">
       <DependentUpon>inicioAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inicioCliente.aspx.cs">
+      <DependentUpon>inicioCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inicioCliente.aspx.designer.cs">
+      <DependentUpon>inicioCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -395,6 +422,13 @@
     </Compile>
     <Compile Include="productoVista.aspx.designer.cs">
       <DependentUpon>productoVista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="productoVistaCliente.aspx.cs">
+      <DependentUpon>productoVistaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productoVistaCliente.aspx.designer.cs">
+      <DependentUpon>productoVistaCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="singin.aspx.cs">
@@ -424,6 +458,27 @@
     </Compile>
     <Compile Include="tienda.aspx.designer.cs">
       <DependentUpon>tienda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tiendaAdmin.aspx.cs">
+      <DependentUpon>tiendaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tiendaAdmin.aspx.designer.cs">
+      <DependentUpon>tiendaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tiendaCliente.aspx.cs">
+      <DependentUpon>tiendaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tiendaCliente.aspx.designer.cs">
+      <DependentUpon>tiendaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VistaCliente.Master.cs">
+      <DependentUpon>VistaCliente.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VistaCliente.Master.designer.cs">
+      <DependentUpon>VistaCliente.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -465,6 +520,7 @@
     <Content Include="plugins\themefisher-font\fonts\themefisher-font.woff" />
     <Content Include="plugins\themefisher-font\selection.json" />
     <Content Include="Site1.Master" />
+    <Content Include="VistaCliente.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

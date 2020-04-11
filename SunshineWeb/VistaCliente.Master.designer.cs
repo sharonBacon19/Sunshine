@@ -11,7 +11,7 @@ namespace SunshineWeb
 {
 
 
-    public partial class Site1
+    public partial class VistaCliente
     {
 
         /// <summary>

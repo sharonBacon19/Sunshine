@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace SunshineWeb
 {
-    public partial class carrito : System.Web.UI.Page
+    public partial class carritoCliente : System.Web.UI.Page
     {
         private static List<DetPedido> lista = new List<DetPedido>();
         protected void Page_Load(object sender, EventArgs e)
@@ -25,11 +25,10 @@ namespace SunshineWeb
                 {
                     lblMensaje.Visible = true;
                     lblMensaje.Text = "No hay compras aún";
-                }                
+                }
             }
         }
 
-       
         public List<DetPedido> listaProducto()
         {
             lista = (List<DetPedido>)Session["lista"];
@@ -57,7 +56,7 @@ namespace SunshineWeb
 
             foreach (DetPedido det in lista)
             {
-               if(det.producto.id == id)
+                if (det.producto.id == id)
                 {
                     lista.Remove(det);
                     Session["lista"] = lista;
@@ -76,7 +75,7 @@ namespace SunshineWeb
             else
             {
                 lblMensaje.Visible = true;
-                lblMensaje.Text ="Debe iniciar sesión para poder comprar";
+                lblMensaje.Text = "Debe iniciar sesión para poder comprar";
                 Response.Redirect("carrito.aspx");
             }
         }

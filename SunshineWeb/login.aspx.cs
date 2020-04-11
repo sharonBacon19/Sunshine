@@ -33,7 +33,7 @@ namespace SunshineWeb
                     {
                     Session["cliente"] = ClienteLN.ObtenerPorUsuario(usu);
 
-                    Response.Redirect("inicio.aspx");
+                    Response.Redirect("inicioCliente.aspx");
                     }
                     
                     
