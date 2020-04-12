@@ -252,11 +252,13 @@ create table Canje
 (
 ID INT IDENTITY NOT NULL,
 IDCLIENTE NVARCHAR(15) NOT NULL,
-IDCUPON INT NOT NULL
+IDCUPON INT NOT NULL,
+IDPRODUCTO INT NOT NULL
 )
 Alter table Canje add constraint PK_Canje primary key (id);
 Alter table Canje add constraint FK_Canje_Cliente foreign key (IDCLIENTE) references CLIENTE (IDENTIFICACION);
 ALter table Canje add constraint FK_Canje_Cupon foreign key (IDCUPON) references CUPON (Id);
+ALter table Canje add constraint FK_Canje_Producto foreign key (IDPRODUCTO) references PRODUCTO (Id);
 
 create table Direccion
 (
@@ -423,12 +425,13 @@ GO
 CREATE Procedure Insertar_Canje
 (
  @IDCLIENTE INT,
- @IDCUPON INT
+ @IDCUPON INT,
+ @IDPRODUCTO INT
 )
 as
 begin
- insert into Canje(IDCLIENTE, IDCUPON)
- values (@IDCLIENTE, @IDCUPON)
+ insert into Canje(IDCLIENTE, IDCUPON, IDPRODUCTO)
+ values (@IDCLIENTE, @IDCUPON, @IDPRODUCTO)
 end
 GO
 

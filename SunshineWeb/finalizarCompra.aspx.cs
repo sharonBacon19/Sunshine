@@ -18,6 +18,8 @@ namespace SunshineWeb
     public partial class finalizarCompra : System.Web.UI.Page
     {
         private List<Cupon> listaCupones;
+        private static Producto producto = new Producto();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -66,6 +68,7 @@ namespace SunshineWeb
         protected void ddlCupon_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+            imgCupon.Visible = true;
             imgCupon.ImageUrl = cupon.Imagen;
         }
 
@@ -88,6 +91,20 @@ namespace SunshineWeb
             return Subtotal;
         }
 
+        private int Subtotal2()
+        {
+            int Subtotal = 0;
+            List<DetPedido> lista = (List<DetPedido>)Session["lista"];
+            foreach (DetPedido det in lista)
+            {
+                if(det.producto.id != producto.id)
+                {
+                    Subtotal += det.producto.precio * det.cantidad;
+                }
+                
+            }
+            return Subtotal;
+        }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
@@ -95,102 +112,107 @@ namespace SunshineWeb
             Cliente cliente = (Cliente)Session["cliente"];
             if (cliente != null)
             {
-                Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));                
+                // si hay cliente hace lo siguiente
+
+                //agarra cupon (SUCAR COMO AGREGAR ITEM SIN VALOR DE SELECCIONE)
+                Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));  
+                
+
+                //se busca el nivel del cliente
                 ClienteNivel clienteNivel = ClienteNivelLN.ObtenerClienteNivel(cliente.identificacion);
 
-                //se inserta el cambio en el canje
-                Canje canje = new Canje
+                //se inserta el cambio en el canje, se pregunta primero si agarró algún cupon
+                if(cupon != null)
                 {
-                    cliente = cliente,
-                    cupon = cupon
-                };
-                CanjeLN.Insertar(canje);
+                    //se va a ser el canje sólo si escogió un producto
+
+                    if (producto != null)
+                    {
+                        Canje canje = new Canje
+                        {
+                            cliente = cliente,
+                            cupon = cupon,
+                            producto = producto //el que cliente escogío
+                        };
+                        CanjeLN.Insertar(canje);
+                    }                   
+                }
+                
 
                 //ACERCA DE LOS NIVELES
                 if(clienteNivel.nivel.nombre == "Bronce")
                 {
+                    // esta suma es acerca del monto que se compró + el monto meta LO QUE SE BUSCA ES ACTUALIZAR EL MONTO ACTUAL DEL CLIENTE NIVEL
+                    int suma = clienteNivel.montoActual + Subtotal();
+                    clienteNivel.montoActual = suma;
+
                     //subir de nivel y asignar cupon
-                    if(clienteNivel.nivel.montoMeta < Subtotal())
-                    {
+                    if (clienteNivel.nivel.montoMeta < clienteNivel.montoActual)
+                    {               
                         Nivel nivel = NivelLN.Obtener(2);
-                        Cupon cupon1 = CuponLN.Obtener(2);
                         ClienteNivel clienteNIvel = new ClienteNivel
                         {
                             cliente = cliente,
                             montoActual = Subtotal(),
                             nivel = nivel
                         };
-                        ClienteCupon clienteCupon = new ClienteCupon
-                        {
-                            cliente = cliente,
-                            codigoQR = qr(),
-                            cupon = cupon
-                        };
-                        //insertar nivel y cliente
-                        ClienteNivelLN.Insertar(clienteNIvel);
-                        ClienteCuponLN.Insertar(clienteCupon);                        
+                        //insertar nivel
+                        ClienteNivelLN.Insertar(clienteNIvel);                      
                     }
                 }
                 else
                 {
                     if (clienteNivel.nivel.nombre == "Plata")
                     {
+                        // esta suma es acerca del monto que se compró + el monto meta LO QUE SE BUSCA ES ACTUALIZAR EL MONTO ACTUAL DEL CLIENTE NIVEL
+                        int suma = clienteNivel.montoActual + Subtotal();
+                        clienteNivel.montoActual = suma;
                         //subir de nivel y asignar cupon
-                        if (clienteNivel.nivel.montoMeta < Subtotal())
+                        if (clienteNivel.nivel.montoMeta < clienteNivel.montoActual)
                             {
                                 Nivel nivel = NivelLN.Obtener(3);
-                                Cupon cupon1 = CuponLN.Obtener(3);
                                 ClienteNivel clienteNIvel = new ClienteNivel
                                     {
                                     cliente = cliente,
                                     montoActual = Subtotal(),
                                     nivel = nivel
                                     };
-                                 ClienteCupon clienteCupon = new ClienteCupon
-                                 {
-                                    cliente = cliente,
-                                    codigoQR = qr(),
-                                    cupon = cupon
-                                 };
-                            //insertar nivel y cliente
+                            //insertar nivel
                             ClienteNivelLN.Insertar(clienteNIvel);
-                            ClienteCuponLN.Insertar(clienteCupon);
                         }                        
                     }
                     else
                     {
                         if (clienteNivel.nivel.nombre == "Oro")
                         {
+                            // esta suma es acerca del monto que se compró + el monto meta LO QUE SE BUSCA ES ACTUALIZAR EL MONTO ACTUAL DEL CLIENTE NIVEL
+                            int suma = clienteNivel.montoActual + Subtotal();
+                            clienteNivel.montoActual = suma;
                             //subir de nivel y asignar cupon
-                            if (clienteNivel.nivel.montoMeta < Subtotal())
+                            if (clienteNivel.nivel.montoMeta <clienteNivel.montoActual)
                             {
                                 Nivel nivel = NivelLN.Obtener(4);
-                                Cupon cupon1 = CuponLN.Obtener(4);
                                 ClienteNivel clienteNIvel = new ClienteNivel
                                 {
                                     cliente = cliente,
                                     montoActual = Subtotal(),
                                     nivel = nivel
                                 };
-                                ClienteCupon clienteCupon = new ClienteCupon
-                                {
-                                    cliente = cliente,
-                                    codigoQR = qr(),
-                                    cupon = cupon
-                                };
-                                //insertar nivel y cliente
+                                //insertar nivel
                                 ClienteNivelLN.Insertar(clienteNIvel);
-                                ClienteCuponLN.Insertar(clienteCupon);
                             }
                         }                        
                     }
                 }
 
+
+
                 //sacar total
                 int descuento = 0;
                  descuento = cupon.descuento / 100;
+
                 int total = 0;
-                 total = Subtotal() - descuento;
+                total = Subtotal2() + (producto.precio - descuento);
 
                 //lista de compras
                 List<DetPedido> lista = (List<DetPedido>)Session["lista"];
@@ -198,7 +220,7 @@ namespace SunshineWeb
                 //se insertan los det
                     foreach (DetPedido det in lista)
                     {
-                    DetPedidoLN.Insertar(det);                     
+                        DetPedidoLN.Insertar(det);                     
                     }
 
                 //ahora los det de que ya existen en el enca
@@ -212,11 +234,13 @@ namespace SunshineWeb
                         total = total
                     };
                     EncaPedidoLN.Insertar(encaPedido);
-                }                
-
+                }   
 
                 lblMensaje.Text = "¡Compra exitosa, gracias por preferirnos!";
-                Session["lista"] = "";
+
+               //limpiar la lista
+                List<DetPedido> lista11 = new List<DetPedido>();
+                Session["lista"] = lista11;
             }
             else
             {
@@ -224,29 +248,13 @@ namespace SunshineWeb
             }
         }
 
-        public int qr()
-        {
-            QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
-            QrCode qrCode = new QrCode();
-            String rambon = (new Random().Next(1, 1000)).ToString();
-            qrEncoder.TryEncode(rambon, out qrCode);
-
-            GraphicsRenderer renderer = new GraphicsRenderer(new FixedCodeSize(400, QuietZoneModules.Zero), Brushes.Black, Brushes.White);
-
-            MemoryStream ms = new MemoryStream();
-
-            renderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);
-            var imageTemporal = new Bitmap(ms);
-            return Convert.ToInt32(qrCode.GetHashCode());
-        }
-
-        private static Producto producto = new Producto();
-
         protected void btnAplicar_Command(object sender, CommandEventArgs e)
         {
             int id = int.Parse(e.CommandArgument.ToString());
             producto = ProductoLN.Obtener(id);
 
+            lblProdNombre.Visible = true;
+            prodIm.Visible = true;
             lblProdNombre.Text = producto.nombre;
             prodIm.ImageUrl = producto.imagen;
         }

@@ -75,9 +75,9 @@
                       <br />
                       <asp:Label ID="lblAplicar" runat="server" Text="Producto a aplicar descuento"></asp:Label>
                       <br />
-                      <asp:Label ID="lblProdNombre" runat="server" Text=""></asp:Label>
+                      <asp:Label ID="lblProdNombre" runat="server" Text="" Visible="false"></asp:Label>
                       <br />
-                      <asp:Image ID="prodIm" runat="server" ImageUrl="" Width="100" Height="100" />
+                      <asp:Image ID="prodIm" runat="server" ImageUrl="" Width="100" Height="100" visible="false"/>
 
                      </div>
 
@@ -87,11 +87,11 @@
                       <h4 class="widget-title">Cupones</h4>
                         <div class="media product-card">
                           <a class="pull-left" >
-                             <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" ></asp:Image>
+                             <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
                           </a>
                          <div class="media-body">                            
                              <h4 class="media-heading">Cupón</h4>
-                               <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>                      
+                               <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>                                
                          </div>
                        </div>
                      </div>

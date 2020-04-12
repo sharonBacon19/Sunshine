@@ -28,6 +28,7 @@ namespace SunshineDatos
             //Parámetros
             comando.Parameters.AddWithValue("@IDCLIENTE", canje.cliente.identificacion);
             comando.Parameters.AddWithValue("@IDCUPON", canje.cupon.id);
+            comando.Parameters.AddWithValue("@IDPRODUCTO", canje.producto.id);
             db.ExecuteNonQuery(comando);
         }
     }

@@ -142,7 +142,7 @@
 	            <a href="crearCliente.aspx">Crear Cliente</a>
 	          </li>
 				<li id="liListaClientes" class="dropdown ">
-	            <a href="">Lista Clientes</a>
+	            <a href="listaCliente.aspx">Lista de Clientes</a>
 	          </li>
 				<li id="liAsignarCupones" class="dropdown ">
 	            <a href="">Asignar Cupones</a>
