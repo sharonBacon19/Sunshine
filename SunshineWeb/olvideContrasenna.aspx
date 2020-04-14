@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="SunshineWeb.login" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="olvideContrasenna.aspx.cs" Inherits="SunshineWeb.olvideContrasenna" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -8,11 +7,11 @@
 <html class="no-js"> <!--<![endif]-->
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Tienda SunShine">
+  <meta name="description" content="Tienda Shunshine">
   
   <meta name="author" content="Themefisher.com">
 
-  <title>SunShine | Login</title>
+  <title>SunShine | Olvidé mi contraseña </title>
 
   <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,31 +48,28 @@
           <a class="logo" href="inicio.aspx">
             <img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
           </a>
-          <h2 class="text-center">¡Bienvenido!</h2>
-          
+          <h2 class="text-center">¡Olvidó su contraseña!</h2>
+          <br />
+
+            <p>Por favor, ingrese su email para recuperar la contraseña</p>
+            <br />
+
             <div class="form-group">
                 <asp:TextBox ID="txtEmail" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                         ErrorMessage="* El email es requerido" ControlToValidate="txtEmail"
-                         ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-              
+                         ErrorMessage="* Ingrese el email" ControlToValidate="txtEmail"
+                         ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>              
             </div>
 
-            <div class="form-group">
-                <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                          ErrorMessage="* La contraseña es requerida" ControlToValidate="txtContrasenna"
-                          ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
-                     </asp:RequiredFieldValidator>
-              
-            </div>
-
+           <br />
+            <asp:Label ID="lblMensaje" runat="server" Text="" Visible="true"></asp:Label>
+            <br />
+            <br />
             <div class="text-center">
-              <asp:Button ID="btnLogin" class="btn btn-main text-center" OnClick="btnLogin_Click" runat="server" Text="Log In" ValidationGroup="login"/>              
+                <br />
+              <asp:Button ID="btnOlvide" class="btn btn-main text-center" OnClick="btnOlvide_Click" runat="server" Text="Confirmar" ValidationGroup="login"/>              
             </div>
-          
-          <p class="mt-20">¿Eres nuevo?<a href="singin.aspx"> Crear cuenta nueva</a></p>
-            <p class="mt-20"><a href="olvideContrasenna.aspx">Olvidé mi contraseña</a></p>
+
         </div>
       </div>
     </div>

@@ -25,6 +25,11 @@ namespace SunshineWeb
 
                     cliente = ClienteLN.ObtenerPorIdentificacion(id);
                     listaCupon();
+
+                    lblNombreCliente.Text = cliente.nombreCompleto;
+
+                    ClienteNivel cN = ClienteNivelLN.Obtener(cliente.identificacion);
+                    lblNivelCliente.Text = cN.nivel.nombre;
                 }
             }
         }
@@ -33,6 +38,11 @@ namespace SunshineWeb
         {
             grvListado.DataSource = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
             grvListado.DataBind();
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("listaCliente.aspx");
         }
     }
 }

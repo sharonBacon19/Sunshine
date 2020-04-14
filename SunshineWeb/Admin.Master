@@ -144,10 +144,6 @@
 				<li id="liListaClientes" class="dropdown ">
 	            <a href="listaCliente.aspx">Lista de Clientes</a>
 	          </li>
-				<li id="liAsignarCupones" class="dropdown ">
-	            <a href="">Asignar Cupones</a>
-	          </li>			
-			
 
 	        </ul>
 	      	</div>

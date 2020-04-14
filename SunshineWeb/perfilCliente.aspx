@@ -21,12 +21,9 @@
             <ul class="list-inline dashboard-menu text-center">
                 <li><a class="active"  href="perfilCliente.aspx">Mi Perfil</a></li>
               
-              <li><a href="dashboard.html">Mis Compras</a></li>
-              <li><a  href="carrito.aspx">Mi Carrito</a></li>
-              
-                
+              <li><a href="comprasCliente.aspx">Mis Compras</a></li>
+              <li><a  href="carritoCliente.aspx">Mi Carrito</a></li>       
             </ul>
-            <%--<form runat="server"> --%>
             <div class="dashboard-wrapper dashboard-user-profile">
               <div class="media">
                 <div class="pull-left text-center" >
@@ -46,33 +43,22 @@
                         <span>Fecha de nacimiento:</span> 
                             <asp:Label ID="lblFechaNacimiento" runat="server"  Font-Bold="False" Width="306px"></asp:Label> <br /><br />
                     </div>
-
                 </div>
-
-
-
               </div>
             </div>
-
               <h3 class="page-name">Mi progreso</h3>
                     <div class="dashboard-wrapper dashboard-user-profile">
                         <div class="content">
                             <asp:Image ID="imgNiveles" CssClass="img-responsive" runat="server"/>
                         </div>
                         <div class="content">
-
                         </div>
                         <div class="content">
                             <asp:Image ID="imgCupones" CssClass="img-responsive" runat="server"/>
-                        </div>
-                      
-                        
+                        </div>   
                     </div>
-
-                <%--</form>--%>
           </div>
         </div>
-      </div>
-       
+      </div>       
     </section>
 </asp:Content>

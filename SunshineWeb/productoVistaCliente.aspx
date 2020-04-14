@@ -7,24 +7,13 @@
 				<div class="single-product-slider">
 					<div id='carousel-custom' class='carousel slide' data-ride='carousel'>
 						<div class='carousel-outer'>
-							<!-- me art lab slider -->
 							<div class='carousel-inner '>
 								<div class='item active'>
 									<asp:Image ID="ImgPr" ImageUrl="" runat="server"  Width="400" Height="400"/>
 								</div>							
 								
+						</div>							
 						</div>
-							
-							<!-- sag sol -->
-							<%--<a class='left carousel-control' href='#carousel-custom'>
-								<i class="tf-ion-ios-arrow-left"></i>
-							</a>
-							<a class='right carousel-control' href='#carousel-custom'>
-								<i class="tf-ion-ios-arrow-right"></i>
-							</a>--%>
-						</div>
-						
-						<!-- thumb -->
 						<ol class='carousel-indicators mCustomScrollbar meartlab'>
 							<li data-target='#carousel-custom' data-slide-to='0' class='active'>
 								<asp:Image ID="Image1" ImageUrl="" runat="server"  Width="75" Height="75"/>
@@ -53,8 +42,8 @@
 					</div>
 					<div class="product-quantity">
 						<span>Cantidad:</span>
-						<div class="product-quantity-slider">
-							<asp:TextBox ID="txtCantidad" Text="1" TextMode="Number" runat="server"></asp:TextBox>
+						<div class="product-quantity-slider">							
+							<asp:TextBox ID="txtCantidad" Text="1" TextMode="Number"  runat="server"></asp:TextBox>
 						</div>
 					</div>
 					<br />

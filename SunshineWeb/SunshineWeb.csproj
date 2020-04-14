@@ -73,6 +73,7 @@
     <Content Include="asignarCliente.aspx" />
     <Content Include="carrito.aspx" />
     <Content Include="carritoCliente.aspx" />
+    <Content Include="comprasCliente.aspx" />
     <Content Include="crearCliente.aspx" />
     <Content Include="css\home.css" />
     <Content Include="css\style.css" />
@@ -197,6 +198,7 @@
     <Content Include="js\sweetalert2.min.js" />
     <Content Include="listaCliente.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="olvideContrasenna.aspx" />
     <Content Include="perfilCliente.aspx" />
     <Content Include="plugins\bootstrap-touchspin\demo\demo.css" />
     <Content Include="plugins\bootstrap-touchspin\demo\favicon.ico" />
@@ -383,6 +385,13 @@
     <Compile Include="carritoCliente.aspx.designer.cs">
       <DependentUpon>carritoCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="comprasCliente.aspx.cs">
+      <DependentUpon>comprasCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="comprasCliente.aspx.designer.cs">
+      <DependentUpon>comprasCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="crearCliente.aspx.cs">
       <DependentUpon>crearCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -424,6 +433,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="olvideContrasenna.aspx.cs">
+      <DependentUpon>olvideContrasenna.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="olvideContrasenna.aspx.designer.cs">
+      <DependentUpon>olvideContrasenna.aspx</DependentUpon>
     </Compile>
     <Compile Include="perfilCliente.aspx.cs">
       <DependentUpon>perfilCliente.aspx</DependentUpon>

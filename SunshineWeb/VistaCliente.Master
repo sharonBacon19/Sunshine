@@ -150,8 +150,8 @@
 					
 					<li role="separator" class="divider"></li>
 					<li id="liMiPerfil"><a href="perfilCliente.aspx">Mi Perfil</a></li>
-					<li id="liMisCompras"><a href="blog-single.html">Mis Compras</a></li>
-					<li id="liMiCarrito"><a href="carrito.aspx">Mi Carrito</a></li>
+					<li id="liMisCompras"><a href="comprasCliente.aspx">Mis Compras</a></li>
+					<li id="liMiCarrito"><a href="carritoCliente.aspx">Mi Carrito</a></li>
 					<li><a href="finalizarCompra.aspx">Finalizar Compra</a></li>
 	            </ul>
 	          </li>

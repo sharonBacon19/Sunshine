@@ -57,6 +57,14 @@ namespace SunshineLN
             return usu;
         }
 
+        public static Usuario ObtenerPorEmail(string email)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            lista = UsuarioLN.ObtenerTodos();
+            Usuario usu = new Usuario();
+            usu = (lista.Find(elemento => elemento.email == email));
+            return usu;
+        }
 
         public static void Insertar(Usuario usuario)
         {
