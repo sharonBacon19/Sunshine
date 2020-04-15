@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/VistaCliente.Master" AutoEventWireup="true" CodeBehind="carritoCliente.aspx.cs" Inherits="SunshineWeb.carritoCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Sunshine | Carrito </title>
+    <title>Sunshine | Mi Carrito </title>
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="page-header">
@@ -25,9 +25,16 @@
               <li><a href="comprasCliente.aspx">Mis Compras</a></li>
               <li><a class="active" href="carritoCliente.aspx">Mi Carrito</a></li>       
             </ul>
-                <div class="dashboard-wrapper dashboard-user-profile">
+                
                   <div class="block">
                     <div class="product-list"> 
+
+
+                        <br />
+                        <br />
+                        <asp:Label ID="lblMensaje" Visible="false" runat="server" CssClass="alert alert-info alert-common alert-solid "></asp:Label>
+                        <br />
+                        <br />
                         <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
                             RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
                             HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
@@ -51,31 +58,26 @@
                              </Columns>
                            <HeaderStyle/>
                         </asp:GridView> 
+
+
+                    <div class="form-group col-md-4">
+                        
+                        <br />
+                        <asp:Label ID="lblSubTotal"  Text="SubTotal" runat="server"></asp:Label>
+                        <asp:TextBox ID="txtSubTotal" ReadOnly="true" class="form-control" placeholder="" runat="server"></asp:TextBox>
+                        <br />
+                        <asp:Button ID="btnComprar" CssClass="btn btn-main"  Text="Comprar" runat="server" OnCommand="btnComprar_Command"/>             
+                    </div>
+
+
                     </div>
                   </div>
-                  </div>
+                  
                 </div>
             </div>
         </div>
         </div>
     </div>   
 
-    <section class="products section" style="position:center">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="widget">
-					<div class="form-group">
-                        <asp:Label ID="lblMensaje" Visible="false" runat="server"></asp:Label>
-                        <br />
-                        <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                        <asp:TextBox ID="txtSubTotal" class="form-control" placeholder="" runat="server"></asp:TextBox>
-                        <br />
-                        <asp:Button ID="btnComprar" CssClass="btn btn-main"  Text="Comprar" runat="server" OnCommand="btnComprar_Command"/>             
-                    </div>
-               </div>
-            </div>
-        </div>
-     </div>
-    </section>
+    
 </asp:Content>

@@ -50,24 +50,27 @@
             <img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
           </a>
           <h2 class="text-center">¡Bienvenido!</h2>
-          
+          <br />
             <div class="form-group">
                 <asp:TextBox ID="txtEmail" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
+                <br />
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                          ErrorMessage="* El email es requerido" ControlToValidate="txtEmail"
-                         ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                         ValidationGroup="login" SetFocusOnError="true" CssClass="alert alert-danger alert-common" Display="Dynamic"></asp:RequiredFieldValidator>
               
             </div>
-
+            <br />
             <div class="form-group">
                 <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                     <br />
+               <%-- <div id="alertaContraseña" class="alert alert-danger alert-common" role="alert"><i class="tf-ion-close-circled"></i>--%>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
                           ErrorMessage="* La contraseña es requerida" ControlToValidate="txtContrasenna"
-                          ValidationGroup="login" SetFocusOnError="true" ForeColor="Red" Display="Dynamic">
-                     </asp:RequiredFieldValidator>
+                          ValidationGroup="login" SetFocusOnError="true" CssClass="alert alert-danger alert-common col-md-6" Display="Dynamic">
+                     </asp:RequiredFieldValidator><%--</div>--%>
               
             </div>
-
+            <br />
             <div class="text-center">
               <asp:Button ID="btnLogin" class="btn btn-main text-center" OnClick="btnLogin_Click" runat="server" Text="Log In" ValidationGroup="login"/>              
             </div>

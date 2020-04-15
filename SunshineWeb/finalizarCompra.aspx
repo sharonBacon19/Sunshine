@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/VistaCliente.Master" AutoEventWireup="true" CodeBehind="finalizarCompra.aspx.cs" Inherits="SunshineWeb.finalizarCompra" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>SunShine | Finalizar Compra</title>
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="page-wrapper">

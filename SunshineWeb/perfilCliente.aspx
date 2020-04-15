@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/VistaCliente.Master" AutoEventWireup="true" CodeBehind="perfilCliente.aspx.cs" Inherits="SunshineWeb.perfilCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Sunshine | Mi Perfil</title>
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="page-header">

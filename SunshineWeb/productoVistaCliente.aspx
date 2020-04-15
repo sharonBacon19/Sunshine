@@ -1,6 +1,27 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/VistaCliente.Master" AutoEventWireup="true" CodeBehind="productoVistaCliente.aspx.cs" Inherits="SunshineWeb.productoVistaCliente" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <title>Sunshine | Producto</title>
+
+  
+</asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
+	<section class="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content">
+					<h1 class="page-name">Tienda</h1>
+					<ol class="breadcrumb">
+						<li>Producto</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <section class="single-product">
 	<div class="container">
 		<div class="row mt-20">

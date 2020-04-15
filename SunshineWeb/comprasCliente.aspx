@@ -22,7 +22,7 @@
                     <ul class="list-inline dashboard-menu text-center">
                 <li><a "  href="perfilCliente.aspx">Mi Perfil</a></li>
               
-              <li><a class="active href="comprasCliente.aspx">Mis Compras</a></li>
+              <li><a class="active" href="comprasCliente.aspx">Mis Compras</a></li>
               <li><a href="carritoCliente.aspx">Mi Carrito</a></li>       
             </ul>
                   <div class="block">
@@ -34,13 +34,13 @@
                             BorderColor="Transparent" CellPadding="50" CellSpacing="50" AlternatingRowStyle-BackColor="#f0f0f0" Height="100%" 
                             runat="server" AutoGenerateColumns="false">
                              <Columns>
-                                <%-- <asp:TemplateField HeaderText="Producto">
+                               <asp:TemplateField HeaderText="Producto">
                                      <ItemTemplate>
                                          <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("detPedido.producto.Imagen") %>' Width="100" Height="100" />
                                      <ItemStyle BorderStyle="Groove" HorizontalAlign="Center" width="200" 
                                         Height="100" Wrap="True"/>
                                      </ItemTemplate>
-                                 </asp:TemplateField>--%>
+                                 </asp:TemplateField>
                                 <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="total" HeaderText="total de la compra" DataFormatString="{0:0}"/>                               
                              </Columns>
                            <HeaderStyle/>
@@ -48,9 +48,13 @@
 
                         <br />
                         <br />
+                        <div class="form-group col-md-4">
                         <asp:Label ID="lblTotal" runat="server" Text="Total de las compras"></asp:Label>
                         <br />
-                        <asp:TextBox ID="txtTotal" runat="server" Text="" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="txtTotal" class="form-control col-md-4" runat="server" Text="" ReadOnly="true"></asp:TextBox>
+
+                        </div>
+                        
                         <br />
                     </div>
                   </div>
