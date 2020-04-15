@@ -39,7 +39,7 @@ namespace SunshineWeb
         protected void btnVer_Command(object sender, CommandEventArgs e)
         {
             int id = int.Parse(e.CommandArgument.ToString());
-            Response.Redirect("productoVista.aspx?id=" + id);
+            Response.Redirect("productoVistaCliente.aspx?id=" + id);
         }
     }
 }

@@ -19,6 +19,13 @@
     <div class="container">
           <div class="row">
                 <div class="col-md-8 col-md-offset-2">
+                    <ul class="list-inline dashboard-menu text-center">
+                <li><a   href="perfilCliente.aspx">Mi Perfil</a></li>
+              
+              <li><a href="comprasCliente.aspx">Mis Compras</a></li>
+              <li><a class="active" href="carritoCliente.aspx">Mi Carrito</a></li>       
+            </ul>
+                <div class="dashboard-wrapper dashboard-user-profile">
                   <div class="block">
                     <div class="product-list"> 
                         <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
@@ -45,6 +52,7 @@
                            <HeaderStyle/>
                         </asp:GridView> 
                     </div>
+                  </div>
                   </div>
                 </div>
             </div>

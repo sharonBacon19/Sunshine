@@ -6,7 +6,7 @@
       <div class="checkout shopping">
         <div class="container">
          <div class="row">
-           <div class="col-md-8">
+           <div class="col-md-6">
              <div class="block">
                 <h4 class="widget-title">Detalles de pago</h4>
                      <div class="checkout-product-details">
@@ -18,15 +18,15 @@
                               </div>
                             <div class="form-group ">
                                   <asp:Label ID="lblProvincia"  runat="server" Text="Provincia"></asp:Label>
-                                  <asp:TextBox ID="txtProvinica" runat="server" class="form-control" ReadOnly="true"  ></asp:TextBox>  
+                                  <asp:TextBox ID="txtProvinica" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>  
                               </div>
                               <div class="form-group" >
                                  <asp:Label ID="lblCodigoPostal"  runat="server" Text="Código Postal"></asp:Label>
-                                 <asp:TextBox ID="txtCodigoPostal" runat="server" class="form-control"  ReadOnly="true"></asp:TextBox>
+                                 <asp:TextBox ID="txtCodigoPostal" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
                              </div>
                               <div class="form-group" >
                                   <asp:Label ID="lblOtrasSennas"  runat="server" Text="Otras Señas"></asp:Label>
-                                  <asp:TextBox ID="txtOtrasSennas" runat="server" class="form-control"   ReadOnly="true"></asp:TextBox>
+                                  <asp:TextBox ID="txtOtrasSennas" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
                               </div>
                               <div class="form-group" >
                                  <asp:Label ID="lblTarjeta"  runat="server" Text="Número de Tarjeta"></asp:Label>
@@ -34,8 +34,25 @@
                               </div>    
                               <div class="form-group" >
                                  <asp:Label ID="lblMensaje"  runat="server" Text=""></asp:Label>                                
-                              </div>  
-                                <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" OnClick="btnConfirmar_Click"/>
+                              </div> 
+                            <br />
+                            
+                            <ul class="summary-prices">
+
+                                <div class="form-group">
+                                <br />
+                                <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
+                                <asp:TextBox ID="txtSubTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>
+                                <br />                           
+                                <asp:Label ID="lblTotal" class="form-control" Text="Total" runat="server"></asp:Label>
+                                <asp:TextBox ID="txtTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>                              
+                            </div>
+                            </ul>
+                                <br />
+                                <br />
+                            
+                            <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" OnClick="btnConfirmar_Click"/>
+                               
                         </div>
                      </div>
                   </div>
@@ -43,8 +60,24 @@
             </div>
 
              <%-- SE PUEDE COLOCAR UN LIST O GRID PARA VER UN RESUMEN DE LA COMPRA --%>
-            <div class="col-md-4">
+            <div class="col-md-6">
                <div class="product-checkout-details">
+
+                <%-- CUPONES --%>
+                   <div class="block">
+                      <h4 class="widget-title">Cupones</h4>
+                        <div class="media product-card">
+                          <a class="pull-left" >
+                             <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
+                          </a>
+                         <div class="media-body">                            
+                             <h4 class="media-heading">Cupón</h4>
+                               <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>                                
+                         </div>
+                       </div>
+                     </div>
+
+
                   <div class="block">
                      <h4 class="widget-title">Productos</h4>
 
@@ -65,7 +98,7 @@
                                 <asp:BoundField DataField="producto.precio" HeaderText="Precio" DataFormatString="{0:0} c/u"/>
                                   <asp:TemplateField HeaderText="">
                                       <ItemTemplate>
-                                           <asp:Button ID="btnAplicar" CssClass="btn btn-main mt-20"  Text="Aplicar Descuento" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnAplicar_Command" />
+                                           <asp:Button ID="btnAplicar" CssClass="btn btn-main btn-small"  Text="Aplicar Descuento" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnAplicar_Command" />
                                       </ItemTemplate>
                                   </asp:TemplateField>  
                              </Columns>
@@ -73,39 +106,26 @@
                         </asp:GridView>                       
                        </div>  
                       <br />
-                      <asp:Label ID="lblAplicar" runat="server" Text="Producto a aplicar descuento"></asp:Label>
-                      <br />
-                      <asp:Label ID="lblProdNombre" runat="server" Text="" Visible="false"></asp:Label>
-                      <br />
-                      <asp:Image ID="prodIm" runat="server" ImageUrl="" Width="100" Height="100" visible="false"/>
-
+                     
                      </div>
-
-
-                   <%-- CUPONES --%>
+                   <%-- PRODUCTOS CON DESCUENTO --%>
                    <div class="block">
-                      <h4 class="widget-title">Cupones</h4>
+                      <h4 class="widget-title">Producto a aplicar descuento:</h4>
+                       <%--<asp:Label ID="lblAplicar" runat="server" Text="Producto a aplicar descuento:" CssClass="widget-title"></asp:Label>--%>
                         <div class="media product-card">
                           <a class="pull-left" >
-                             <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
-                          </a>
-                         <div class="media-body">                            
-                             <h4 class="media-heading">Cupón</h4>
-                               <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>                                
-                         </div>
+                              <br />
+                              <asp:Label ID="lblProdNombre" runat="server" Text="" Visible="false" CssClass=""></asp:Label>
+                            <br />
+                            <br />
+                            <asp:Image ID="prodIm" runat="server" ImageUrl="" Width="100" Height="100" visible="false"/>
+                        </a>
+                         
                        </div>
                      </div>
+                   
 
-                     <ul class="summary-prices">
-                       <div class="form-group">
-                           <br />
-                          <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                          <asp:TextBox ID="txtSubTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>
-                           <br />                           
-                           <asp:Label ID="lblTotal" class="form-control" Text="Total" runat="server"></asp:Label>
-                           <asp:TextBox ID="txtTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>                              
-                       </div>
-                     </ul>
+                     
             </div>
           </div>
         </div>

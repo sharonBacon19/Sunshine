@@ -19,6 +19,12 @@
     <div class="container">
           <div class="row">
                 <div class="col-md-8 col-md-offset-2">
+                    <ul class="list-inline dashboard-menu text-center">
+                <li><a "  href="perfilCliente.aspx">Mi Perfil</a></li>
+              
+              <li><a class="active href="comprasCliente.aspx">Mis Compras</a></li>
+              <li><a href="carritoCliente.aspx">Mi Carrito</a></li>       
+            </ul>
                   <div class="block">
                       <br />
                     <div class="product-list"> 

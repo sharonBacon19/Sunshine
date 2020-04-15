@@ -38,7 +38,8 @@ namespace SunshineWeb
                         ImgPr.ImageUrl = pro.imagen;
                         Image1.ImageUrl = pro.imagen;
                         lblNombre.Text = pro.nombre;
-                        lblPrecio.Text = Convert.ToString(pro.precio);
+                        
+                        lblPrecio.Text =Convert.ToString(pro.precio);
                         lblDescripcion.Text = pro.descripcion;
                     }
                 }
