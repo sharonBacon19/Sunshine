@@ -636,3 +636,5 @@ insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO)
 		values		('123456','Admin','admin123@sunshine.com',1)
 
 select * from ClienteCupon where IDCLIENTE='202220222'
+
+select * from ClienteCupon
