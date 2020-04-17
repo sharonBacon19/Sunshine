@@ -489,15 +489,43 @@ VALUES (@TIPOUSUAIO, @EMAIL, @CONSTRASENNA, @ESTADO)
 END
 GO
 
+CREATE procedure [Pa_ActualizarMontoActual]
+(
+ @MONTOACTUAL int,
+ @IDCLIENTE nvarchar(15)
+) 
+AS 
+BEGIN
+Update ClienteNivel set MONTOACTUAL = @MONTOACTUAL
+WHERE IDCLIENTE = @IDCLIENTE
+END
+GO
+
+CREATE procedure [Pa_ActualizarNivelDeCliente]
+(
+ @IDNIVEL int,
+ @IDCLIENTE nvarchar(15)
+) 
+AS 
+BEGIN
+Update ClienteNivel set IDNIVEL = @IDNIVEL
+WHERE IDCLIENTE = @IDCLIENTE
+END
+GO
+
+
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Cédula', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Carné de refugiado', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Cédula de residencia', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Pasaporte', 1);
 
+insert into Usuario (CONTRASENNA, EMAIL, ESTADO, TIPOUSUARIO)
+values ('Admin123', 'Admin123@gmail.com', 1, 'Admin')
+
 insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Bronce', 'Primera etapa', 0, 'images\imagenes\bronce.png');
-insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Plata', 'Segunda etapa', 40000, 'images\imagenes\plata.png');
-insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Oro', 'Tercera etapa', 70000, 'images\imagenes\oro.png');
-insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Diamante', 'Cuarta etapa', 120000, 'images\imagenes\diamante.png');
+insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Plata', 'Segunda etapa', 80000, 'images\imagenes\plata.png');
+insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Oro', 'Tercera etapa', 120000, 'images\imagenes\oro.png');
+insert into Nivel (NOMBRE, DESCRIPCION, MONTOMETA, IMAGEN) values ('Diamante', 'Cuarta etapa', 160000, 'images\imagenes\diamante.png');
 
 insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Concha', 'Se le descontará un 10% del precio del producto', 10, 1, 1, 'images\imagenes\concha.png');
 insert into Cupon (NOMBRE, DESCRIPCION, DESCUENTO, IDNIVEL, ESTADO, IMAGEN) values ('Coral', 'Se le descontará un 20% del precio del producto', 20, 2, 1, 'images\imagenes\coral.png');

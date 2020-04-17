@@ -30,8 +30,8 @@
                     <div class="product-list"> 
                          <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
                             RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
-                            HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
-                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" AlternatingRowStyle-BackColor="#f0f0f0" Height="100%" 
+                            HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent"
+                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" Height="100%" 
                             runat="server" AutoGenerateColumns="false">
                              <Columns>
                                <asp:TemplateField HeaderText="Producto">
@@ -45,22 +45,19 @@
                              </Columns>
                            <HeaderStyle/>
                         </asp:GridView> 
-
                         <br />
                         <br />
                         <div class="form-group col-md-4">
                         <asp:Label ID="lblTotal" runat="server" Text="Total de las compras"></asp:Label>
                         <br />
                         <asp:TextBox ID="txtTotal" class="form-control col-md-4" runat="server" Text="" ReadOnly="true"></asp:TextBox>
-
-                        </div>
-                        
+                        </div>                        
                         <br />
                     </div>
                   </div>
                 </div>
             </div>
         </div>
-        </div>
+      </div>
     </div> 
 </asp:Content>

@@ -32,6 +32,28 @@ namespace SunshineDatos
             db.ExecuteNonQuery(comando);
         }
 
+        public static void actualizar(string identificacion, int montoActual)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            SqlCommand comando = new SqlCommand("Pa_ActualizarMontoActual");
+            comando.CommandType = CommandType.StoredProcedure;
+            //Parámetros
+            comando.Parameters.AddWithValue("@MONTOACTUAL", montoActual);
+            comando.Parameters.AddWithValue("@IDCLIENTE", identificacion);
+            
+            db.ExecuteNonQuery(comando);
+        }
 
+        public static void actualizarNivel(string identificacion, int idNivel)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            SqlCommand comando = new SqlCommand("Pa_ActualizarNivelDeCliente");
+            comando.CommandType = CommandType.StoredProcedure;
+            //Parámetros
+            comando.Parameters.AddWithValue("@IDNIVEL", idNivel);
+            comando.Parameters.AddWithValue("@IDCLIENTE", identificacion);
+
+            db.ExecuteNonQuery(comando);
+        }
     }
 }

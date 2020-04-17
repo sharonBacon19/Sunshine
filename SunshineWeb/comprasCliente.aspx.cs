@@ -19,8 +19,8 @@ namespace SunshineWeb
             {
                 Cliente cliente = (Cliente)Session["cliente"];
                 lista = EncaPedidoLN.EncaPedidoPorCliente(cliente.identificacion);
-
-                txtTotal.Text = total().ToString();
+                listaEnca();
+                txtTotal.Text = total().ToString();               
             }
         }
 
@@ -36,7 +36,7 @@ namespace SunshineWeb
             int total = 0;
             foreach (EncaPedido enca in lista)
             {
-                total += enca.total;
+                total += enca.detPedido.producto.precio * enca.detPedido.cantidad;
             }
             return total;
         }

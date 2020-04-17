@@ -137,27 +137,22 @@ namespace SunshineWeb
                         CanjeLN.Insertar(canje);
                     }                   
                 }
-                
+
 
                 //ACERCA DE LOS NIVELES
-                if(clienteNivel.nivel.nombre == "Bronce")
+                if (clienteNivel.nivel.nombre == "Bronce")
                 {
                     // esta suma es acerca del monto que se compró + el monto meta LO QUE SE BUSCA ES ACTUALIZAR EL MONTO ACTUAL DEL CLIENTE NIVEL
                     int suma = clienteNivel.montoActual + Subtotal();
-                    clienteNivel.montoActual = suma;
+                    ClienteNivelLN.Actualizar(cliente.identificacion, suma);
+
+                    ClienteNivel clienteNivel2 = ClienteNivelLN.Obtener(cliente.identificacion);
 
                     //subir de nivel y asignar cupon
-                    if (clienteNivel.nivel.montoMeta < clienteNivel.montoActual)
+                    if (clienteNivel.nivel.montoMeta < clienteNivel2.montoActual)
                     {               
                         Nivel nivel = NivelLN.Obtener(2);
-                        ClienteNivel clienteNIvel = new ClienteNivel
-                        {
-                            cliente = cliente,
-                            montoActual = Subtotal(),
-                            nivel = nivel
-                        };
-                        //insertar nivel
-                        ClienteNivelLN.Insertar(clienteNIvel);                      
+                        ClienteNivelLN.ActualizarNivel(cliente.identificacion, nivel.id);                     
                     }
                 }
                 else
@@ -166,19 +161,13 @@ namespace SunshineWeb
                     {
                         // esta suma es acerca del monto que se compró + el monto meta LO QUE SE BUSCA ES ACTUALIZAR EL MONTO ACTUAL DEL CLIENTE NIVEL
                         int suma = clienteNivel.montoActual + Subtotal();
-                        clienteNivel.montoActual = suma;
+                        ClienteNivel clienteNivel2 = ClienteNivelLN.Obtener(cliente.identificacion);
+
                         //subir de nivel y asignar cupon
-                        if (clienteNivel.nivel.montoMeta < clienteNivel.montoActual)
+                        if (clienteNivel.nivel.montoMeta < clienteNivel2.montoActual)
                             {
                                 Nivel nivel = NivelLN.Obtener(3);
-                                ClienteNivel clienteNIvel = new ClienteNivel
-                                    {
-                                    cliente = cliente,
-                                    montoActual = Subtotal(),
-                                    nivel = nivel
-                                    };
-                            //insertar nivel
-                            ClienteNivelLN.Insertar(clienteNIvel);
+                                ClienteNivelLN.ActualizarNivel(cliente.identificacion, nivel.id);
                         }                        
                     }
                     else
@@ -187,19 +176,13 @@ namespace SunshineWeb
                         {
                             // esta suma es acerca del monto que se compró + el monto meta LO QUE SE BUSCA ES ACTUALIZAR EL MONTO ACTUAL DEL CLIENTE NIVEL
                             int suma = clienteNivel.montoActual + Subtotal();
-                            clienteNivel.montoActual = suma;
+                            ClienteNivel clienteNivel2 = ClienteNivelLN.Obtener(cliente.identificacion);
+
                             //subir de nivel y asignar cupon
-                            if (clienteNivel.nivel.montoMeta <clienteNivel.montoActual)
+                            if (clienteNivel.nivel.montoMeta < clienteNivel2.montoActual)
                             {
                                 Nivel nivel = NivelLN.Obtener(4);
-                                ClienteNivel clienteNIvel = new ClienteNivel
-                                {
-                                    cliente = cliente,
-                                    montoActual = Subtotal(),
-                                    nivel = nivel
-                                };
-                                //insertar nivel
-                                ClienteNivelLN.Insertar(clienteNIvel);
+                                ClienteNivelLN.ActualizarNivel(cliente.identificacion, nivel.id);
                             }
                         }                        
                     }
@@ -238,9 +221,8 @@ namespace SunshineWeb
 
                 lblMensaje.Text = "¡Compra exitosa, gracias por preferirnos!";
 
-               //limpiar la lista
-                List<DetPedido> lista11 = new List<DetPedido>();
-                Session["lista"] = lista11;
+                //limpiar la lista
+                limpiarLista();
             }
             else
             {
@@ -257,6 +239,12 @@ namespace SunshineWeb
             prodIm.Visible = true;
             lblProdNombre.Text = producto.nombre;
             prodIm.ImageUrl = producto.imagen;
+        }
+
+        private void limpiarLista()
+        {
+            List<DetPedido> lista = (List<DetPedido>)Session["lista"];
+            lista.Clear();
         }
     }    
 }

@@ -56,6 +56,17 @@ namespace SunshineLN
         {
             ClienteNivelDatos.Insertar(clienteNivel);
         }
+
+        public static void Actualizar(string identificacion, int montoActual)
+        {
+            ClienteNivelDatos.actualizar(identificacion, montoActual);
+        }
+
+        public static void ActualizarNivel(string identificacion, int idNivel)
+        {
+            ClienteNivelDatos.actualizarNivel(identificacion, idNivel);
+        }
+
         public static ClienteNivel ObtenerClienteNivel(string identificacion)
         {
             List<ClienteNivel> lista = ClienteNivelLN.ObtenerTodos();
