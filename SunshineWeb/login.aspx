@@ -12,7 +12,7 @@
   
   <meta name="author" content="Themefisher.com">
 
-  <title>SunShine | Login</title>
+  <title>SunShine | Ingresar</title>
 
   <!-- Mobile Specific Meta-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,23 +56,26 @@
                 <br />
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                          ErrorMessage="* El email es requerido" ControlToValidate="txtEmail"
-                         ValidationGroup="login" SetFocusOnError="true" CssClass="alert alert-danger alert-common" Display="Dynamic"></asp:RequiredFieldValidator>
+                         ValidationGroup="login" SetFocusOnError="true" CssClass="alert alert-danger alert-common col-xs-12" Display="Dynamic"></asp:RequiredFieldValidator>
               
             </div>
             <br />
             <div class="form-group">
                 <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>
                      <br />
-               <%-- <div id="alertaContraseña" class="alert alert-danger alert-common" role="alert"><i class="tf-ion-close-circled"></i>--%>
+               <div id="alertaContraseña" role="alert">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
                           ErrorMessage="* La contraseña es requerida" ControlToValidate="txtContrasenna"
-                          ValidationGroup="login" SetFocusOnError="true" CssClass="alert alert-danger alert-common col-md-6" Display="Dynamic">
-                     </asp:RequiredFieldValidator><%--</div>--%>
+                          ValidationGroup="login" SetFocusOnError="true" CssClass="alert alert-danger alert-common col-xs-12" Display="Dynamic">
+                     </asp:RequiredFieldValidator></div>
               
             </div>
             <br />
+            <br />
+            <asp:Label ID="lblMensaje" runat="server" ForeColor="red" Visible="false"></asp:Label>
+            <br />
             <div class="text-center">
-              <asp:Button ID="btnLogin" class="btn btn-main text-center" OnClick="btnLogin_Click" runat="server" Text="Log In" ValidationGroup="login"/>              
+              <asp:Button ID="btnLogin" class="btn btn-main text-center" OnClick="btnLogin_Click" runat="server" Text="Ingresar" ValidationGroup="login"/>              
             </div>
           
           <p class="mt-20">¿Eres nuevo?<a href="singin.aspx"> Crear cuenta nueva</a></p>

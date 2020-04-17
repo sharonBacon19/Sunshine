@@ -40,9 +40,11 @@ namespace SunshineWeb
                 }
                 else
                 {
-                    //    ClientScript.RegisterStartupScript(this.GetType(),
-                    //   "Login", "mensajeRedirect('Login','Verifique las credenciales','error','login.aspx')", true);
-                    //
+                //    ClientScript.RegisterStartupScript(this.GetType(),
+                //   "Login", "mensajeRedirect('Login','Verifique las credenciales','error','login.aspx')", true);
+                //
+                    lblMensaje.Text = "Credenciales incorrectas, revíselas nuevamente.";
+                lblMensaje.Visible = true;
                     Response.Redirect("login.aspx");
                 }
         }

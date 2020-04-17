@@ -555,12 +555,43 @@ values ('Brisa de Primavera', 'Diseño de los 50, disponible sólo en el color de 
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
 values ('Belleza Tropical', 'Conjunto de 2 piezas, tela de licra', 22000, 1, 1, 'images\imagenes\Bikini6.jpg');
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Short Adida', 'Prenda con elástico y cordón para ajustar al gusto', 15000, 2, 2, 'images\imagenes\Bikini18.jpg');
+values ('Short Adidas', 'Prenda con elástico y cordón para ajustar al gusto', 15000, 2, 2, 'images\imagenes\Bikini18.jpg');
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Short Corto Adida', 'Short cortos, tela punto licra', 17000, 2, 2, 'images\imagenes\BikiniH11.jpg');
+values ('Short Corto Adidas', 'Short cortos, tela punto licra', 17000, 2, 2, 'images\imagenes\BikiniH11.jpg');
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Short Corto Adida', 'Short cortos, tela punto licra, disponible sólo en el color de la imagen', 15000, 2, 2, 'images\imagenes\BikiniH14.jpg');
+values ('Short Corto Adidas', 'Short cortos, tela punto licra, disponible sólo en el color de la imagen', 15000, 2, 2, 'images\imagenes\BikiniH14.jpg');
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Short Corto Adidia', 'Con elástico y cordón para ajustar a gusto', 12000, 2, 2, 'images\imagenes\BikiniH15.jpg');
+values ('Short Corto Adidas', 'Con elástico y cordón para ajustar a gusto', 12000, 2, 2, 'images\imagenes\BikiniH15.jpg');
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
-values ('Pantaloneta Adida', 'Con elástico, la tela es respirable', 12000, 2, 2, 'images\imagenes\BikiniH12.jpg');
+values ('Pantaloneta Adidas', 'Con elástico, la tela es respirable', 12000, 2, 2, 'images\imagenes\BikiniH12.jpg');
+
+
+--insert de Clientes
+
+--Usuario
+insert into Usuario(CONTRASENNA,TIPOUSUARIO) values ('123456','Cliente')
+--insert into Usuario(CONTRASENNA,TIPOUSUARIO) values ('123456','Cliente')
+
+--Cliente
+insert into Cliente
+(IDENTIFICACION,NOMBRECOMPLETO,IDUSUARIO,IDTIPOIDENTIFICACION,TARJETACREDITO,FECHANACIMIENTO)
+values('202220222','Camila Castillo Herrera',1,1,'1200120012001200','2000-05-05')
+--insert into Cliente
+--(IDENTIFICACION,NOMBRECOMPLETO,IDUSUARIO,IDTIPOIDENTIFICACION,TARJETACREDITO,FECHANACIMIENTO)
+--values('145214521452','Junmyeon Kim',2,4,'1254125412541254','1998-08-15')
+
+--ClienteNivel
+insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('202220222',0,1)
+--insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('145214521452',75000,4)
+
+--ClienteCupon
+insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('202220222',1,2015325)
+--insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('145214521452',3,2015325)
+--insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('145214521452',4,2015325)
+
+--insert de Administrador
+
+insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) 
+		values		('123456','Admin','admin123@sunshine.com',1)
+
+select * from ClienteCupon where IDCLIENTE='202220222'

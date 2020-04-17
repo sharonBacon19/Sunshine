@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/VistaCliente.Master" AutoEventWireup="true" CodeBehind="perfilCliente.aspx.cs" Inherits="SunshineWeb.perfilCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Sunshine | Mi Perfil</title>
+     <link href="css/tabla.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="page-header">
@@ -52,8 +53,32 @@
                         <div class="content">
                             <asp:Image ID="imgNiveles" CssClass="img-responsive" runat="server"/>
                         </div>
-                        <div class="content">
+                        <%--<div class="content">
+                        </div>--%>
+                        <div class="progress">
+                            <div id="bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <asp:Label runat="server" ID="lblPorcentaje" Text="10%"></asp:Label>
+                            </div>
                         </div>
+                       <%-- <script>
+      var progreso = 0;
+      var idIterval = setInterval(function(){
+        // Aumento en 10 el progeso
+          progreso += <%porcentaje%>;
+        $('#bar').css('width', progreso + '%');
+      
+      //Si llegó a 100 elimino el interval
+        if(progreso == <%porcentaje%>){
+       clearInterval(idIterval);
+      }
+      },1000);
+    </script>
+                        --%>
+
+                        
+                        
+                        
                         <div class="content">
                             <asp:Image ID="imgCupones" CssClass="img-responsive" runat="server"/>
                         </div>   

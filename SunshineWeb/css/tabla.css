@@ -1,18 +1,1 @@
-﻿body {
-}
-
-tabla{
-    background-color:white;
-    text-align:center;
-    width:100%;
-
-}
-
-.grid div:nth-child(even){
-    background-color:white;
-
-}
-.grid div:nth-child(odd){
-    background-color:darkgrey;
-
-}
+﻿
