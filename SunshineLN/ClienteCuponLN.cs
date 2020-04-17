@@ -23,6 +23,16 @@ namespace SunshineLN
                 registro.cliente = ClienteLN.ObtenerPorIdentificacion(Convert.ToString(fila["IDCLIENTE"]));
                 registro.cupon = CuponLN.Obtener(Convert.ToInt16(fila["IDCUPON"]));
                 registro.codigoQR = Convert.ToInt32(fila["CODIGO_QR"]);
+                registro.estado = Convert.ToInt16(fila["ESTADO"]);
+
+                if(Convert.ToInt16(fila["ESTADO"]) == 1)
+                {
+                    registro.estadoS = "Sin usar";
+                }
+                else
+                {
+                    registro.estadoS = "Usado";
+                }
 
                 lista.Add(registro);
             }
@@ -55,6 +65,11 @@ namespace SunshineLN
             ClienteCupon cC = new ClienteCupon();
             cC = (lista.Find(elemento => elemento.id == idClienteCupon));
             return cC;
+        }
+
+        public static void ActualizarEstado(string identificacion, int estado)
+        {
+            ClienteCuponDatos.actualizarEstado(identificacion, estado);
         }
     }
 }

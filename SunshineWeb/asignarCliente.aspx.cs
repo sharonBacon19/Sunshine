@@ -31,6 +31,13 @@ namespace SunshineWeb
                     ClienteNivel cN = ClienteNivelLN.Obtener(cliente.identificacion);
                     lblNivelCliente.Text = cN.nivel.nombre;
                     imagenNivel.ImageUrl += cN.nivel.Imagen;
+
+                    ddlCupon.DataSource = CuponLN.ObtenerTodos();
+                    ddlCupon.DataTextField = "Nombre";
+                    ddlCupon.DataValueField = "ID";
+                    ddlCupon.DataBind();
+
+                    ddlCupon_SelectedIndexChanged(null, null);
                 }
             }
         }
@@ -48,7 +55,9 @@ namespace SunshineWeb
 
         protected void ddlCupon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+            imgCupon.Visible = true;
+            imgCupon.ImageUrl = cupon.Imagen;
         }
     }
 }

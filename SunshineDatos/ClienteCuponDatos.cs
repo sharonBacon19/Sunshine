@@ -31,6 +31,18 @@ namespace SunshineDatos
             comando.Parameters.AddWithValue("@IDCLIENTE", clienteCupon.cliente.identificacion);
             comando.Parameters.AddWithValue("@IDCUPON", clienteCupon.cupon.id);
             comando.Parameters.AddWithValue("@CODIGO_QR", clienteCupon.codigoQR);
+            comando.Parameters.AddWithValue("@ESTADO", clienteCupon.estado);
+            db.ExecuteNonQuery(comando);
+        }
+
+        public static void actualizarEstado(string identificacion, int estado)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            SqlCommand comando = new SqlCommand("Pa_ActualizarEstado");
+            comando.CommandType = CommandType.StoredProcedure;
+            //Parámetros
+            comando.Parameters.AddWithValue("@ESTADO", estado);
+            comando.Parameters.AddWithValue("@IDCLIENTE", identificacion);
             db.ExecuteNonQuery(comando);
         }
     }

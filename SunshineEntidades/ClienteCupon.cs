@@ -12,7 +12,8 @@ namespace SunshineEntidades
         public Cliente cliente { set; get; }
         public Cupon cupon { set; get; }
         public int codigoQR { set; get; }
-
+        public int estado { set; get; }
+        public string estadoS { set; get; }
         public ClienteCupon()
         {
             cliente = new Cliente();

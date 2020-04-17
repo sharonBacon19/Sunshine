@@ -242,7 +242,8 @@ create table ClienteCupon
 ID INT IDENTITY NOT NULL,
 IDCLIENTE nvarchar(15) NOT NULL,
 IDCUPON INT NOT NULL,
-CODIGO_QR int NOT NULL
+CODIGO_QR int NOT NULL, 
+ESTADO int not null
 )
 Alter table ClienteCupon add constraint PK_ClienteCupon primary key (id);
 Alter table clienteCupon add constraint FK_ClienteCupon_Cliente foreign key (IDCLIENTE) references Cliente (IDENTIFICACION);
@@ -439,12 +440,13 @@ CREATE Procedure Insertar_ClienteCupon
 (
  @IDCLIENTE nvarchar(15),
  @IDCUPON INT ,
- @CODIGO_QR int
+ @CODIGO_QR int,
+ @ESTADO INT
 )
 as
 begin
- insert into ClienteCupon(IDCLIENTE, IDCUPON, CODIGO_QR)
- values (@IDCLIENTE, @IDCUPON, @CODIGO_QR)
+ insert into ClienteCupon(IDCLIENTE, IDCUPON, CODIGO_QR, ESTADO)
+ values (@IDCLIENTE, @IDCUPON, @CODIGO_QR, @ESTADO)
 end
 GO
 
@@ -513,6 +515,17 @@ WHERE IDCLIENTE = @IDCLIENTE
 END
 GO
 
+CREATE procedure [Pa_ActualizarEstado]
+(
+ @ESTADO int,
+ @IDCLIENTE nvarchar(15)
+) 
+AS 
+BEGIN
+Update ClienteCupon set ESTADO = @ESTADO
+WHERE IDCLIENTE = @IDCLIENTE
+END
+GO
 
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Cédula', 1);
 insert into TipoIdentificacion (TIPO, ESTADO) values ('Carné de refugiado', 1);

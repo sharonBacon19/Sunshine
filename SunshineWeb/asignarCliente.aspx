@@ -77,7 +77,7 @@
                       <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
                             RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
                             HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
-                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" AlternatingRowStyle-BackColor="#f0f0f0" Height="100%" 
+                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" Height="100%" 
                             runat="server" AutoGenerateColumns="false">
                              <Columns>           
                                   <asp:TemplateField HeaderText="Cupón">
@@ -87,7 +87,8 @@
                                         Height="100" Wrap="True"/>
                                      </ItemTemplate>
                                       </asp:TemplateField>
-                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cupon.nombre" HeaderText="Nombre"/>                               
+                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cupon.nombre" HeaderText="Nombre"/>
+                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="estadoS" HeaderText="Estado"/>
                              </Columns>
                            <HeaderStyle/>
                         </asp:GridView> 

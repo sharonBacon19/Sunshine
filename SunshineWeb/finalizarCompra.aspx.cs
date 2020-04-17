@@ -115,8 +115,8 @@ namespace SunshineWeb
                 // si hay cliente hace lo siguiente
 
                 //agarra cupon (SUCAR COMO AGREGAR ITEM SIN VALOR DE SELECCIONE)
-                Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));  
-                
+                Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+                ClienteCuponLN.ActualizarEstado(cliente.identificacion, 2);
 
                 //se busca el nivel del cliente
                 ClienteNivel clienteNivel = ClienteNivelLN.ObtenerClienteNivel(cliente.identificacion);
