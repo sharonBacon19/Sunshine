@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="plugins/revolution-slider/revolution/css/settings.css">
   <link rel="stylesheet" type="text/css" href="plugins/revolution-slider/revolution/css/layers.css">
   <link rel="stylesheet" type="text/css" href="plugins/revolution-slider/revolution/css/navigation.css">
-    <link href="css/tabla.css" rel="stylesheet" />
+   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -57,7 +57,7 @@
 						<li class="dropdown ">
 							<a>
 								<asp:Label ID="lblNombreCliente" runat="server" Text="" Visible="false"></asp:Label>
-								<asp:Image ID="ImgNIvel" Visible="false" runat="server" Width="50" Height="50"></asp:Image>
+								<asp:Image ID="ImgNIvel" Visible="false" runat="server" Width="50" Height="55"></asp:Image>
 							</a>
 						</li>
 
@@ -196,16 +196,17 @@
 				
 				    <ul class="footer-menu">
 					    <li>
-						    <a href="">CONTACT</a>
+						    <a href="">CONTACTO</a> 
 					    </li>
 					    <li>
-						    <a href="">TERMS OF SERVICE</a>
+						    <a href="">TERMINOS DE SERVICIO</a> 
 					    </li>
 					    <li>
-						    <a href="">PRIVACY POLICY</a>
+						    <a href="">POLÍTICA DE PRIVACIDAD</a> 
 					    </li>
 				    </ul>
-				    <p class="copyright-text">Powered by Bootstrap</p>
+				    <p class="copyright-text">Creado por <br />
+						Ana Calvo | Sharon Sandí</p>
 			    </div>
 		    </div>
 	    </div>

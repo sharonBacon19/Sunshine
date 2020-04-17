@@ -15,19 +15,65 @@
 	    </div>
     </section>
     <div class="page-wrapper">
-  <div class="cart shopping">
+  <div class="checkout shopping">
     <div class="container">
           <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                  <div class="block"> 
-                      <asp:Label ID="lblNombreCliente" runat="server" Text=""></asp:Label>
-                      <br />
-                      <asp:Label ID="lblNivelCliente" runat="server" Text=""></asp:Label>
-                      <br /><br />
-                      <h2>
-                         <asp:Label ID="lblCuponesQueTiene" runat="server" Text="Cupones actuales"></asp:Label>
-                      </h2>
+                
+                   
+                     
 
+                    <div class="col-md-6">
+
+                        <%--<div class="media">--%>
+                            <br />
+                            <h4 class="widget-title">Información del cliente</h4>
+                        <div class="pull-left text-center" >
+
+                            <asp:Image ID="imagenNivel" runat="server" Width="100" Height="110" alt="Imagen nivel" />
+                            <br />
+                                
+                                   
+                        </div>
+                        <div class="media-body">
+                  
+                            <div class="user-profile-list">
+                                <br />
+                                   
+                                <span style="font-weight:600">Nivel: </span><asp:Label ID="lblNivelCliente" runat="server"></asp:Label>
+                                    <br />
+                                    <br />
+                                <span style="font-weight:600">Nombre:</span>
+                                <asp:Label ID="lblNombreCliente" Font-Bold="False" runat="server"></asp:Label>
+                            </div>
+                       <%-- </div>--%>
+                        </div>
+
+                         
+                      <br />
+                        <div class="block">
+                            <h4 class="widget-title">Cupones</h4>
+                            <div class="media product-card">
+                                <a class="pull-left" >
+                                    <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
+                                </a>
+                                <div class="media-body">                            
+                                    <h4 class="media-heading">Elija el cupón a asignar</h4>
+                                    <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>                                
+                                </div>
+                            </div>
+                            <br />
+                            <asp:Button ID="btnVolver" CssClass="btn btn-main btn-default" runat="server" OnClick="btnVolver_Click" Text="Volver" />
+
+                        </div>
+                         
+                    </div>
+                     
+                      
+                    <div class="col-md-6">
+                    <div class="block">
+                      
+                         <h4 class="widget-title">Cupones actuales</h4>
+                      
                       <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
                             RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
                             HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
@@ -45,18 +91,21 @@
                              </Columns>
                            <HeaderStyle/>
                         </asp:GridView> 
+                        </div>
 
+                      
                       <br />
                       <br />
                       <br />
 
-                      <asp:Button ID="btnVolver" CssClass="btn btn-main mt-20" runat="server" OnClick="btnVolver_Click" Text="Volver" />
-
+                     
 
                   </div>
+                  </div>
+                
                 </div>
             </div>
         </div>
-        </div>
-    </div>   
+      
+   
 </asp:Content>

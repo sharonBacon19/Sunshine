@@ -69,6 +69,15 @@ namespace SunshineWeb
         protected global::System.Web.UI.WebControls.Image imgNiveles;
 
         /// <summary>
+        /// lblPorcentaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPorcentaje;
+
+        /// <summary>
         /// imgCupones control.
         /// </summary>
         /// <remarks>

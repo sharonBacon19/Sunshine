@@ -30,6 +30,7 @@ namespace SunshineWeb
 
                     ClienteNivel cN = ClienteNivelLN.Obtener(cliente.identificacion);
                     lblNivelCliente.Text = cN.nivel.nombre;
+                    imagenNivel.ImageUrl += cN.nivel.Imagen;
                 }
             }
         }
@@ -43,6 +44,11 @@ namespace SunshineWeb
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("listaCliente.aspx");
+        }
+
+        protected void ddlCupon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

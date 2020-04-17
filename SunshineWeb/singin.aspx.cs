@@ -49,13 +49,17 @@ namespace SunshineWeb
                 if (!email_bien_escrito(usu.email))
                 {
                     mensaje = "Email contiene un formato incorrecto";
+                    
                     lblMensaje.Text = mensaje;
+                    lblMensaje.Visible = true;
                 }
                 else
                 {
                     if (contrasenna_bien_escrita(usu.contrasenna))
                     {
-                        mensaje = "contraseña contiene un formato incorrecto";
+                        mensaje = "La contraseña contiene un formato incorrecto";
+                        lblMensaje.Text = mensaje;
+                        lblMensaje.Visible = true;
                     }
                 }
 
@@ -111,6 +115,7 @@ namespace SunshineWeb
             catch (Exception e1)
             {
                 lblMensaje.Text = "Ha ocurrido un problema  " + e1.Message;
+                lblMensaje.Visible = true;
             }            
         }
 

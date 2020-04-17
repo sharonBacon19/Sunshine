@@ -32,7 +32,7 @@
                                 <asp:BoundField DataField="tarjetaCredito" HeaderText="Terjeta de Crédito"/> 
                                   <asp:TemplateField HeaderText="">
                                       <ItemTemplate>
-                                           <asp:Button ID="btnAsignar" CssClass="btn btn-main mt-20"  Text="Asignar Cupón" runat="server" CommandArgument='<%# Eval("identificacion") %>' OnCommand="btnAsignar_Command" />
+                                           <asp:Button ID="btnAsignar" CssClass="btn btn-main btn-small"  Text="Asignar Cupón" runat="server" CommandArgument='<%# Eval("identificacion") %>' OnCommand="btnAsignar_Command" />
                                       </ItemTemplate>
                                   </asp:TemplateField> 
                              </Columns>                          

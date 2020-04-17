@@ -192,6 +192,7 @@
     <Content Include="js\jquery-3.4.1.slim.js" />
     <Content Include="js\jquery-3.4.1.slim.min.js" />
     <Content Include="js\mensaje.js" />
+    <Content Include="js\ProgressBar.js" />
     <Content Include="js\script.js" />
     <Content Include="js\sweetalert2.all.min.js" />
     <Content Include="js\sweetalert2.js" />

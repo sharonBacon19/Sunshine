@@ -11,6 +11,7 @@ namespace SunshineWeb
 {
     public partial class perfilCliente : System.Web.UI.Page
     {
+        public static int porcentaje = 10;
         protected void Page_Load(object sender, EventArgs e)
         {
             imgNiveles.ImageUrl = "images/imagenes/infoNiveles.png";
@@ -27,9 +28,27 @@ namespace SunshineWeb
                 cNivel = ClienteNivelLN.ObtenerClienteNivel(cliente.identificacion);
                 lblNivel.Text = cNivel.nivel.nombre;
                 imagenNivel.ImageUrl += cNivel.nivel.Imagen;
+                porcentaje = calcularPorcentaje(cNivel.montoActual);
                 
+
 
             }
         }
+        public int calcularPorcentaje(int montoCliente)
+        {
+            
+
+            if (montoCliente!=0)
+            {
+                return (montoCliente / 150000) * 100;
+            }
+            else
+            {
+                return 10;
+            }
+        }
+
+       
+
     }
 }
