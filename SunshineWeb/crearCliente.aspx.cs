@@ -100,7 +100,8 @@ namespace SunshineWeb
                 {
                     cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
                     codigoQR = qr(),
-                    cupon = CuponLN.Obtener(1)
+                    cupon = CuponLN.Obtener(1),
+                    estado = 1
                 };
 
                 ClienteCuponLN.Insertar(cC);
