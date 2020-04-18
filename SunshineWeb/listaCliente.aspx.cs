@@ -28,8 +28,7 @@ namespace SunshineWeb
 
         protected void btnAsignar_Command(object sender, CommandEventArgs e)
         {
-            int id = Convert.ToInt32(e.CommandArgument);
-            string idCliente = Convert.ToString(id);
+            string idCliente = Convert.ToString(e.CommandArgument);
 
             Response.Redirect("asignarCliente.aspx?id=" + idCliente);
 
