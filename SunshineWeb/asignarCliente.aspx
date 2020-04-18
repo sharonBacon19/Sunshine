@@ -54,14 +54,31 @@
                             <h4 class="widget-title">Cupones</h4>
                             <div class="media product-card">
                                 <a class="pull-left" >
-                                    <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                         <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="ddlCupon"
+                                                EventName="SelectedIndexChanged" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
+
+
                                 </a>
                                 <div class="media-body">                            
                                     <h4 class="media-heading">Elija el cupón a asignar</h4>
                                     <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>                                
                                 </div>
                             </div>
+                            
                             <br />
+                            <br />
+                            <asp:Label ID="lblMensaje" CssClass="alert alert-common" runat="server" Visible="false"></asp:Label>
+                            <br />
+                            <br />
+
+
                             <asp:Button ID="btnVolver" CssClass="btn btn-main btn-default" runat="server" OnClick="btnVolver_Click" Text="Volver" />
                             <asp:Button ID="btnAsignar" CssClass="btn btn-main btn-default" runat="server" OnClick="btnAsignar_Click" Text="Asignar Cupón" />
 
@@ -75,24 +92,34 @@
                       
                          <h4 class="widget-title">Cupones actuales</h4>
                       
-                      <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
-                            RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
-                            HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
-                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" Height="100%" 
-                            runat="server" AutoGenerateColumns="false">
-                             <Columns>           
-                                  <asp:TemplateField HeaderText="Cupón">
-                                     <ItemTemplate>
-                                         <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("cupon.Imagen") %>' Width="100" Height="100" />
-                                     <ItemStyle BorderStyle="Groove" HorizontalAlign="Center" width="200" 
-                                        Height="100" Wrap="True"/>
-                                     </ItemTemplate>
-                                      </asp:TemplateField>
-                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cupon.nombre" HeaderText="Nombre"/>
-                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="estadoS" HeaderText="Estado"/>
-                             </Columns>
-                           <HeaderStyle/>
-                        </asp:GridView> 
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+
+                          <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
+                                RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
+                                HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
+                                BorderColor="Transparent" CellPadding="50" CellSpacing="50" Height="100%" 
+                                runat="server" AutoGenerateColumns="false">
+                                 <Columns>           
+                                      <asp:TemplateField HeaderText="Cupón">
+                                         <ItemTemplate>
+                                             <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("cupon.Imagen") %>' Width="100" Height="100" />
+                                         <ItemStyle BorderStyle="Groove" HorizontalAlign="Center" width="200" 
+                                            Height="100" Wrap="True"/>
+                                         </ItemTemplate>
+                                          </asp:TemplateField>
+                                    <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cupon.nombre" HeaderText="Nombre"/>
+                                    <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="estadoS" HeaderText="Estado"/>
+                                 </Columns>
+                               <HeaderStyle/>
+                            </asp:GridView> 
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnAsignar"
+                                                EventName="Click" />
+                        </Triggers>
+                        </asp:UpdatePanel>
+
                         </div>
 
                       

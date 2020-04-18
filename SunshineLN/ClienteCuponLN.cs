@@ -45,6 +45,31 @@ namespace SunshineLN
             List<ClienteCupon> cC = lista.Where(x => x.cliente.identificacion ==  identificacion).ToList();
             return cC;
         }
+        public static List<ClienteCupon> ClienteCuponActivo(String identificacion)
+        {
+            List<ClienteCupon> lista = ClienteCuponLN.ObtenerTodos();
+            List<ClienteCupon> cC = lista.Where(x => x.cliente.identificacion == identificacion).ToList();
+            List<ClienteCupon> cActivos=cC.Where(x => x.estado == 1).ToList();
+            return cActivos;
+        }
+        
+        public static bool ExisteCupon(String identificacion)
+        {
+            List<ClienteCupon> lista = new List<ClienteCupon>();
+            lista = ClienteCuponLN.ObtenerTodos();
+            ClienteCupon cC = new ClienteCupon();
+            cC = (lista.Find(elemento => elemento.cliente.identificacion == identificacion));
+
+            if (cC != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
 
         public static List<ClienteCupon> CuponPorCliente(int idCupon)
         {
