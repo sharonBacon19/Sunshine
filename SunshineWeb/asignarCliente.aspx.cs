@@ -59,5 +59,10 @@ namespace SunshineWeb
             imgCupon.Visible = true;
             imgCupon.ImageUrl = cupon.Imagen;
         }
+
+        protected void btnAsignar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

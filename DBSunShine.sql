@@ -584,8 +584,7 @@ insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIV
 values ('6','PUN','PUNTARENAS',1)
 insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
 values ('7','LIM','LIMON',1)
-insert into Provincia (COD_PROVINCIA,DSC_CORTA_PROVINCIA,DSC_PROVINCIA,LOG_ACTIVO)
-values ('1','SJO','SAN JOSE',1)
+
 
 insert into Producto(NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
 values ('Calor de Sol', 'Conjunto de traje de baño con diseño único', 20000, 1, 1, 'images\imagenes\bikini3.jpg');
@@ -608,9 +607,9 @@ values ('Pantaloneta Adidas', 'Con elástico, la tela es respirable', 12000, 2, 2
 
 
 --insert de Clientes
-
+select* from Usuario
 --Usuario
-insert into Usuario(CONTRASENNA,TIPOUSUARIO) values ('123456','Cliente')
+insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) values ('123456','Cliente','camila2@gmail.com',1)
 --insert into Usuario(CONTRASENNA,TIPOUSUARIO) values ('123456','Cliente')
 
 --Cliente
@@ -634,7 +633,3 @@ insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('202220222',1,20153
 
 insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) 
 		values		('123456','Admin','admin123@sunshine.com',1)
-
-select * from ClienteCupon where IDCLIENTE='202220222'
-
-select * from ClienteCupon

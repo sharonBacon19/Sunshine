@@ -63,6 +63,7 @@
                             </div>
                             <br />
                             <asp:Button ID="btnVolver" CssClass="btn btn-main btn-default" runat="server" OnClick="btnVolver_Click" Text="Volver" />
+                            <asp:Button ID="btnAsignar" CssClass="btn btn-main btn-default" runat="server" OnClick="btnAsignar_Click" Text="Asignar Cupón" />
 
                         </div>
                          
