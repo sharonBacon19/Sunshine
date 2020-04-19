@@ -17,7 +17,7 @@ namespace SunshineWeb
 {
     public partial class finalizarCompra : System.Web.UI.Page
     {
-        private List<Cupon> listaCupones;
+        private List<ClienteCupon> listaCupones;
         private static Producto producto = new Producto();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -30,18 +30,31 @@ namespace SunshineWeb
                 Cliente cliente = (Cliente)Session["cliente"];
                 if (cliente != null)
                 {
-                    listaCupones = new List<Cupon>();
-                    List<ClienteCupon> lista = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
-                    foreach (ClienteCupon cC in lista)
+                    List<ClienteCupon> cupones = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
+                    listaCupones = new List<ClienteCupon>();
+                    foreach (ClienteCupon cc in cupones)
                     {
-                        Cupon cupon = CuponLN.Obtener(cC.cupon.id);
-                        listaCupones.Add(cupon);
-                    }
+                        ClienteCupon c = ClienteCuponLN.Obtener(cc.id);
 
-                    ddlCupon.DataSource = listaCupones;
-                    ddlCupon.DataTextField = "Nombre";
-                    ddlCupon.DataValueField = "ID";
-                    ddlCupon.DataBind();
+                        if(c.estado == 1)
+                        {
+                            listaCupones.Add(c);
+                        }                       
+                    }                  
+                    
+
+                    if (listaCupones != null)
+                    {
+                        ddlCupon.DataSource = listaCupones;
+                        ddlCupon.DataTextField = "Nombre";
+                        ddlCupon.DataValueField = "ID";
+                        ddlCupon.DataBind();
+                    }
+                    else
+                    {
+                        ddlCupon.Visible = false;
+                    }
+                    
 
                     txtNombre.Text = cliente.nombreCompleto;
 
@@ -51,8 +64,6 @@ namespace SunshineWeb
                     txtCodigoPostal.Text = direc.codigo_postal;
                     txtOtrasSennas.Text = direc.otrassennas;
                     txtTarjeta.Text = cliente.tarjetaCredito;
-
-                    ddlCupon_SelectedIndexChanged(null, null);
 
                     txtSubTotal.Text = Convert.ToString(Subtotal());
                     txtTotal.Text = Convert.ToString(Subtotal());
@@ -67,9 +78,12 @@ namespace SunshineWeb
 
         protected void ddlCupon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
-            imgCupon.Visible = true;
-            imgCupon.ImageUrl = cupon.Imagen;
+            if (listaCupones != null)
+            {
+                Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+                imgCupon.Visible = true;
+                imgCupon.ImageUrl = cupon.Imagen;
+            }
         }
 
         private void listadoDetPedido()
@@ -115,7 +129,12 @@ namespace SunshineWeb
                 // si hay cliente hace lo siguiente
 
                 //agarra cupon (SUCAR COMO AGREGAR ITEM SIN VALOR DE SELECCIONE)
-                Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+                Cupon cupon = new Cupon();
+                if (Convert.ToInt16(ddlCupon.SelectedValue) != null)
+                {
+                    cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+                }
+
                 ClienteCuponLN.ActualizarEstado(cliente.identificacion, 2);
 
                 //se busca el nivel del cliente
@@ -136,6 +155,11 @@ namespace SunshineWeb
                         };
                         CanjeLN.Insertar(canje);
                     }                   
+                }
+                else
+                {
+                    //mensaje
+                    lblMensaje.Text = "No se puede aplicar descuento, puesto que no cuenta con cupones";
                 }
 
 
@@ -189,13 +213,21 @@ namespace SunshineWeb
                 }
 
 
-
-                //sacar total
-                int descuento = 0;
-                 descuento = cupon.descuento / 100;
-
                 int total = 0;
-                total = Subtotal2() + (producto.precio - descuento);
+                //sacar total
+                if (cupon != null)
+                {
+                    int descuento = 0;
+                    descuento = cupon.descuento / 100;
+
+                    
+                    total = Subtotal2() + (producto.precio - descuento);
+                }
+                else
+                {
+                    total = Subtotal();
+                }
+                 
 
                 //lista de compras
                 List<DetPedido> lista = (List<DetPedido>)Session["lista"];

@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="asignarCliente.aspx" />
+    <Content Include="canje.aspx" />
     <Content Include="carrito.aspx" />
     <Content Include="carritoCliente.aspx" />
     <Content Include="comprasCliente.aspx" />
@@ -198,6 +199,7 @@
     <Content Include="js\sweetalert2.js" />
     <Content Include="js\sweetalert2.min.js" />
     <Content Include="listaCliente.aspx" />
+    <Content Include="listaClienteCanje.aspx" />
     <Content Include="login.aspx" />
     <Content Include="olvideContrasenna.aspx" />
     <Content Include="perfilCliente.aspx" />
@@ -372,6 +374,13 @@
     <Compile Include="asignarCliente.aspx.designer.cs">
       <DependentUpon>asignarCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="canje.aspx.cs">
+      <DependentUpon>canje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="canje.aspx.designer.cs">
+      <DependentUpon>canje.aspx</DependentUpon>
+    </Compile>
     <Compile Include="carrito.aspx.cs">
       <DependentUpon>carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -427,6 +436,13 @@
     </Compile>
     <Compile Include="listaCliente.aspx.designer.cs">
       <DependentUpon>listaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listaClienteCanje.aspx.cs">
+      <DependentUpon>listaClienteCanje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listaClienteCanje.aspx.designer.cs">
+      <DependentUpon>listaClienteCanje.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

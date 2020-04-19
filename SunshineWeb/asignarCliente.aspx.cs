@@ -19,7 +19,7 @@ namespace SunshineWeb
     {
         Cliente cliente = new Cliente();
         ClienteNivel cN = new ClienteNivel();
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,11 +30,11 @@ namespace SunshineWeb
                     id = Convert.ToString(Request.QueryString["id"]);
 
                     cliente = ClienteLN.ObtenerPorIdentificacion(id);
-                    listaCupon();
-
-                    lblNombreCliente.Text = cliente.nombreCompleto;
-
                     cN = ClienteNivelLN.Obtener(cliente.identificacion);
+
+                    Session["clienteCanje"] = ClienteLN.ObtenerPorIdentificacion(id);
+
+                    lblNombreCliente.Text = cliente.nombreCompleto;                    
                     lblNivelCliente.Text = cN.nivel.nombre;
                     imagenNivel.ImageUrl += cN.nivel.Imagen;
 
@@ -43,6 +43,7 @@ namespace SunshineWeb
                     ddlCupon.DataValueField = "ID";
                     ddlCupon.DataBind();
 
+                    listaCupon();
                     ddlCupon_SelectedIndexChanged(null, null);
                 }
             }
@@ -64,46 +65,7 @@ namespace SunshineWeb
             Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
             imgCupon.Visible = true;
             imgCupon.ImageUrl = cupon.Imagen;
-        }
-
-        protected void btnAsignar_Click(object sender, EventArgs e)
-        {
-            int select = ddlCupon.SelectedIndex;
-            //si el cupon tiene nivel inferior o igual al del cliente busque
-            if (select <= cN.nivel.id)
-            {//existe el ClienteCupon con esa identificacion? Si no, entonces inserte
-                if (ClienteCuponLN.ExisteCupon(cliente.identificacion))
-                {
-                    lblMensaje.Text = "El cliente ya tiene ese cupón asignado";
-                    lblMensaje.CssClass += "alert-danger";
-                    lblMensaje.Visible = true;
-                }
-                else
-                {
-                    ClienteCupon cC = new ClienteCupon
-                    {
-                        cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
-                        codigoQR = qr(),
-                        cupon = CuponLN.Obtener(1),
-                        estado = 1
-                    };
-                    ClienteCuponLN.Insertar(cC);
-
-                    lblMensaje.Text = "Se ha asignado el cupón con exito";
-                    lblMensaje.CssClass += "alert-success";
-                    lblMensaje.Visible = true;
-                }
-            }
-            else
-            {
-                lblMensaje.Text = "No se puede asignar un cupón superior al nivel del cliente";
-                lblMensaje.CssClass += "alert-warning";
-                lblMensaje.Visible = true;
-            }
-
-            
-
-            
+            lblMensaje.Text = "";
         }
 
         public int qr()
@@ -120,6 +82,46 @@ namespace SunshineWeb
             renderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);
             var imageTemporal = new Bitmap(ms);
             return Convert.ToInt32(qrCode.GetHashCode());
+        }
+
+        protected void btnAsignar_Click(object sender, EventArgs e)
+        {
+            Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
+            Cliente cl = (Cliente)Session["clienteCanje"];
+            ClienteNivel cn = ClienteNivelLN.Obtener(cl.identificacion);
+
+            if (ClienteCuponLN.ExisteCupon(cupon, cl.identificacion))
+            {
+                lblMensaje.Text = "";
+                lblMensaje.Visible = true;
+                lblMensaje.Text = "Cupón ya ha sido asígnado";
+            }
+            else
+            {
+                if (cn.nivel.id < cupon.nivel.id)
+                {
+                    lblMensaje.Text = "";
+                    lblMensaje.Visible = true;
+                    lblMensaje.Text = "Cupón no puede ser asígnado";
+                }
+                else
+                {
+                    ClienteCupon cc = new ClienteCupon
+                    {
+                        cliente = cl,
+                        codigoQR = qr(),
+                        cupon = cupon,
+                        estado = 1,
+                        estadoS = "Sin usar",
+                    };
+                    ClienteCuponLN.Insertar(cc);
+                    lblMensaje.Text = "";
+                    lblMensaje.Visible = true;
+                    lblMensaje.Text = "Cupón ha asígnado";
+                    listaCupon();
+                }
+            }
+
         }
     }
 }

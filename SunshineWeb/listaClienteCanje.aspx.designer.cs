@@ -11,7 +11,7 @@ namespace SunshineWeb
 {
 
 
-    public partial class listaCliente
+    public partial class listaClienteCanje
     {
 
         /// <summary>

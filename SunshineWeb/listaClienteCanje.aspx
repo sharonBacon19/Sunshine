@@ -1,4 +1,4 @@
-﻿<%@ Page EnableEventValidation="false" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="listaCliente.aspx.cs" Inherits="SunshineWeb.listaCliente" %>
+﻿<%@ Page EnableEventValidation="false" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="listaClienteCanje.aspx.cs" Inherits="SunshineWeb.listaClienteCanje" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Sunshine | Lista de Clientes </title>
 </asp:Content>
@@ -34,7 +34,7 @@
                                 <asp:BoundField DataField="tarjetaCredito" HeaderText="Terjeta de Crédito"/> 
                                   <asp:TemplateField HeaderText="">
                                       <ItemTemplate>
-                                           <asp:Button ID="btnAsignar" CssClass="btn btn-main btn-small"  Text="Asignar Cupón" runat="server" CommandArgument='<%# Eval("identificacion") %>' OnCommand="btnAsignar_Command" />
+                                           <asp:Button ID="btnCanje" CssClass="btn btn-main btn-small"  Text="Ver Canjes" runat="server" CommandArgument='<%# Eval("identificacion") %>' OnCommand="btnCanje_Command"/>
                                       </ItemTemplate>
                                   </asp:TemplateField> 
                              </Columns>                          

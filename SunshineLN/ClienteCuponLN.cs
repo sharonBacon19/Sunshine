@@ -53,12 +53,12 @@ namespace SunshineLN
             return cActivos;
         }
         
-        public static bool ExisteCupon(String identificacion)
+        public static bool ExisteCupon(Cupon cupon, string identificacion)
         {
             List<ClienteCupon> lista = new List<ClienteCupon>();
-            lista = ClienteCuponLN.ObtenerTodos();
+            lista = ClienteCuponLN.ClientePorCupon(identificacion);
             ClienteCupon cC = new ClienteCupon();
-            cC = (lista.Find(elemento => elemento.cliente.identificacion == identificacion));
+            cC = (lista.Find(elemento => elemento.cupon.nivel.id == cupon.nivel.id));
 
             if (cC != null)
             {
