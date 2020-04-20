@@ -610,6 +610,8 @@ values ('Pantaloneta Adidas', 'Con elástico, la tela es respirable', 12000, 2, 2
 select* from Usuario
 --Usuario
 insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) values ('123456','Cliente','camila2@gmail.com',1)
+insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) values ('123456','Cliente','kim1@gmail.com',1)
+
 --insert into Usuario(CONTRASENNA,TIPOUSUARIO) values ('123456','Cliente')
 
 --Cliente
@@ -622,14 +624,13 @@ values('202220222','Camila Castillo Herrera',1,1,'1200120012001200','2000-05-05'
 
 --ClienteNivel
 insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('202220222',0,1)
+--insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('145214521452',0,1)
 --insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('145214521452',75000,4)
 
 --ClienteCupon
 insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('202220222',1,2015325)
---insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('145214521452',3,2015325)
+--insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('145214521452',2,5023021)
+
 --insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('145214521452',4,2015325)
 
 --insert de Administrador
-
-insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) 
-		values		('123456','Admin','admin123@sunshine.com',1)

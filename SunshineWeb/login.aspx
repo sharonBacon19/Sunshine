@@ -50,6 +50,7 @@
             <img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
           </a>
           <h2 class="text-center">¡Bienvenido!</h2>
+            <h5 class="text-center">Iniciar Sesión</h5>
           <br />
             <div class="form-group">
                 <asp:TextBox ID="txtEmail" class="form-control" runat="server" placeholder="Email"></asp:TextBox>

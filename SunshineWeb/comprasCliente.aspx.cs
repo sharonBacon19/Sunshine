@@ -19,8 +19,18 @@ namespace SunshineWeb
             {
                 Cliente cliente = (Cliente)Session["cliente"];
                 lista = EncaPedidoLN.EncaPedidoPorCliente(cliente.identificacion);
-                listaEnca();
-                txtTotal.Text = total().ToString();               
+
+                if (lista != null)
+                {
+                    listaEnca();
+                    txtTotal.Text = total().ToString(); 
+                }
+                else
+                {
+                    lblMensaje.Visible = true;
+                    lblMensaje.Text = "No hay compras aún";
+                }
+                
             }
         }
 

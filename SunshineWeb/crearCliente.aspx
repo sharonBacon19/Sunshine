@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">          
-          <h2 class="text-center">Crea cliente</h2>
+          <h2 class="text-center">Crear cliente</h2>
           
             <div class="form-group">              
                 <asp:TextBox ID="txtNombre" class="form-control" placeholder="Nombre Cliente" runat="server"></asp:TextBox>

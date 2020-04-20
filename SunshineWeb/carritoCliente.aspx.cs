@@ -15,17 +15,19 @@ namespace SunshineWeb
         {
             if (!IsPostBack)
             {
-                lista = (List<DetPedido>)Session["lista"];
-                if (lista != null)
-                {
-                    txtSubTotal.Text = Convert.ToString(total());
+                
+                //if (lista == null)
+                //{
+                   
+                //    lblMensaje.Visible = true;
+                //    lblMensaje.Text = "No hay productos en el carrito";
+
+                //}
+                //else
+                //{
+                     txtSubTotal.Text = Convert.ToString(total());
                     lista = (List<DetPedido>)Session["lista"];
-                }
-                else
-                {
-                    lblMensaje.Visible = true;
-                    lblMensaje.Text = "No hay compras aún";
-                }
+                //}
             }
         }
 

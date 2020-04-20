@@ -32,33 +32,39 @@
 
                         <br />
                         <br />
-                        <asp:Label ID="lblMensaje" Visible="false" runat="server" CssClass="alert alert-info alert-common alert-solid "></asp:Label>
+                        <asp:Label ID="lblMensaje" Visible="false" runat="server" CssClass="alert alert-info alert-common col-xs-12"></asp:Label>
                         <br />
                         <br />
-                        <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
-                            RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
-                            HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
-                            BorderColor="Transparent" CellPadding="50" CellSpacing="50" AlternatingRowStyle-BackColor="#f0f0f0" Height="100%" 
-                            runat="server" AutoGenerateColumns="false">
-                             <Columns>
-                                 <asp:TemplateField HeaderText="Producto">
-                                     <ItemTemplate>
-                                         <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("producto.Imagen") %>' Width="100" Height="100" />
-                                     <ItemStyle BorderStyle="Groove" HorizontalAlign="Center" width="200" 
-                                        Height="100" Wrap="True"/>
-                                     </ItemTemplate>
-                                 </asp:TemplateField>
-                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
-                                <asp:BoundField DataField="producto.precio" HeaderText="Precio" DataFormatString="{0:0} c/u"/>
-                                  <asp:TemplateField HeaderText="">
-                                      <ItemTemplate>
-                                           <asp:Button ID="btnQuitar" CssClass="btn btn-main mt-20"  Text="Quitar" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnQuitar_Command" />
-                                      </ItemTemplate>
-                                  </asp:TemplateField> 
-                             </Columns>
-                           <HeaderStyle/>
-                        </asp:GridView> 
 
+                       
+                                <asp:GridView ID="grvListado" Width="100%" HeaderStyle-BackColor="Black" HeaderStyle-ForeColor="White" HeaderStyle-Height="100%" 
+                                    RowStyle-HorizontalAlign="Center" RowStyle-BorderColor="white" RowStyle-BorderStyle="None"
+                                    HeaderStyle-HorizontalAlign="Center" HeaderStyle-BorderStyle="None" HeaderStyle-BorderColor="Transparent" 
+                                    BorderColor="Transparent" CellPadding="50" CellSpacing="50" AlternatingRowStyle-BackColor="#f0f0f0" Height="100%" 
+                                    runat="server" AutoGenerateColumns="false">
+                                     <Columns>
+
+                                         <asp:TemplateField HeaderText="Producto">
+                                             <ItemTemplate>
+                                                 <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("producto.Imagen") %>' Width="100" Height="100" />
+                                             <ItemStyle BorderStyle="Groove" HorizontalAlign="Center" width="200" 
+                                                Height="100" Wrap="True"/>
+                                             </ItemTemplate>
+                                         </asp:TemplateField>
+                                        <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
+                                        <asp:BoundField DataField="producto.precio" HeaderText="Precio" DataFormatString="{0:0} c/u"/>
+                                  
+                                
+
+                                         <asp:TemplateField HeaderText="">
+                                              <ItemTemplate>
+                                                   <asp:Button ID="btnQuitar" CssClass="btn btn-main mt-20"  Text="Quitar" runat="server" CommandArgument='<%# Eval("producto.id") %>' OnCommand="btnQuitar_Command" />
+                                              </ItemTemplate>
+                                          </asp:TemplateField> 
+                                     </Columns>
+                                   <HeaderStyle/>
+                                </asp:GridView> 
+                            
 
                     <div class="form-group col-md-4">
                         

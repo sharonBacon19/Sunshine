@@ -56,6 +56,7 @@
 					<ul>
 						<li class="dropdown ">
 							<a>
+
 								<asp:Label ID="lblNombreCliente" runat="server" Text="" Visible="false"></asp:Label>
 								<asp:Image ID="ImgNIvel" Visible="false" runat="server" Width="50" Height="55"></asp:Image>
 							</a>
@@ -163,7 +164,7 @@
 					<ul class="dropdown-menu">
 						<li class="dropdown-header"></li>
 						
-						<li><a href="login.aspx">Ingresar</a></li>
+						<li ><a href="login.aspx">Ingresar</a></li>
 						<li><a href="singin.aspx">Registrarse</a></li>
 					</ul>
 	          </li>

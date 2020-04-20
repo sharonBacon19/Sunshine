@@ -41,16 +41,19 @@
                                         Height="100" Wrap="True"/>
                                      </ItemTemplate>
                                  </asp:TemplateField>
-                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="total" HeaderText="total de la compra" DataFormatString="{0:0}"/>                               
+                                 <%--<asp:BoundField ControlStyle-BorderColor="Transparent" DataField="cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>--%>
+                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="total" HeaderText="Total de la compra" DataFormatString="{0:0}"/>                               
                              </Columns>
                            <HeaderStyle/>
                         </asp:GridView> 
                         <br />
                         <br />
                         <div class="form-group col-md-4">
-                        <asp:Label ID="lblTotal" runat="server" Text="Total de las compras"></asp:Label>
-                        <br />
-                        <asp:TextBox ID="txtTotal" class="form-control col-md-4" runat="server" Text="" ReadOnly="true"></asp:TextBox>
+                            <asp:Label ID="lblMensaje" runat="server" Visible="false" CssClass="alert alert-common alert-info"></asp:Label>
+                             <br />
+                            <asp:Label ID="lblTotal" runat="server" Text="Total de las compras"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="txtTotal" class="form-control col-md-4" runat="server" Text="" ReadOnly="true"></asp:TextBox>
                         </div>                        
                         <br />
                     </div>

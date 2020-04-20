@@ -117,7 +117,7 @@ namespace SunshineWeb
                     ClienteCuponLN.Insertar(cc);
                     lblMensaje.Text = "";
                     lblMensaje.Visible = true;
-                    lblMensaje.Text = "Cupón ha asígnado";
+                    lblMensaje.Text = "Cupón se ha asígnado";
                     listaCupon();
                 }
             }
