@@ -44,6 +44,15 @@
                              </Columns>
                            <HeaderStyle/>
                         </asp:GridView> 
+
+                        <div class="form-group col-md-4">
+                            <asp:Label ID="lblMensaje" CssClass="alert alert-common alert-warning" Visible="false" runat="server"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
+                            <asp:TextBox ID="txtSubTotal" class="form-control" placeholder="" runat="server"></asp:TextBox>
+                            <br />
+                        <asp:Button ID="btnComprar" CssClass="btn btn-main"  Text="Comprar" runat="server" OnCommand="btnComprar_Command"/>             
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -52,23 +61,6 @@
         </div>
     </div>   
 
-    <section class="products section" style="position:center">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="widget">
-					<div class="form-group">
-                        <asp:Label ID="lblMensaje" Visible="false" runat="server"></asp:Label>
-                        <br />
-                        <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                        <asp:TextBox ID="txtSubTotal" class="form-control" placeholder="" runat="server"></asp:TextBox>
-                        <br />
-                        <asp:Button ID="btnComprar" CssClass="btn btn-main"  Text="Comprar" runat="server" OnCommand="btnComprar_Command"/>             
-                    </div>
-               </div>
-            </div>
-        </div>
-     </div>
-    </section>
+    
 </asp:Content>
 

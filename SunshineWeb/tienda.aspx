@@ -77,7 +77,7 @@
             <div class="col-md-3 ">
                 <div class="product-item ">
                     <div class="product-thumb block text-center" runat="server">
-                         <h5 class="price-title "><%#: Item.nombre %></h5>
+                         <h5 class="price-title form-control"><%#: Item.nombre %></h5>
 					    <asp:Image ID="ImgP" runat="server" ImageUrl="<%#: Item.imagen%>" Width="200" Height="200"></asp:Image>
                         <div class="preview-meta">
                        <asp:Button CssClass="btn btn-main mt-20 " ID="btnVer" Text="Ver" runat="server" 

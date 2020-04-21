@@ -67,7 +67,7 @@ namespace SunshineWeb
                     break;
                 }
             }
-            Response.Redirect("carrito.aspx");
+            Response.Redirect("carritoCliente.aspx");
         }
 
         protected void btnComprar_Command(object sender, CommandEventArgs e)
@@ -80,7 +80,7 @@ namespace SunshineWeb
             {
                 lblMensaje.Visible = true;
                 lblMensaje.Text = "Debe iniciar sesión para poder comprar";
-                Response.Redirect("carrito.aspx");
+                Response.Redirect("carritoCliente.aspx");
             }
         }
     }

@@ -550,7 +550,7 @@ insert into Genero (NOMBRE, ESTADO) values ('Hombre', 1);
 
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Bikinis', 1);
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Pantalonetas', 1);
-insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Infladores', 1);
+
 insert into TipoPrenda (DESCRIPCION, ESTADO) values ('Accesorios', 1);
 
 insert into Talla (TIPOTALLA, ESTADO) values ('XS', 1);
@@ -605,32 +605,16 @@ values ('Short Corto Adidas', 'Con elástico y cordón para ajustar a gusto', 1200
 insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
 values ('Pantaloneta Adidas', 'Con elástico, la tela es respirable', 12000, 2, 2, 'images\imagenes\BikiniH12.jpg');
 
+--accesorios
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Sombrero Playa Liso', 'Sombrero de color liso con lazo de decoración', 10000, 1, 3, 'images\imagenes\sombrero1.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Sombrero Playa Rayas', 'Sombrero a rayas con un listón en medio de decoración', 12000, 1, 3, 'images\imagenes\sombrero2.jpg');
 
---insert de Clientes
-select* from Usuario
---Usuario
-insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) values ('123456','Cliente','camila2@gmail.com',1)
-insert into Usuario(CONTRASENNA,TIPOUSUARIO,EMAIL,ESTADO) values ('123456','Cliente','kim1@gmail.com',1)
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Lentes Sol Tornasol', 'Lentes de sol con el lente tornasol', 9000, 2, 3, 'images\imagenes\lentes1.jpg');
+insert into Producto (NOMBRE, DESCRIPCION, PRECIO, IDGENERO, IDTIPOPRENDA,IMAGEN) 
+values ('Lentes Sol Angulares', 'Lentes de sol grandes angulares, de plástico', 11000, 1, 3, 'images\imagenes\lentes3.jpg');
 
---insert into Usuario(CONTRASENNA,TIPOUSUARIO) values ('123456','Cliente')
 
---Cliente
-insert into Cliente
-(IDENTIFICACION,NOMBRECOMPLETO,IDUSUARIO,IDTIPOIDENTIFICACION,TARJETACREDITO,FECHANACIMIENTO)
-values('202220222','Camila Castillo Herrera',1,1,'1200120012001200','2000-05-05')
---insert into Cliente
---(IDENTIFICACION,NOMBRECOMPLETO,IDUSUARIO,IDTIPOIDENTIFICACION,TARJETACREDITO,FECHANACIMIENTO)
---values('145214521452','Junmyeon Kim',2,4,'1254125412541254','1998-08-15')
 
---ClienteNivel
-insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('202220222',0,1)
---insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('145214521452',0,1)
---insert into ClienteNivel(IDCLIENTE,MONTOACTUAL,IDNIVEL) values('145214521452',75000,4)
-
---ClienteCupon
-insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('202220222',1,2015325)
---insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('145214521452',2,5023021)
-
---insert into ClienteCupon(IDCLIENTE,IDCUPON,CODIGO_QR) values('145214521452',4,2015325)
-
---insert de Administrador

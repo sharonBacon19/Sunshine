@@ -293,7 +293,7 @@ namespace SunshineWeb
         protected void btnAplicar_Command(object sender, CommandEventArgs e)
         {
 
-            if (listaCupones != null)
+            if (ddlCupon.Visible)
             {
                 int id = int.Parse(e.CommandArgument.ToString());
                 producto = ProductoLN.Obtener(id);
