@@ -24,6 +24,15 @@ namespace SunshineWeb
         protected global::System.Web.UI.WebControls.GridView grvListado;
 
         /// <summary>
+        /// Control lblMensjae.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensjae;
+
+        /// <summary>
         /// Control lblTotal.
         /// </summary>
         /// <remarks>

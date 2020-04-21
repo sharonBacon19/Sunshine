@@ -48,136 +48,101 @@
           <a class="logo" href="index.html">
             <img src="images/imagenes/sunshine4.png" alt="" width="100" height="100">
           </a>
-          <h2 class="text-center">Crea una cuenta nueva</h2>
-          
+          <h2 class="text-center">Crea una cuenta nueva</h2>          
             <div class="form-group">              
-                <asp:TextBox ID="txtNombre" class="form-control" placeholder="Nombre" runat="server"></asp:TextBox>
-               
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                         ErrorMessage="* El nombre es requerido" ControlToValidate="txtNombre"
-                         ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                </asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtNombre" class="form-control" placeholder="Nombre" runat="server"></asp:TextBox>               
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="* El nombre es requerido" ControlToValidate="txtNombre"
+                     ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
+
            <br />
+
             <div class="form-group">
                  <asp:TextBox ID="txtFecha" TextMode="Date" class="form-control" runat="server"></asp:TextBox>
-                <%-- CAMBIAR VALIDACION DE LA FECHA --%>
                 <br />
-             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                            ErrorMessage="* La fecha es requerida" ControlToValidate="txtFecha" 
-                            foreColor="red" SetFocusOnError="true" Display="Dynamic"
-                            ValidationGroup="registrar">
-                     </asp:RequiredFieldValidator>
-                <%--<asp:RegularExpressionValidator ValidationExpression=""></asp:RegularExpressionValidator>--%>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="* La fecha es requerida" ControlToValidate="txtFecha" 
+                  foreColor="red" SetFocusOnError="true" Display="Dynamic" ValidationGroup="signin"></asp:RequiredFieldValidator>               
             </div>
 
             <div class="form-group">
-                <asp:Label ID="lblTipoIdentificacion" class="form-control" Text="Tipo de Identificación" runat="server"></asp:Label>
-                
-                <asp:DropDownList ID="ddlTipoIdentificacion" class="form-control" runat="server"></asp:DropDownList>
-               
+                <asp:Label ID="lblTipoIdentificacion" class="form-control" Text="Tipo de Identificación" runat="server"></asp:Label>                
+                <asp:DropDownList ID="ddlTipoIdentificacion" class="form-control" runat="server"></asp:DropDownList>               
                 <br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
-                      ErrorMessage="* El tipo de identificación es requerido" ControlToValidate="ddlTipoIdentificacion"
-                      ValidationGroup="signin"  ForeColor="Red" Display="Dynamic">
-                </asp:RequiredFieldValidator>
-
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="* El tipo de identificación es requerido" ControlToValidate="ddlTipoIdentificacion"
+                      ValidationGroup="signin"  ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
-
             
             <div class="form-group">
                <asp:TextBox ID="txtIdentificacion" class="form-control" placeholder="Identificación" runat="server"></asp:TextBox>
-                  <br />
-            
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
-                      ErrorMessage="* La identificación es requerida" ControlToValidate="txtIdentificacion"
-                      ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                </asp:RequiredFieldValidator>
+                  <br />            
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="* La identificación es requerida" ControlToValidate="txtIdentificacion"
+                 ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="El número de identificación debe contener solo números"
+                 ControlToValidate="txtIdentificacion" ValidationExpression="[0-9]" ForeColor="Red" SetFocusOnError="true" Display="Dynamic" ValidationGroup="signin"></asp:RegularExpressionValidator>
             </div>
            
             <div class="form-group">
                <asp:TextBox ID="txtTarjetaCredito" class="form-control" placeholder="Número Tarjeta" runat="server"></asp:TextBox>
-                  <br />
-            
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server"
-                      ErrorMessage="* El número de tarjeta es requerido" ControlToValidate="txtTarjetaCredito"
-                      ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                </asp:RequiredFieldValidator>
+                  <br />            
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="* El número de tarjeta es requerido" ControlToValidate="txtTarjetaCredito"
+                      ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>                
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="El número de tarjeta es inválido" ControlToValidate="txtTarjetaCredito"
+                      ValidationExpression="^(?:(4[0-9]{12}(?:[0-9]{3})?) | (5[1-5][0-9]{14}) | (6(?:011|5[0-9]{2})[0-9]{12}) | (3[47][0-9]{13}) | (3(?:0[0-5]|[68][0-9])[0-9]{11}) | ((?:2131|1800|35[0-9]{3})[0-9]{11}))$"
+                      ForeColor="Red" SetFocusOnError="true" Display="Dynamic" ValidationGroup="signin"></asp:RegularExpressionValidator>
             </div>    
             
             <div class="form-group">
                 <asp:Label ID="Label1" class="form-control" Text="Provincia" runat="server"></asp:Label>
-                <asp:DropDownList ID="ddlProvincia" class="form-control" runat="server">
-                    
-                    
-                </asp:DropDownList>
-                <br />
-            
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                      ErrorMessage="* La provincia es requerida" ControlToValidate="ddlProvincia"
-                      ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                </asp:RequiredFieldValidator>
+                <asp:DropDownList ID="ddlProvincia" class="form-control" runat="server"></asp:DropDownList>
+                <br />            
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="* La provincia es requerida" ControlToValidate="ddlProvincia"
+                   ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
             
             <div class="form-group">              
-                <asp:TextBox ID="txtCodigo" class="form-control" placeholder="Código postal" runat="server"></asp:TextBox>
-           
-            <br />
-                    
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server"
-                         ErrorMessage="* El código postal es requerido" ControlToValidate="txtCodigo"
-                         ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                    </asp:RequiredFieldValidator>
-            </div>
-            
+                <asp:TextBox ID="txtCodigo" class="form-control" placeholder="Código postal" runat="server"></asp:TextBox>           
+                <br />                    
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="* El código postal es requerido" ControlToValidate="txtCodigo"
+                         ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="El código postal debe contener solo números" ControlToValidate="txtCodigo" 
+                    ValidationExpression="[0-9]" ForeColor="Red" SetFocusOnError="true" Display="Dynamic" ValidationGroup="signin"></asp:RegularExpressionValidator>
+            </div>            
 
              <div class="form-group">              
-                <asp:TextBox ID="txtOtras" class="form-control" placeholder="Otras señas" runat="server"></asp:TextBox>
-           
-            <br />
-                    
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
-                         ErrorMessage="* El campo de otras señas requerido" ControlToValidate="txtOtras"
-                         ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                    </asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtOtras" class="form-control" placeholder="Otras señas" runat="server"></asp:TextBox>           
+                <br />                    
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="* El campo de otras señas requerido" ControlToValidate="txtOtras" ValidationGroup="signin" 
+                     SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
+            </div>   
+
+
+            <div class="form-group">              
+                <asp:TextBox ID="txtEmail" class="form-control" placeholder="Email" runat="server"></asp:TextBox>           
+                <br />                    
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="* El email es requerido" ControlToValidate="txtEmail"
+                     ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="El email debe contener formato de email" ControlToValidate="txtEmail"
+                     ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" ForeColor="Red"
+                     SetFocusOnError="true" Display="Dynamic" ValidationGroup="signin"></asp:RegularExpressionValidator>
             </div>            
-           
 
             <div class="form-group">              
-                <asp:TextBox ID="txtEmail" class="form-control" placeholder="Email" runat="server"></asp:TextBox>
-           
-            <br />
-                    
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                         ErrorMessage="* El email es requerido" ControlToValidate="txtEmail"
-                         ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                    </asp:RequiredFieldValidator>
-            </div>
-            
-
-            <div class="form-group">              
-                <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>
-                    
-            
-            <br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                        ErrorMessage="* La contraseña es requerida" ControlToValidate="txtContrasenna"
-                        ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic">
-                    </asp:RequiredFieldValidator>
-            </div>
-            
+                <asp:TextBox ID="txtContrasenna" class="form-control" TextMode="Password" placeholder="Contraseña" runat="server"></asp:TextBox>  
+                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="* La contraseña es requerida" ControlToValidate="txtContrasenna"
+                        ValidationGroup="signin" SetFocusOnError="true" foreColor="red" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="La constraseña no es tan fuerte, intente nuevamente" ControlToValidate="txtContrasenna"
+                        ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$" ForeColor="Red" SetFocusOnError="true" Display="Dynamic" ValidationGroup="signin"></asp:RegularExpressionValidator>
+            </div>            
 
             <div class="form-group">
-                <asp:Label ID ="lblMensaje" runat="server" visible="false"  CssClass="alert alert-danger alter-common col-md-6"></asp:Label>
-            </div>
-           
+                <asp:Label ID ="lblMensaje" runat="server" visible="false" CssClass="alert alert-danger alter-common col-md-6"></asp:Label>
+            </div>           
             <br />
-
             <div class="text-center">
               <asp:Button runat="server" ID="btnSignin" ValidationGroup="signin" class="btn btn-main text-center" Text="Registrarse" OnClick="btnSignin_Click"></asp:Button>
-            </div>
-        
-          <p class="mt-20">¿Ya tienes una cuenta?<a href="login.aspx"> Login</a></p>          
+            </div>        
+          <p class="mt-20">¿Ya tienes una cuenta?<a href="login.aspx"> Ingresar</a></p>          
         </div>
       </div>
     </div>

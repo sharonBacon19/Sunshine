@@ -34,6 +34,7 @@
                             BorderColor="Transparent" CellPadding="50" CellSpacing="50" Height="100%" 
                             runat="server" AutoGenerateColumns="false">
                              <Columns>
+                               <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="detPedido.fechaPedido" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyy}"/>
                                <asp:TemplateField HeaderText="Producto">
                                      <ItemTemplate>
                                          <asp:Image ID="imagen" runat="server" ImageUrl='<%# Eval("detPedido.producto.Imagen") %>' Width="100" Height="100" />
@@ -41,11 +42,17 @@
                                         Height="100" Wrap="True"/>
                                      </ItemTemplate>
                                  </asp:TemplateField>
-                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="total" HeaderText="total de la compra" DataFormatString="{0:0}"/>                               
+                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="detPedido.subTotal" HeaderText="total de la compra" DataFormatString="{0:0}"/>     
+                                <asp:BoundField ControlStyle-BorderColor="Transparent" DataField="detPedido.cantidad" HeaderText="Cantidad" DataFormatString="{0:0}"/>
                              </Columns>
                            <HeaderStyle/>
                         </asp:GridView> 
                         <br />
+                        <br />     
+                         <div class="form-group col-md-4">
+                        <asp:Label ID="lblMensjae" runat="server" Text="" Visible="false"></asp:Label>
+                        </div>   
+                         <br />
                         <br />
                         <div class="form-group col-md-4">
                         <asp:Label ID="lblTotal" runat="server" Text="Total de las compras"></asp:Label>

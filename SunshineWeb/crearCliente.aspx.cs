@@ -35,7 +35,6 @@ namespace SunshineWeb
 
         protected void btnSignin_Click(object sender, EventArgs e)
         {
-            String mensaje = "";
             try
             {
                 Usuario usu = new Usuario
@@ -46,122 +45,77 @@ namespace SunshineWeb
                     estado = 1,
                 };
 
-                if (!email_bien_escrito(usu.email))
+                Usuario usua = UsuarioLN.ObtenerPorEmail(usu.email);
+                if (usua != null)
                 {
-                    mensaje = "Email contiene un formato incorrecto";
-                    lblMensaje.Text = mensaje;
+                    lblMensaje.Visible = true;
+                    lblMensaje.Text = "el email ingresado ya existe, intente con otro";
                 }
                 else
                 {
-                    if (contrasenna_bien_escrita(usu.contrasenna))
+                    UsuarioLN.Insertar(usu);
+                    TipoIdentificacion tipo = TipoIdentificacionLN.Obtener(Convert.ToInt16(ddlTipoIdentificacion.SelectedValue));
+                    Cliente cliente = new Cliente
                     {
-                        mensaje = "contraseña contiene un formato incorrecto";
+                        fechaNacimiento = Convert.ToDateTime(txtFecha.Text),
+                        identificacion = Convert.ToString(txtIdentificacion.Text),
+                        nombreCompleto = Convert.ToString(txtNombre.Text),
+                        tarjetaCredito = Convert.ToString(txtTarjetaCredito.Text),
+                        tipoIdentificacion = tipo,
+                        usuario = UsuarioLN.ObtenerPorContrasenna(usu.contrasenna)
+                    };
+
+                    Cliente clien = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion);
+                    if (clien != null)
+                    {
+                        lblMensaje.Visible = true;
+                        lblMensaje.Text = "Ya existe un cliente con este número de céudla";
+                    }
+                    else
+                    {
+                        ClienteLN.Insertar(cliente);
+
+                        Provincia provincia = ProvinciaLN.Obtener(Convert.ToInt16(ddlProvincia.SelectedValue));
+                        Direccion direccion = new Direccion
+                        {
+                            provincia = provincia,
+                            codigo_postal = Convert.ToString(txtCodigo.Text),
+                            otrassennas = Convert.ToString(txtOtras.Text),
+                            cliente = cliente
+                        };
+                        DireccionLN.Insertar(direccion);
+
+
+                        ClienteNivel cN = new ClienteNivel
+                        {
+                            cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
+                            montoActual = 0,
+                            nivel = NivelLN.Obtener(1)
+                        };
+                        ClienteNivelLN.Insertar(cN);
+
+                        ClienteCupon cC = new ClienteCupon
+                        {
+                            cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
+                            codigoQR = qr(),
+                            cupon = CuponLN.Obtener(1),
+                            estado = 1
+                        };
+
+                        ClienteCuponLN.Insertar(cC);
+
+                        lblMensaje.Visible = true;
+                        lblMensaje.Text = "Registro exitoso, ya puede ingresar a la tienda";
+                        limpiarCampos();
                     }
                 }
-
-                UsuarioLN.Insertar(usu);
-                TipoIdentificacion tipo = TipoIdentificacionLN.Obtener(Convert.ToInt16(ddlTipoIdentificacion.SelectedValue));
-
-                Cliente cliente = new Cliente
-                {
-                    fechaNacimiento = Convert.ToDateTime(txtFecha.Text),
-                    identificacion = Convert.ToString(txtIdentificacion.Text),
-                    nombreCompleto = Convert.ToString(txtNombre.Text),
-                    tarjetaCredito = Convert.ToString(txtTarjetaCredito.Text),
-                    tipoIdentificacion = tipo,
-                    usuario = UsuarioLN.ObtenerPorContrasenna(usu.contrasenna)
-                };
-
-                ClienteLN.Insertar(cliente);
-                Provincia provincia = ProvinciaLN.Obtener(Convert.ToInt16(ddlProvincia.SelectedValue));
-
-                if (ClienteLN.ObtenerPorIdentificacion(cliente.identificacion) != null)
-                {
-                    Direccion direccion = new Direccion
-                    {
-                        provincia = provincia,
-                        codigo_postal = Convert.ToString(txtCodigo.Text),
-                        otrassennas = Convert.ToString(txtOtras.Text),
-                        cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion)
-                    };
-                    DireccionLN.Insertar(direccion);
-
-                }
-
-                ClienteNivel cN = new ClienteNivel
-                {
-                    cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
-                    montoActual = 0,
-                    nivel = NivelLN.Obtener(1)
-                };
-                ClienteNivelLN.Insertar(cN);
-
-                ClienteCupon cC = new ClienteCupon
-                {
-                    cliente = ClienteLN.ObtenerPorIdentificacion(cliente.identificacion),
-                    codigoQR = qr(),
-                    cupon = CuponLN.Obtener(1),
-                    estado = 1
-                };
-
-                ClienteCuponLN.Insertar(cC);
-
-                lblMensaje.Visible = true;
-                lblMensaje.Text = "El cliente ha sido registrado";
-
-                txtCodigo.Text = "";
-                txtContrasenna.Text = "";
-                txtEmail.Text = "";
-                txtFecha.Text = "";
-                txtIdentificacion.Text = "";
-                txtNombre.Text = "";
-                txtOtras.Text = "";
-                txtTarjetaCredito.Text = "";
             }
             catch (Exception e1)
             {
+                lblMensaje.Visible = true;
                 lblMensaje.Text = "Ha ocurrido un problema  " + e1.Message;
             }
         }
-
-        private Boolean email_bien_escrito(String email)
-        {
-            String expresion;
-            expresion = "\\w+([-+.']\\w+)@\\w+([-.]\\w+)\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
-            {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private Boolean contrasenna_bien_escrita(String contrasenna)
-        {
-            Match matchLongitud = Regex.Match(contrasenna, @"^\w{8,15}\b");
-            Match matchNumeros = Regex.Match(contrasenna, @"\d");
-            Match matchMayusculas = Regex.Match(contrasenna, @"[A-Z]");
-
-            if (!matchLongitud.Success || !matchMayusculas.Success || !matchNumeros.Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        //método para validación de tarjeta de crédito
 
         public int qr()
         {
@@ -177,6 +131,20 @@ namespace SunshineWeb
             renderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);
             var imageTemporal = new Bitmap(ms);
             return Convert.ToInt32(qrCode.GetHashCode());
+        }
+
+        public void limpiarCampos()
+        {
+            txtCodigo.Text = "";
+            txtContrasenna.Text = "";
+            txtEmail.Text = "";
+            txtFecha.Text = "";
+            txtIdentificacion.Text = "";
+            txtNombre.Text = "";
+            txtOtras.Text = "";
+            txtTarjetaCredito.Text = "";
+            ddlProvincia.SelectedIndex = 0;
+            ddlTipoIdentificacion.SelectedIndex = 0;
         }
     }
 }

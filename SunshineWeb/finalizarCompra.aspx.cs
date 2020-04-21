@@ -17,7 +17,7 @@ namespace SunshineWeb
 {
     public partial class finalizarCompra : System.Web.UI.Page
     {
-        private List<ClienteCupon> listaCupones;
+        private List<Cupon> listaCupones;
         private static Producto producto = new Producto();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,14 +31,16 @@ namespace SunshineWeb
                 if (cliente != null)
                 {
                     List<ClienteCupon> cupones = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
-                    listaCupones = new List<ClienteCupon>();
+                    listaCupones = new List<Cupon>();
+
                     foreach (ClienteCupon cc in cupones)
                     {
                         ClienteCupon c = ClienteCuponLN.Obtener(cc.id);
-
+                        Cupon cupon = new Cupon();
                         if(c.estado == 1)
                         {
-                            listaCupones.Add(c);
+                            cupon = c.cupon;
+                            listaCupones.Add(cupon);
                         }                       
                     }                  
                     
