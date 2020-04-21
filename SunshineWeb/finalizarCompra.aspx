@@ -4,6 +4,17 @@
     <title>SunShine | Finalizar Compra</title>
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <section class="page-header">
+	    <div class="container">
+		    <div class="row">
+			    <div class="col-md-12">
+				    <div class="content">
+					    <h1 class="page-name">Finalizar Compra</h1>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+    </section>
     <div class="page-wrapper">
       <div class="checkout shopping">
         <div class="container">
@@ -34,27 +45,30 @@
                                  <asp:Label ID="lblTarjeta"  runat="server" Text="Número de Tarjeta"></asp:Label>
                                  <asp:TextBox ID="txtTarjeta" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>                                 
                               </div>    
-                              <div class="form-group" >
-                                 <asp:Label ID="lblMensaje"  runat="server" Text=""></asp:Label>                                
-                              </div> 
+                              
                             <br />
                             
-                            <ul class="summary-prices">
-
-                                <div class="form-group">
-                                <br />
-                                <asp:Label ID="lblSubTotal" class="form-control" Text="SubTotal" runat="server"></asp:Label>
-                                <asp:TextBox ID="txtSubTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>
-                                <br />                           
-                                <asp:Label ID="lblTotal" class="form-control" Text="Total" runat="server"></asp:Label>
-                                <asp:TextBox ID="txtTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox>                              
-                            </div>
-                            </ul>
-                                <br />
-                                <br />
                             
-                            <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" OnClick="btnConfirmar_Click"/>
+                                <div class="form-group ">
+                                <br />
+                                <asp:Label ID="lblSubTotal" Text="SubTotal" runat="server"></asp:Label>
+                                <asp:TextBox ID="txtSubTotal" class="form-control " runat="server" Text="" ReadOnly="true"></asp:TextBox>
+                                <br />                           
+                                <asp:Label ID="lblTotal"  Text="Total" runat="server"></asp:Label>
+                                <asp:TextBox ID="txtTotal" class="form-control" runat="server" Text="" ReadOnly="true"></asp:TextBox> 
+                                    
+                            </div>
+                            
+                                
+                                <div class="form-group" >
+                                 <asp:Label ID="lblMensaje"  runat="server" CssClass="alert alert-danger alert-common col-xs-12"></asp:Label>                                
+                                 <asp:Label ID="lblMensajeC" runat="server" Visible="false" CssClass="alert alert-success alert-common col-xs-12"></asp:Label>                                
+                              </div> 
+                            <br />
+                                <asp:Button runat="server" ID="btnConfirmar" ValidationGroup="confirmar" Text="Confirmar Compra" class="btn btn-main right" OnClick="btnConfirmar_Click"/>
                                
+                            
+                           
                         </div>
                      </div>
                   </div>
@@ -70,11 +84,19 @@
                       <h4 class="widget-title">Cupones</h4>
                         <div class="media product-card">
                           <a class="pull-left" >
-                             <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <asp:Image id="imgCupon" Width="150px" Height="150px" runat="server" Visible ="false"></asp:Image>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="ddlCupon" EventName="SelectedIndexChanged"/>
+                                </Triggers>
+                            </asp:UpdatePanel>
                           </a>
                          <div class="media-body">                            
-                             <h4 class="media-heading">Cupón</h4>
-                               <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>                                
+                             <asp:label runat="server" ID="lblCupon" Text="Cupón" class="widget-title"></asp:label>
+                               <asp:DropDownList ID="ddlCupon" class="form-control" runat="server" OnSelectedIndexChanged="ddlCupon_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>  
+                             <asp:Label ID="lblMensajeCupon" Visible="false" Text="No tiene cupones disponibles" runat="server" CssClass="alert alert-danger alert-common col-xs-12"></asp:Label>
                          </div>
                        </div>
                      </div>
@@ -122,6 +144,7 @@
                             <br />
                             <asp:Image ID="prodIm" runat="server" ImageUrl="" Width="100" Height="100" visible="false"/>
                         </a>
+                            <asp:Label ID="lblProdDesc" Visible="false" Text="No se puede aplicar el descuento" runat="server" CssClass="alert alert-danger alert-common col-xs-12"></asp:Label>
                          
                        </div>
                      </div>

@@ -8,7 +8,10 @@
 		    <div class="row">
 			    <div class="col-md-12">
 				    <div class="content">
-					    <h1 class="page-name">Clientes</h1>
+					    <h1 class="page-name">Canje de cupones</h1>
+                        <ol class="breadcrumb">
+						<li>Clientes</li>
+					</ol>
 				    </div>
 			    </div>
 		    </div>
@@ -45,5 +48,6 @@
             </div>
         </div>
         </div>
+    </div>   
     </div>   
 </asp:Content>

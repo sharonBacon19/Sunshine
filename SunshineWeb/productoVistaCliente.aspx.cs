@@ -83,6 +83,7 @@ namespace SunshineWeb
 
                         dets.Add(det);
                         lblMensaje.Text = "Se agregó al carrito de compras";
+                        lblMensaje.Visible = true;
                     }
                 }
                 Session["lista"] = dets;

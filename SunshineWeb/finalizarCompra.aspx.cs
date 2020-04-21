@@ -17,7 +17,8 @@ namespace SunshineWeb
 {
     public partial class finalizarCompra : System.Web.UI.Page
     {
-        private List<Cupon> listaCupones;
+        private List<ClienteCupon> listaClienteCupones;
+        List<Cupon> listaCupones;
         private static Producto producto = new Producto();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,30 +32,46 @@ namespace SunshineWeb
                 if (cliente != null)
                 {
                     List<ClienteCupon> cupones = ClienteCuponLN.ClientePorCupon(cliente.identificacion);
+                    listaClienteCupones = new List<ClienteCupon>();
                     listaCupones = new List<Cupon>();
-
                     foreach (ClienteCupon cc in cupones)
-                    {
-                        ClienteCupon c = ClienteCuponLN.Obtener(cc.id);
-                        Cupon cupon = new Cupon();
+                    {   
+                        ClienteCupon c = cc;
+
                         if(c.estado == 1)
-                        {
-                            cupon = c.cupon;
-                            listaCupones.Add(cupon);
+                        {//busca los ClienteCupon que tenga el cliente
+
+                            listaClienteCupones.Add(c);
+
                         }                       
                     }                  
                     
 
-                    if (listaCupones != null)
+                    if (listaClienteCupones!=null)
                     {
+
+                        //luego Busca los cupones por id paraobtener el nombre
+                        foreach (ClienteCupon cc in listaClienteCupones)
+                        {
+                            Cupon c = CuponLN.Obtener(cc.cupon.id);
+
+                            listaCupones.Add(c);
+
+                        }
+
                         ddlCupon.DataSource = listaCupones;
                         ddlCupon.DataTextField = "Nombre";
                         ddlCupon.DataValueField = "ID";
                         ddlCupon.DataBind();
+
+                        ddlCupon_SelectedIndexChanged(null, null);
+
                     }
                     else
                     {
                         ddlCupon.Visible = false;
+                        lblMensajeCupon.Visible = true;
+                        
                     }
                     
 
@@ -69,6 +86,8 @@ namespace SunshineWeb
 
                     txtSubTotal.Text = Convert.ToString(Subtotal());
                     txtTotal.Text = Convert.ToString(Subtotal());
+                    lblMensaje.Visible = false;
+                    
                 }
                 else
                 {
@@ -80,7 +99,7 @@ namespace SunshineWeb
 
         protected void ddlCupon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listaCupones != null)
+            if (listaClienteCupones != null)
             {
                 Cupon cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
                 imgCupon.Visible = true;
@@ -130,22 +149,22 @@ namespace SunshineWeb
             {
                 // si hay cliente hace lo siguiente
 
-                //agarra cupon (SUCAR COMO AGREGAR ITEM SIN VALOR DE SELECCIONE)
-                Cupon cupon = new Cupon();
-                if (Convert.ToInt16(ddlCupon.SelectedValue) != null)
+                Cupon cupon = new Cupon();;
+                //si el ddlCupon es diferente de null obtiene la información del cupón
+                if (listaClienteCupones != null)
                 {
+                    
                     cupon = CuponLN.Obtener(Convert.ToInt16(ddlCupon.SelectedValue));
                 }
-
-                ClienteCuponLN.ActualizarEstado(cliente.identificacion, 2);
-
                 //se busca el nivel del cliente
                 ClienteNivel clienteNivel = ClienteNivelLN.ObtenerClienteNivel(cliente.identificacion);
 
                 //se inserta el cambio en el canje, se pregunta primero si agarró algún cupon
-                if(cupon != null)
+                if(cupon.id != 0)
                 {
                     //se va a ser el canje sólo si escogió un producto
+                    
+
 
                     if (producto != null)
                     {
@@ -156,12 +175,16 @@ namespace SunshineWeb
                             producto = producto //el que cliente escogío
                         };
                         CanjeLN.Insertar(canje);
-                    }                   
+                    }  
+
+                    //actualiza el estado después de realizar el canje
+                    ClienteCuponLN.ActualizarEstado(cliente.identificacion, 2);
                 }
                 else
                 {
                     //mensaje
-                    lblMensaje.Text = "No se puede aplicar descuento, puesto que no cuenta con cupones";
+                    lblMensajeCupon.Text = "No se aplicará descuento";
+                    lblMensajeCupon.Visible = true;
                 }
 
 
@@ -219,6 +242,9 @@ namespace SunshineWeb
                 //sacar total
                 if (cupon != null)
                 {
+
+
+
                     int descuento = 0;
                     descuento = cupon.descuento / 100;
 
@@ -253,8 +279,8 @@ namespace SunshineWeb
                     EncaPedidoLN.Insertar(encaPedido);
                 }   
 
-                lblMensaje.Text = "¡Compra exitosa, gracias por preferirnos!";
-
+                lblMensajeC.Text = "¡Compra exitosa, gracias por preferirnos!";
+                lblMensajeC.Visible = true;
                 //limpiar la lista
                 limpiarLista();
             }
@@ -266,13 +292,22 @@ namespace SunshineWeb
 
         protected void btnAplicar_Command(object sender, CommandEventArgs e)
         {
-            int id = int.Parse(e.CommandArgument.ToString());
-            producto = ProductoLN.Obtener(id);
 
-            lblProdNombre.Visible = true;
-            prodIm.Visible = true;
-            lblProdNombre.Text = producto.nombre;
-            prodIm.ImageUrl = producto.imagen;
+            if (ddlCupon.Visible)
+            {
+                int id = int.Parse(e.CommandArgument.ToString());
+                producto = ProductoLN.Obtener(id);
+
+                lblProdNombre.Visible = true;
+                prodIm.Visible = true;
+                lblProdNombre.Text = producto.nombre;
+                prodIm.ImageUrl = producto.imagen;
+
+            }
+            else
+            {
+                lblProdDesc.Visible = true;
+            }
         }
 
         private void limpiarLista()

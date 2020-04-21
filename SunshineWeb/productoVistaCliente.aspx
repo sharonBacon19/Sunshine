@@ -71,11 +71,12 @@
 					<div class="product-quantity">
 						<span>Cantidad:</span>
 						<div class="product-quantity-slider ">							
-							<asp:TextBox ID="txtCantidad" Text="1" TextMode="Number"  runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtCantidad" Text="1" CssClass="col-md-6" TextMode="Number" runat="server"></asp:TextBox>
+
 						</div>
 					</div>
 					<br />
-					<asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+					<asp:Label ID="lblMensaje" runat="server" CssClass="alert alert-success alert-common col-xs-12" Text="" Visible="false"></asp:Label>
 					<br /><br />
 					<br /><br />
 					<asp:Button ID="btnAddCarrito" runat="server" CssClass="btn btn-main btn-large" Text="Agregar al Carrito" OnClick="btnAddCarrito_Click"/>

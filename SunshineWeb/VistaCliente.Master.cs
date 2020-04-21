@@ -27,12 +27,9 @@ namespace SunshineWeb
                 ImgNIvel.Visible = true;
                 btnCerrarSesion.Visible = true;
                 //MenuCliente.Visible = true;
-            }
-            if ((Usuario)Session["admin"] != null)
-            {
-                btnCerrarSesion.Visible = true;
 
             }
+            
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)

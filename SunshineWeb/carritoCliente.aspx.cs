@@ -13,20 +13,24 @@ namespace SunshineWeb
         private static List<DetPedido> lista = new List<DetPedido>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                lista = (List<DetPedido>)Session["lista"];
-                if (lista != null)
+            
+                if (!IsPostBack)
                 {
-                    txtSubTotal.Text = Convert.ToString(total());
                     lista = (List<DetPedido>)Session["lista"];
+
+                    if (lista != null)
+                    {
+                        txtSubTotal.Text = Convert.ToString(total());
+                        lista = (List<DetPedido>)Session["lista"];
+                    }
+                    else
+                    {
+                        lblMensaje.Visible = true;
+                        lblMensaje.Text = "No hay compras aún";
+                        btnComprar.Visible = false;
+                    }
                 }
-                else
-                {
-                    lblMensaje.Visible = true;
-                    lblMensaje.Text = "No hay compras aún";
-                }
-            }
+            
         }
 
         public List<DetPedido> listaProducto()
@@ -63,7 +67,7 @@ namespace SunshineWeb
                     break;
                 }
             }
-            Response.Redirect("carrito.aspx");
+            Response.Redirect("carritoCliente.aspx");
         }
 
         protected void btnComprar_Command(object sender, CommandEventArgs e)
@@ -76,7 +80,7 @@ namespace SunshineWeb
             {
                 lblMensaje.Visible = true;
                 lblMensaje.Text = "Debe iniciar sesión para poder comprar";
-                Response.Redirect("carrito.aspx");
+                Response.Redirect("carritoCliente.aspx");
             }
         }
     }
