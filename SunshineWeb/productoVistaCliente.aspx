@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<br />
-					<asp:Label ID="lblMensaje" runat="server" CssClass="alert alert-success alert-common col-xs-12" Text=""></asp:Label>
+					<asp:Label ID="lblMensaje" runat="server" CssClass="alert alert-success alert-common col-xs-12" Text="" Visible="false"></asp:Label>
 					<br /><br />
 					<br /><br />
 					<asp:Button ID="btnAddCarrito" runat="server" CssClass="btn btn-main btn-large" Text="Agregar al Carrito" OnClick="btnAddCarrito_Click"/>

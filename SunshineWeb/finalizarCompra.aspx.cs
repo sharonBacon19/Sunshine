@@ -35,8 +35,8 @@ namespace SunshineWeb
                     listaClienteCupones = new List<ClienteCupon>();
                     listaCupones = new List<Cupon>();
                     foreach (ClienteCupon cc in cupones)
-                    {
-                        ClienteCupon c = ClienteCuponLN.Obtener(cc.id);
+                    {   
+                        ClienteCupon c = cc;
 
                         if(c.estado == 1)
                         {//busca los ClienteCupon que tenga el cliente
@@ -47,13 +47,13 @@ namespace SunshineWeb
                     }                  
                     
 
-                    if (listaClienteCupones.Count != 0 && listaClienteCupones!=null)
+                    if (listaClienteCupones!=null)
                     {
 
                         //luego Busca los cupones por id paraobtener el nombre
                         foreach (ClienteCupon cc in listaClienteCupones)
                         {
-                            Cupon c = CuponLN.Obtener(cc.id);
+                            Cupon c = CuponLN.Obtener(cc.cupon.id);
 
                             listaCupones.Add(c);
 
@@ -86,7 +86,7 @@ namespace SunshineWeb
 
                     txtSubTotal.Text = Convert.ToString(Subtotal());
                     txtTotal.Text = Convert.ToString(Subtotal());
-
+                    lblMensaje.Visible = false;
                     
                 }
                 else
@@ -183,7 +183,8 @@ namespace SunshineWeb
                 else
                 {
                     //mensaje
-                    lblMensaje.Text = "No se puede aplicar descuento, puesto que no cuenta con cupones";
+                    lblMensajeCupon.Text = "No se aplicará descuento";
+                    lblMensajeCupon.Visible = true;
                 }
 
 
@@ -291,7 +292,8 @@ namespace SunshineWeb
 
         protected void btnAplicar_Command(object sender, CommandEventArgs e)
         {
-            if (listaClienteCupones != null)
+
+            if (listaCupones != null)
             {
                 int id = int.Parse(e.CommandArgument.ToString());
                 producto = ProductoLN.Obtener(id);

@@ -13,22 +13,24 @@ namespace SunshineWeb
         private static List<DetPedido> lista = new List<DetPedido>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                
-                //if (lista == null)
-                //{
-                   
-                //    lblMensaje.Visible = true;
-                //    lblMensaje.Text = "No hay productos en el carrito";
-
-                //}
-                //else
-                //{
-                     txtSubTotal.Text = Convert.ToString(total());
+            
+                if (!IsPostBack)
+                {
                     lista = (List<DetPedido>)Session["lista"];
-                //}
-            }
+
+                    if (lista != null)
+                    {
+                        txtSubTotal.Text = Convert.ToString(total());
+                        lista = (List<DetPedido>)Session["lista"];
+                    }
+                    else
+                    {
+                        lblMensaje.Visible = true;
+                        lblMensaje.Text = "No hay compras aún";
+                        btnComprar.Visible = false;
+                    }
+                }
+            
         }
 
         public List<DetPedido> listaProducto()
